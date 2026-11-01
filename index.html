@@ -78,6 +78,17 @@ footer{padding:clamp(56px,8vh,96px) 0 40px}
 .fullvid video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.55}
 @keyframes uiIn{from{opacity:0;transform:translateX(-12px)}to{opacity:1;transform:none}}
 @keyframes uiBar{0%,100%{transform:scaleY(.4)}50%{transform:scaleY(1)}}
+.signup{margin-top:clamp(48px,7vh,72px);max-width:560px}
+.signup label{display:block;font-weight:700;font-size:17px;margin-bottom:10px}
+.signup-row{display:flex;gap:10px;flex-wrap:wrap}
+.signup input[type=email]{flex:1 1 240px;min-width:0;padding:14px 22px;border:2px solid var(--ink);border-radius:999px;background:transparent;color:var(--ink);font:inherit;font-size:17px}
+.signup input[type=email]:focus{outline:none;border-color:var(--motif)}
+.signup button{border:0;cursor:pointer;font:inherit;font-weight:700}
+.signup button[disabled]{opacity:.5;cursor:default}
+.signup .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.signup-note{margin-top:12px!important;font-size:14px!important;color:var(--soft);max-width:none!important}
+.signup-msg{margin-top:14px!important;font-size:17px!important;font-weight:700;max-width:none!important}
+.signup-msg.err{color:var(--motif)}
 .test-steps{list-style:none;margin:clamp(40px,6vh,64px) 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(24px,4vw,56px)}
 .test-steps h3{font-size:clamp(24px,2.6vw,36px);font-weight:800;font-stretch:75%;letter-spacing:-.02em;line-height:1}
 .test-steps p{margin-top:10px!important;font-size:17px!important;color:var(--soft);max-width:30ch}
@@ -181,8 +192,19 @@ footer{padding:clamp(56px,8vh,96px) 0 40px}
       <li><h3>Import</h3><p>Run an import with copies of your stems into an open Logic project.</p></li>
       <li><h3>Report</h3><p>Send a Bug Report from the app, also when everything worked.</p></li>
     </ol>
+    <form class="signup" id="signup" method="POST" action="https://7b8107a8.sibforms.com/serve/MUIFAFnwMQP7iq7N-pFmc7aV6stExarzyUCg815D9GCm9vrje8pgOC8jF2bD0t4WscMcAnFUdw3Af7226kEA_cTakxoMIXmgEM1MZmeFtgro3Noeo3K-GAAb6b40942MaQ5s1FE2ilaNT9U3Eqo2kRf8XTHdQ_Oo9QSoXqxM6o8K6PdjfvkX4Hs3Kx1-6L9bLewN3x2LIhuyGjDEfg==">
+      <label for="signup-email">Sign up as a tester</label>
+      <div class="signup-row">
+        <input type="email" id="signup-email" name="EMAIL" placeholder="you@example.com" autocomplete="email" required>
+        <button class="pill" type="submit">Sign up</button>
+      </div>
+      <input class="hp" type="text" name="email_address_check" value="" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <input type="hidden" name="locale" value="en">
+      <input type="hidden" name="html_type" value="simple">
+      <p class="signup-note">We only email you about the MixPrep test. Unsubscribe anytime. <a href="/privacy.html">Privacy</a></p>
+      <p class="signup-msg" id="signup-msg" role="status" aria-live="polite"></p>
+    </form>
     <div class="row">
-      <a class="pill" href="mailto:info@stroomdoos.com?subject=MixPrep%20beta&amp;body=Hi%2C%20I%27d%20like%20to%20test%20MixPrep.">Sign up as a tester</a>
       <a href="https://forms.gle/HMj91hJH7swQmwCD8" target="_blank" rel="noopener">Report a bug</a>
     </div>
   </div>
@@ -210,5 +232,27 @@ footer{padding:clamp(56px,8vh,96px) 0 40px}
   </div>
 </footer>
 <a class="mobile-cta" href="#test">Test MixPrep</a>
+<script>
+(function(){
+  var f=document.getElementById('signup'),msg=document.getElementById('signup-msg');
+  if(!f||!window.fetch)return;
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var b=f.querySelector('button');
+    b.disabled=true;msg.className='signup-msg';msg.textContent='Sending…';
+    fetch(f.action+'?isAjax=1',{method:'POST',body:new FormData(f)})
+      .then(function(r){return r.json()})
+      .then(function(d){
+        if(!d.success)throw 0;
+        f.querySelector('.signup-row').remove();
+        msg.textContent='Thanks, you are on the list. We will email you when the test version is ready.';
+      })
+      .catch(function(){
+        b.disabled=false;msg.className='signup-msg err';
+        msg.innerHTML='That did not work. Try again, or email <a href="mailto:info@stroomdoos.com">info@stroomdoos.com</a>.';
+      });
+  });
+})();
+</script>
 </body>
 </html>
