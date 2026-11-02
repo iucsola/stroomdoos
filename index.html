@@ -100,21 +100,21 @@ footer{padding:32px 0 40px}
     e.preventDefault();
     var b=f.querySelector('button');
     b.disabled=true;msg.className='signup-msg';msg.textContent='Sending…';
+    var mail='<a href="mailto:info@stroomdoos.com?subject=MixPrep%20beta&body=Please%20add%20me%20to%20the%20MixPrep%20beta.">info@stroomdoos.com</a>';
+    function done(text){f.querySelector('.signup-row').remove();msg.className='signup-msg';msg.innerHTML=text}
+    function fail(){b.disabled=false;msg.className='signup-msg err';msg.innerHTML='Hmm, that didn\'t work. Try again, or just email '+mail+'.'}
+    // Blocked or odd response (content blocker, flaky network, bot check): post the form in a hidden frame so the visitor stays here.
+    function plainPost(){
+      var fr=document.createElement('iframe');fr.name='signup-frame';fr.hidden=true;document.body.appendChild(fr);
+      fr.onload=function(){try{if(fr.contentWindow.location.href==='about:blank')return}catch(x){}done('Almost there: a welcome email should arrive within a few minutes (check spam too). Nothing? Email '+mail+' and I\'ll add you.')};
+      f.target='signup-frame';HTMLFormElement.prototype.submit.call(f);
+    }
     fetch(f.action+'?isAjax=1',{method:'POST',body:new FormData(f)})
-      .then(function(r){return r.json()},function(){
-        // Request blocked (content blocker, flaky network): post the form the old way instead.
-        HTMLFormElement.prototype.submit.call(f);return {pending:true};
-      })
+      .then(function(r){return r.json()})
       .then(function(d){
-        if(d.pending)return;
-        if(!d.success)throw 0;
-        f.querySelector('.signup-row').remove();
-        msg.textContent='Nice, you\'re on the list! Check your inbox for a welcome email (or your spam folder).';
-      })
-      .catch(function(){
-        b.disabled=false;msg.className='signup-msg err';
-        msg.innerHTML='Hmm, that didn\'t work. Try again, or just email <a href="mailto:info@stroomdoos.com">info@stroomdoos.com</a>.';
-      });
+        if(!d.success)return fail();
+        done('Nice, you\'re on the list! Check your inbox for a welcome email (or your spam folder).');
+      },plainPost);
   });
 })();
 </script>
