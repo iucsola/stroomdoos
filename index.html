@@ -76,8 +76,6 @@ footer{padding:clamp(56px,8vh,96px) 0 40px}
 .ui-meter span{flex:1;background:var(--motif);border-radius:2px;transform-origin:bottom;animation:uiBar 1.8s ease-in-out infinite}
 .ui-foot{display:flex;justify-content:space-between;padding:12px 20px 16px;font-size:13px;color:var(--soft);background:#fbfaf7}
 .hero{align-items:center}
-.fullvid{position:relative;height:100vh;min-height:480px;overflow:hidden;background:var(--ink);pointer-events:none}
-.fullvid video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.55}
 @keyframes uiIn{from{opacity:0;transform:translateX(-12px)}to{opacity:1;transform:none}}
 @keyframes uiBar{0%,100%{transform:scaleY(.4)}50%{transform:scaleY(1)}}
 .signup{margin-top:clamp(48px,7vh,72px);max-width:560px}
@@ -119,7 +117,7 @@ footer{padding:clamp(56px,8vh,96px) 0 40px}
   .mobile-cta{display:flex;justify-content:center;position:fixed;left:16px;right:16px;bottom:16px;z-index:10;padding:16px;border-radius:999px;background:var(--ink);color:var(--ground);font-weight:700;text-decoration:none}
   footer{padding-bottom:96px}
 }
-@media (prefers-reduced-motion: reduce){.fullvid video{display:none}.ui-row{opacity:1}}
+@media (prefers-reduced-motion: reduce){.ui-row{opacity:1}}
 </style>
 </head>
 <body>
@@ -139,7 +137,7 @@ footer{padding:clamp(56px,8vh,96px) 0 40px}
         <a class="pill" href="#test">Try it first</a>
         <a href="#how">How it works</a>
       </div>
-      <p class="meta">macOS 14 or newer · Apple Silicon or Intel · Logic Pro 12.4 tested</p>
+      <p class="meta">macOS 14 or newer · Apple Silicon or Intel · Logic Pro 12.4 in English, tested</p>
     </div>
     <img class="shot" src="shot-files.jpg" width="1600" height="1006" alt="MixPrep main window: nine tracks with their group and their name in Logic, and Import to Logic with its options on the right.">
   </section>
@@ -150,15 +148,11 @@ footer{padding:clamp(56px,8vh,96px) 0 40px}
     <h2>Four steps. One batch.</h2>
     <ol>
       <li><h3>Drop the WAVs</h3><p>Drag in a folder or a few files. MixPrep checks sample rate, channels and length before it touches anything.</p></li>
-      <li><h3>Name and group</h3><p>MixPrep guesses the groups from your filenames. Rename, shuffle and check it all in one list.</p></li>
+      <li><h3>Name and group</h3><p>MixPrep guesses the groups from your file names. Name says nothing? It listens to the file, and if it isn't sure, it leaves that one to you. Rename, shuffle and check it all in one list.</p></li>
       <li><h3>Prepare copies</h3><p>MixPrep works on copies with your names and order. Your originals stay right where they are.</p></li>
       <li><h3>Import to Logic</h3><p>One track per file, coloured and routed to your buses. You just watch.</p></li>
     </ol>
   </div>
-</section>
-
-<section class="fullvid" aria-hidden="true">
-  <video autoplay muted loop playsinline preload="auto" poster="mixprep-poster.jpg" src="mixprep-demo.mp4"></video>
 </section>
 
 <section class="field">
@@ -179,8 +173,8 @@ footer{padding:clamp(56px,8vh,96px) 0 40px}
     <dl class="specs">
       <div><dt>macOS</dt><dd>14 or newer</dd></div>
       <div><dt>Processor</dt><dd>Apple Silicon or Intel</dd></div>
-      <div><dt>Logic Pro</dt><dd>12.4 (tested)</dd></div>
-      <div><dt>Audio files</dt><dd>WAV, mono or stereo</dd></div>
+      <div><dt>Logic Pro</dt><dd>12.4, set to English (tested)</dd></div>
+      <div><dt>Audio files</dt><dd>WAV, mono or stereo, one sample rate per batch</dd></div>
     </dl>
   </div>
 </section>
@@ -188,9 +182,9 @@ footer{padding:clamp(56px,8vh,96px) 0 40px}
 <section id="test" class="launch">
   <div class="wrap">
     <h2>Wanna test it?</h2>
-    <p>The test version goes out to a small group of Logic users on macOS 14+ with Logic Pro 12.4. Here's the deal:</p>
+    <p>The beta is for a small group of Logic users on macOS 14+ with Logic Pro 12.4. Sign up and the download link comes by email. Here's the deal:</p>
     <ol class="test-steps">
-      <li><h3>Install</h3><p>Follow the install guide (yes, including the Accessibility permission).</p></li>
+      <li><h3>Install</h3><p>Follow the <a href="/beta.html">install guide</a> (yes, including the Accessibility permission).</p></li>
       <li><h3>Import</h3><p>Throw copies of your tracks at it, into an open Logic project.</p></li>
       <li><h3>Report</h3><p>Hit Bug Report in the app. Also when everything worked, that helps too.</p></li>
     </ol>
