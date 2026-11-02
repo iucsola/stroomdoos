@@ -247,7 +247,7 @@ footer{padding:clamp(56px,8vh,96px) 0 40px}
       .then(function(d){
         if(!d.success)throw 0;
         f.querySelector('.signup-row').remove();
-        msg.textContent='Nice, you\'re on the list! I\'ll email you when the test version is ready.';
+        msg.textContent='Nice, you\'re on the list! Check your inbox for a welcome email (or your spam folder).';
       })
       .catch(function(){
         b.disabled=false;msg.className='signup-msg err';
