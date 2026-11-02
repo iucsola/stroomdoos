@@ -101,8 +101,12 @@ footer{padding:32px 0 40px}
     var b=f.querySelector('button');
     b.disabled=true;msg.className='signup-msg';msg.textContent='Sending…';
     fetch(f.action+'?isAjax=1',{method:'POST',body:new FormData(f)})
-      .then(function(r){return r.json()})
+      .then(function(r){return r.json()},function(){
+        // Request blocked (content blocker, flaky network): post the form the old way instead.
+        HTMLFormElement.prototype.submit.call(f);return {pending:true};
+      })
       .then(function(d){
+        if(d.pending)return;
         if(!d.success)throw 0;
         f.querySelector('.signup-row').remove();
         msg.textContent='Nice, you\'re on the list! Check your inbox for a welcome email (or your spam folder).';
