@@ -14,33 +14,24 @@
 <meta property="og:url" content="https://www.stroomdoos.com/beta.html">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,400..900&display=swap">
-<style>
-*{box-sizing:border-box}
-body{margin:0;background:#f1f0ea;color:#17191c;font:400 18px/1.6 Archivo,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
-.wrap{max-width:760px;margin:0 auto;padding:0 clamp(20px,5vw,48px)}
-header{padding:26px 0}
-header img{display:block;height:30px;width:auto}
-h1{margin:clamp(48px,10vh,96px) 0 0;font-weight:800;font-stretch:75%;letter-spacing:-.03em;line-height:.95;font-size:clamp(48px,8vw,96px)}
-h1 em{font-style:normal;color:#f04a2d}
-h2{margin:48px 0 0;font-weight:800;font-stretch:80%;letter-spacing:-.02em;font-size:28px;line-height:1.1}
-p,li{max-width:62ch}
-p{margin:16px 0 0}
-ol,ul{margin:16px 0 0;padding-left:1.3em}
-li{margin-top:8px}
-a{color:inherit}
-.lead{font-size:clamp(19px,1.8vw,23px);margin-top:28px}
-.note{font-size:16px;color:#5d5a52}
-.btn{display:inline-flex;margin-top:36px;padding:14px 24px;border-radius:999px;background:#17191c;color:#f1f0ea;font-weight:700;text-decoration:none}
-footer{margin-top:96px;padding:28px 0 48px;font-size:14px;color:#5d5a52}
-</style>
+<link rel="stylesheet" href="/site.css">
 </head>
 <body>
 <div class="wrap">
-<header><a href="/" aria-label="Stroomdoos home"><img src="/stroomdoos-wordmark.png" width="1600" height="389" alt="Stroomdoos"></a></header>
-<main>
+<header class="bar">
+  <a class="word" href="/" aria-label="Stroomdoos home"><img src="/stroomdoos-wordmark.png" width="1600" height="389" alt="Stroomdoos"></a>
+  <nav class="links" aria-label="Main">
+    <a href="/#how">How it works</a><a href="/beta.html">Beta</a><a href="/#about">About</a><a href="https://forms.gle/HMj91hJH7swQmwCD8" target="_blank" rel="noopener">Report a bug</a>
+  </nav>
+</header>
+<main class="doc">
+<div class="doc-head">
 <h1>The MixPrep <em>beta.</em></h1>
 <p class="lead">MixPrep puts your multitrack WAVs into Logic Pro in one go: each file on its own track, named, coloured and routed to a bus per group. It's in beta, and every Mac and Logic version helps.</p>
+</div>
+<div class="doc-body">
 <p>Signed up? The download link comes by email. Not yet? <a href="/#test">Sign up here</a>.</p>
 
 <h2>What you need</h2>
@@ -75,8 +66,14 @@ footer{margin-top:96px;padding:28px 0 48px;font-size:14px;color:#5d5a52}
 <p>MixPrep runs on your Mac and only goes online when you choose Check for Updates. It works on copies and never changes your original files. This is a test version: keep copies of your projects. More in the <a href="/privacy.html">privacy notice</a>.</p>
 
 <a class="btn" href="mailto:info@stroomdoos.com">Questions? Email me</a>
+</div>
 </main>
-<footer>© 2026 Stroomdoos · <a href="mailto:info@stroomdoos.com">info@stroomdoos.com</a> · <a href="https://www.instagram.com/stroomdoos/" rel="me">Instagram</a> · <a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a><br>Logic Pro is a trademark of Apple Inc. MixPrep is not affiliated with Apple.</footer>
+<footer class="foot">
+  <div class="foot-meta">
+    <span>© 2026 Stroomdoos · <a href="mailto:info@stroomdoos.com">info@stroomdoos.com</a> · <a href="https://www.instagram.com/stroomdoos/" rel="me">Instagram</a> · <a href="https://forms.gle/HMj91hJH7swQmwCD8" target="_blank" rel="noopener">Report a bug</a> · <a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a></span>
+    <span>Logic Pro is a trademark of Apple Inc. MixPrep is not affiliated with Apple.</span>
+  </div>
+</footer>
 </div>
 </body>
 </html>
