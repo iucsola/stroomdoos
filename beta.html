@@ -40,7 +40,7 @@ footer{margin-top:96px;padding:28px 0 48px;font-size:14px;color:#5d5a52}
 <header><a href="/" aria-label="Stroomdoos home"><img src="/stroomdoos-wordmark.png" width="1600" height="389" alt="Stroomdoos"></a></header>
 <main>
 <h1>The MixPrep <em>beta.</em></h1>
-<p class="lead">MixPrep puts your multitrack WAVs into Logic Pro in one go: each file on its own track, named, coloured and routed to a bus per group. It's in beta, and every Mac and Logic version helps.</p>
+<p class="lead">MixPrep puts your multitrack WAVs into Logic Pro in one go: each file on its own track, named, coloured and routed to an aux per group. It's in beta, and every Mac and Logic version helps.</p>
 <p>Signed up? The download link comes by email. Not yet? <a href="/#signup">Sign up here</a>.</p>
 
 <h2>What you need</h2>
@@ -54,22 +54,24 @@ footer{margin-top:96px;padding:28px 0 48px;font-size:14px;color:#5d5a52}
 <ol>
 <li>Open the .dmg and drag MixPrep to Applications.</li>
 <li>Open it. macOS says it can't check the app. That's expected: there's no Apple developer account behind it yet. Click Done.</li>
-<li>Go to System Settings &gt; Privacy &amp; Security, scroll down and click <strong>Open Anyway</strong>. Confirm with your password. On macOS 14 you can also right-click MixPrep and choose Open.</li>
-<li>In MixPrep, follow the setup guide to turn on Accessibility. That's how MixPrep clicks through Logic for you.</li>
+<li>Go to System Settings &gt; Privacy &amp; Security, scroll down and click <strong>Open Anyway</strong> next to "MixPrep was blocked". Confirm with your password. From then on MixPrep opens normally.</li>
+<li>In MixPrep, the setup guide shows <strong>Open Accessibility Settings</strong>. Click it, turn MixPrep on in the list and go back: the step gets a green check. That's how MixPrep operates Logic for you.</li>
 </ol>
+<p class="note">On macOS 14 you can also right-click MixPrep in Applications and choose <strong>Open</strong> after the first try. Only see <strong>OK</strong>? Click it and right-click once more.</p>
+<p class="note">MixPrep icon bouncing in the Dock and nothing opens? A macOS message is waiting, probably behind another window.</p>
 <p class="note">Accessibility gives an app broad control over your Mac. MixPrep only uses it to operate Logic during an import.</p>
 
 <h2>Test</h2>
 <ol>
-<li>Open a new project from your template in Logic.</li>
+<li>Open a new project from your template in Logic (File &gt; New from Template) and save it.</li>
 <li>Drop your files in MixPrep and press <strong>Import to Logic</strong>.</li>
 <li>Hands off the mouse and keyboard until it's done. The red Stop button stops it.</li>
-<li>Look in Logic: right buses? Names? Colours? Silence stripped?</li>
+<li>Look in Logic: right auxes? Names? Colours? Silence stripped?</li>
 <li>Click <strong>Bug Report</strong> in MixPrep, also when everything worked. It copies a report with your Mac, macOS and Logic version and the steps, never your file names, and opens the form.</li>
 </ol>
 
 <h2>Updates</h2>
-<p>Choose <strong>MixPrep &gt; Check for Updates…</strong>, or download the new version from the email and replace the app in Applications. If MixPrep asks for Accessibility again, switch it off and on in System Settings &gt; Privacy &amp; Security &gt; Accessibility.</p>
+<p>Choose <strong>MixPrep &gt; Check for Updates…</strong> and click <strong>Install Update</strong>: MixPrep restarts by itself. Or by hand: quit MixPrep, drag the new version from the .dmg to Applications and choose <strong>Replace</strong>. The first time macOS may ask again (see Install). If MixPrep asks for Accessibility again, switch it off and on in System Settings &gt; Privacy &amp; Security &gt; Accessibility.</p>
 
 <h2>Your files</h2>
 <p>MixPrep runs on your Mac and only goes online when you choose Check for Updates. It works on copies and never changes your original files. This is a test version: keep copies of your projects. More in the <a href="/privacy.html">privacy notice</a>.</p>
