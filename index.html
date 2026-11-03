@@ -42,16 +42,20 @@ section{padding:clamp(96px,12vw,192px) 0}
 .show-grid img{width:100%;border-radius:var(--radius)}
 .show-grid figcaption{margin-top:20px;max-width:40ch;color:#d6d2c8}
 .show-grid figcaption b{color:var(--ground)}
-.f-outputs{grid-column:1 / -1;display:grid;grid-template-columns:subgrid;align-items:end}
-.f-outputs img{grid-column:1 / span 8}
-.f-outputs figcaption{grid-column:9 / span 4;margin:0 0 8px;font-size:var(--t-lead);line-height:1.4}
-.f-coffee{grid-column:1 / span 5}
-.f-finish{grid-column:6 / span 7}
+.f-template{grid-column:1 / -1;display:grid;grid-template-columns:subgrid;align-items:end}
+.f-template img{grid-column:1 / span 8}
+.f-template figcaption{grid-column:9 / span 4;margin:0 0 8px;font-size:var(--t-lead);line-height:1.4}
 
-.specs{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,4vw,72px);align-items:end}
-.specs dl{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px clamp(24px,3vw,48px)}
+.coffee{background:#d6c2a3}
+.coffee-grid{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:clamp(40px,6vw,112px);align-items:center}
+.coffee p{margin-top:32px;font-size:var(--t-lead);line-height:1.4;max-width:30ch}
+.coffee img{width:100%;max-width:560px;justify-self:end;border-radius:var(--radius)}
+
+.specs{display:grid;gap:clamp(48px,6vw,88px)}
+.specs dl{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px clamp(24px,3vw,48px)}
 .specs dt{font-size:var(--t-small);color:var(--soft)}
 .specs dd{margin-top:6px;font-size:var(--t-lead);font-weight:700;line-height:1.3}
+.specs .welcome{grid-column:1 / -1;margin-top:-8px}
 
 .test{background:var(--motif)}
 .test-grid{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:clamp(48px,6vw,112px);align-items:start}
@@ -85,17 +89,18 @@ section{padding:clamp(96px,12vw,192px) 0}
   .how ol{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 @media (max-width:900px){
-  .hero,.specs,.test-grid{grid-template-columns:1fr}
+  .hero,.test-grid,.coffee-grid{grid-template-columns:1fr}
+  .coffee img{justify-self:start}
+  .specs dl{grid-template-columns:repeat(2,minmax(0,1fr))}
   .hero{padding-top:24px}
-  .f-outputs{display:block;grid-column:1 / -1}
-  .f-outputs figcaption{margin-top:20px;font-size:var(--t-body)}
-  .f-coffee,.f-finish{grid-column:1 / -1}
-  .f-coffee img{max-width:440px}
+  .f-template{display:block}
+  .f-template figcaption{margin-top:20px;font-size:var(--t-body)}
 }
 @media (max-width:620px){
   .how ol,.specs dl{grid-template-columns:1fr}
   .about-grid{grid-template-columns:1fr}
   .strip{max-width:220px;justify-self:start}
+  .f-template img{aspect-ratio:1260 / 652;object-fit:cover;object-position:left center}
 }
 @media (prefers-reduced-motion:reduce){
   .js [data-in]{transform:none}
@@ -145,21 +150,29 @@ section{padding:clamp(96px,12vw,192px) 0}
   <div class="wrap">
     <h2 id="show-h" class="sec-head" data-in>Names. Groups. Colours.<br>Routing. Strip Silence.</h2>
     <div class="show-grid">
-      <figure class="f-outputs"><img src="shot-outputs.jpg" width="1600" height="1006" loading="lazy" data-in alt="Outputs view: each group routed to a bus from the Logic template."><figcaption data-in style="--i:1"><b>Outputs.</b> Each group gets its own bus from your Logic template.</figcaption></figure>
-      <figure class="f-coffee" data-in><img src="shot-coffee.jpg" width="700" height="660" loading="lazy" alt="Coffee break panel listing the import steps and their progress."><figcaption><b>Coffee break.</b> MixPrep clicks through Logic for you. Hands off the mouse, go grab a coffee.</figcaption></figure>
-      <figure class="f-finish" data-in style="--i:1"><img src="shot-finish.jpg" width="1280" height="644" loading="lazy" alt="Import finished panel with what was done and what to check in Logic."><figcaption><b>Import finished.</b> What got done, and what's worth a quick check in Logic.</figcaption></figure>
+      <figure class="f-template"><img src="shot-template.jpg" width="1720" height="652" loading="lazy" data-in alt="MixPrep's aux table: the auxes from the Logic template, each with its bus, group, colour and the keywords that send files to it."><figcaption data-in style="--i:1"><b>Reads your template.</b> MixPrep looks at the auxes in your Logic template and matches your groups to them. The keywords in your file names decide which group each file goes to. Missing auxes get created.</figcaption></figure>
     </div>
+  </div>
+</section>
+
+<section class="coffee" aria-labelledby="coffee-h">
+  <div class="wrap coffee-grid">
+    <div>
+      <h2 id="coffee-h" class="sec-head" data-in>Time for a coffee break.</h2>
+      <p data-in style="--i:1">Press Import to Logic and MixPrep runs Logic for you: tracks in, outputs routed, No Input, colours and names. Hands off the mouse and keyboard, go grab a coffee.</p>
+    </div>
+    <img src="shot-coffee-break.jpg" width="636" height="593" loading="lazy" data-in style="--i:2" alt="MixPrep's Coffee break panel: check open project, check template and paste tracks done, route outputs working, then No Input, colours and names.">
   </div>
 </section>
 
 <section id="specs" aria-labelledby="specs-h">
   <div class="wrap specs">
-    <h2 id="specs-h" class="sec-head" data-in>Built for one setup, for now.</h2>
+    <h2 id="specs-h" class="sec-head" data-in>Made for Logic Pro on the Mac.</h2>
     <dl>
       <div data-in style="--i:0"><dt>macOS</dt><dd>14 or newer</dd></div>
       <div data-in style="--i:1"><dt>Processor</dt><dd>Apple Silicon or Intel</dd></div>
-      <div data-in style="--i:2"><dt>Logic Pro</dt><dd>12.4, set to English (tested)</dd></div>
-      <div data-in style="--i:3"><dt>Audio files</dt><dd>WAV, mono or stereo, one sample rate per batch</dd></div>
+      <div data-in style="--i:2"><dt>Logic Pro</dt><dd>Tested on 12.4, in English</dd></div>
+      <p class="welcome" data-in style="--i:3">Other Logic versions? Very welcome in the beta.</p>
     </dl>
   </div>
 </section>
@@ -193,7 +206,7 @@ section{padding:clamp(96px,12vw,192px) 0}
 <section id="about" class="about" aria-labelledby="about-h">
   <div class="wrap about-grid">
     <div>
-      <h2 id="about-h" class="sec-head" data-in>About</h2>
+      <h2 id="about-h" class="sec-head" data-in>Built by an engineer, for engineers.</h2>
       <p data-in style="--i:1">I'm Luc, and I make MixPrep in the Netherlands under the name Stroomdoos (/ˈstroːmdoːs/, Dutch for power box).</p>
       <p data-in style="--i:2">It's still a test version. Built for Logic Pro 12.4 on Apple Silicon and Intel Macs, and I only promise what I've actually tested in Logic.</p>
       <p data-in style="--i:3">Questions? Just mail <a href="mailto:info@stroomdoos.com">info@stroomdoos.com</a></p>
