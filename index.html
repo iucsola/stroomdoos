@@ -109,7 +109,7 @@ footer{padding:32px 0 40px}
       fr.onload=function(){try{if(fr.contentWindow.location.href==='about:blank')return}catch(x){}done('Almost there: a welcome email should arrive within a few minutes (check spam too). Nothing? Email '+mail+' and I\'ll add you.')};
       f.target='signup-frame';HTMLFormElement.prototype.submit.call(f);
     }
-    fetch(f.action+'?isAjax=1',{method:'POST',body:new FormData(f)})
+    fetch('https://stroomdoos-signup.empty-voice-4b54.workers.dev/signup',{method:'POST',body:new FormData(f)})
       .then(function(r){return r.json()})
       .then(function(d){
         if(!d.success)return fail();
