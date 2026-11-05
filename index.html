@@ -114,7 +114,8 @@ footer{padding:32px 0 40px}
     fetch('https://stroomdoos-signup.empty-voice-4b54.workers.dev/signup',{method:'POST',body:new FormData(f)})
       .then(function(r){return r.json()})
       .then(function(d){
-        if(!d.success)return fail();
+        // The service could not confirm it: the browser posts it itself, which Brevo accepts.
+        if(!d.success)return plainPost();
         done('Nice, you\'re on the list! Check your inbox for a welcome email (or your spam folder).');
       },plainPost);
   });
