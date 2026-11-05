@@ -98,6 +98,8 @@ footer{padding:32px 0 40px}
   if(!f||!window.fetch)return;
   f.addEventListener('submit',function(e){
     e.preventDefault();
+    // A browser can fill the hidden field by itself (its name has "email" in it); that visitor was told "on the list" and was not added.
+    f.elements.email_address_check.value='';
     var b=f.querySelector('button');
     b.disabled=true;msg.className='signup-msg';msg.textContent='Sending…';
     var mail='<a href="mailto:info@stroomdoos.com?subject=MixPrep%20beta&body=Please%20add%20me%20to%20the%20MixPrep%20beta.">info@stroomdoos.com</a>';
