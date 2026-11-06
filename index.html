@@ -64,12 +64,6 @@ section{padding:clamp(96px,12vw,192px) 0}
   100%{opacity:0;transform:translate(-1px,-10px) scaleY(1.1)}
 }
 
-.specs{display:grid;gap:clamp(48px,6vw,88px)}
-.specs dl{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px clamp(24px,3vw,48px)}
-.specs dt{font-size:var(--t-small);color:var(--soft)}
-.specs dd{margin-top:6px;font-size:var(--t-lead);font-weight:700;line-height:1.3}
-.specs .welcome{grid-column:1 / -1;margin-top:-8px}
-
 .test{background:var(--motif)}
 .test-grid{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:clamp(48px,6vw,112px);align-items:start}
 .test .intro{margin-top:32px;font-size:var(--t-lead);line-height:1.4;max-width:32ch}
@@ -104,13 +98,12 @@ section{padding:clamp(96px,12vw,192px) 0}
 @media (max-width:900px){
   .hero,.test-grid,.coffee-grid{grid-template-columns:1fr}
   .coffee .cup{justify-self:start}
-  .specs dl{grid-template-columns:repeat(2,minmax(0,1fr))}
   .hero{padding-top:24px}
   .f-template{display:block}
   .f-template figcaption{margin-top:20px;font-size:var(--t-body)}
 }
 @media (max-width:620px){
-  .how ol,.specs dl{grid-template-columns:1fr}
+  .how ol{grid-template-columns:1fr}
   .about-grid{grid-template-columns:1fr}
   .strip{max-width:220px;justify-self:start}
   .f-template img{aspect-ratio:1260 / 652;object-fit:cover;object-position:left center}
@@ -126,7 +119,7 @@ section{padding:clamp(96px,12vw,192px) 0}
   <header class="bar">
     <a class="word" href="/" aria-label="Stroomdoos home"><img src="stroomdoos-wordmark-s-dark.png" width="2172" height="724" alt="Stroomdoos"></a>
     <nav class="links" aria-label="Main">
-      <a href="#how">How it works</a><a href="#specs">Requirements</a><a href="#about">About</a><a href="/bugreport.html" target="_blank" rel="noopener">Report a bug</a>
+      <a href="#how">How it works</a><a href="#about">About</a><a href="/bugreport.html" target="_blank" rel="noopener">Report a bug</a>
     </nav>
     <a class="btn btn-small" href="#test">Try it first</a>
   </header>
@@ -137,12 +130,12 @@ section{padding:clamp(96px,12vw,192px) 0}
   <div class="hero">
     <div>
       <h1 id="top" data-in>More time<br>spent mixing.</h1>
-      <p class="lede" data-in style="--i:1">Drop in your multitrack WAVs, get a Logic session back. Every file on its own track, named, grouped, coloured and routed. In one go.</p>
+      <p class="lede" data-in style="--i:1">Take a walk, stretch your legs, grab a coffee. MixPrep is your hardworking digital intern, prepping your session while you're away.</p>
       <div class="row" data-in style="--i:2">
         <a class="btn" href="#test">Try it first</a>
         <a href="#how">How it works</a>
       </div>
-      <p class="meta" data-in style="--i:3">macOS 14 or newer · Apple Silicon or Intel · Logic Pro 12.4 in English, tested</p>
+      <p class="meta" data-in style="--i:3">Built for audio professionals. macOS 14 or newer · Apple Silicon or Intel · Logic Pro 12.4 in English, tested</p>
     </div>
     <figure class="hero-shot"><img src="shot-files.jpg" width="1600" height="1006" alt="MixPrep main window: nine tracks with their group and their name in Logic, and Import to Logic with its options on the right."></figure>
   </div>
@@ -164,7 +157,7 @@ section{padding:clamp(96px,12vw,192px) 0}
   <div class="wrap">
     <h2 id="show-h" class="sec-head" data-in>Names. Groups. Colours.<br>Routing. Strip Silence.</h2>
     <div class="show-grid">
-      <figure class="f-template"><img src="shot-template.jpg" width="1720" height="652" loading="lazy" data-in alt="MixPrep's aux table: the auxes from the Logic template, each with its bus, group, colour and the keywords that send files to it."><figcaption data-in style="--i:1"><b>Reads your template.</b> MixPrep looks at the auxes in your Logic template and matches your groups to them. The keywords in your file names decide which group each file goes to. Missing auxes get created. No template? Choose Empty: MixPrep uses standard groups and creates only the auxes your tracks need.</figcaption></figure>
+      <figure class="f-template"><img src="shot-template.jpg" width="1720" height="652" loading="lazy" data-in alt="MixPrep's aux table: the auxes from the Logic template, each with its bus, group, colour and the keywords that send files to it."><figcaption data-in style="--i:1"><b>Reads your template.</b> MixPrep matches your groups to the auxes in your Logic template and sorts each file by the keywords in its name. Missing auxes get created. No template? Pick Empty and it uses standard auxes, with only the groups your tracks need.</figcaption></figure>
     </div>
   </div>
 </section>
@@ -173,25 +166,13 @@ section{padding:clamp(96px,12vw,192px) 0}
   <div class="wrap coffee-grid">
     <div>
       <h2 id="coffee-h" class="sec-head" data-in>Time for a coffee break.</h2>
-      <p data-in style="--i:1">Press Import to Logic and MixPrep runs Logic for you: tracks in, outputs routed, No Input, colours and names. Hands off the mouse and keyboard.</p>
+      <p data-in style="--i:1">Press Import to Logic and MixPrep runs Logic for you. Hands off the mouse and keyboard.</p>
       <p data-in style="--i:2">Go grab a coffee.</p>
     </div>
     <div class="cup" data-in style="--i:3">
       <img src="shot-coffee-break.jpg" width="636" height="593" loading="lazy" alt="MixPrep's Coffee break panel: check open project, check template and paste tracks done, route outputs working, then No Input, colours and names.">
       <svg class="steam" viewBox="0 0 46 44" aria-hidden="true"><path d="M7.5 41c-3.5-4.5 3.5-8.5 0-13s3.5-8.5 0-13"/><path d="M22 41c-3.5-4.5 3.5-8.5 0-13s3.5-8.5 0-13"/><path d="M36 41c-3.5-4.5 3.5-8.5 0-13s3.5-8.5 0-13"/></svg>
     </div>
-  </div>
-</section>
-
-<section id="specs" aria-labelledby="specs-h">
-  <div class="wrap specs">
-    <h2 id="specs-h" class="sec-head" data-in>Built for audio professionals.</h2>
-    <dl>
-      <div data-in style="--i:0"><dt>macOS</dt><dd>14 or newer</dd></div>
-      <div data-in style="--i:1"><dt>Processor</dt><dd>Apple Silicon or Intel</dd></div>
-      <div data-in style="--i:2"><dt>Logic Pro</dt><dd>Tested on 12.4, in English</dd></div>
-      <p class="welcome" data-in style="--i:3">Other Logic versions? Very welcome in the beta.</p>
-    </dl>
   </div>
 </section>
 
@@ -214,9 +195,9 @@ section{padding:clamp(96px,12vw,192px) 0}
     </form>
     </div>
     <ol data-in style="--i:2">
-      <li><h3>Install</h3><p>Follow the <a href="/beta.html">install guide</a> (yes, including the Accessibility permission).</p></li>
-      <li><h3>Import</h3><p>Throw copies of your tracks at it. Logic can be closed.</p></li>
-      <li><h3>Report</h3><p>Hit Bug Report in the app. Also when everything worked, that helps too.</p></li>
+      <li><h3>Install</h3><p>Follow the <a href="/beta.html">install guide</a>.</p></li>
+      <li><h3>Setup</h3><p>Select your files, then link your Logic template or start from an empty project.</p></li>
+      <li><h3>Import</h3><p>Press Import to Logic and let MixPrep do the rest.</p></li>
     </ol>
   </div>
 </section>
