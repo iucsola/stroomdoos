@@ -1,0 +1,61 @@
+/* Shared by every page: tokens, header, buttons, footer, text pages. */
+:root{
+  --ground:#f1f0ea;--surface:#fbfaf6;--ink:#17191c;--soft:#57544c;--motif:#f04a2d;
+  --pad:clamp(20px,4.4vw,64px);--radius:10px;
+  --t-display:clamp(44px,6.6vw,104px);--t-head:clamp(26px,2.5vw,36px);--t-lead:clamp(20px,1.6vw,23px);--t-body:18px;--t-small:15px;
+  --ease:cubic-bezier(.2,.7,.2,1)
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--ground);color:var(--ink);font:400 var(--t-body)/1.55 Archivo,system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3,p,figure,dl,dd{margin:0}
+a{color:inherit;text-underline-offset:3px}
+img{display:block;max-width:100%;height:auto}
+:focus-visible{outline:3px solid var(--motif);outline-offset:3px}
+::selection{background:var(--motif);color:var(--ink)}
+.wrap{padding:0 var(--pad);max-width:1440px;margin:0 auto}
+
+.display,h1,h2{font-weight:800;font-stretch:75%;letter-spacing:-.03em;line-height:.92;text-wrap:balance}
+h3{font-size:var(--t-head);font-weight:800;font-stretch:75%;letter-spacing:-.02em;line-height:1}
+
+.bar{display:flex;align-items:center;gap:32px;padding:24px 0}
+.word{margin-right:auto}
+.word img{height:30px;width:auto}
+.links{display:flex;gap:28px;font-size:var(--t-small)}
+.links a{text-decoration:none;transition:opacity .2s}
+.links a:hover{text-decoration:underline}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:15px 26px;border:0;border-radius:999px;background:var(--ink);color:var(--ground);font:inherit;font-weight:700;text-decoration:none;cursor:pointer;transition:transform .2s var(--ease),background-color .2s}
+.btn:hover{background:#000;transform:translateY(-2px)}
+.btn:active{transform:translateY(0) scale(.98)}
+.btn[disabled]{opacity:.5;cursor:default;transform:none}
+.btn-small{padding:10px 18px;font-size:var(--t-small)}
+
+.foot{padding:clamp(56px,8vw,112px) 0 40px}
+.foot-mark{width:100%;max-width:1100px}
+.foot-meta{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px 32px;margin-top:32px;font-size:var(--t-small);color:var(--soft)}
+.foot-meta a{color:inherit}
+
+/* Text pages: title on the left, the text on the right, both on the header's edge. */
+.doc{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,6vw,112px);padding:clamp(48px,9vh,112px) 0 0;align-items:start}
+.doc h1{font-size:clamp(44px,5.4vw,80px)}
+.doc h1 em{font-style:normal;color:var(--motif)}
+.doc .lead{margin-top:24px;font-size:var(--t-lead);line-height:1.4;max-width:30ch}
+.doc-body{max-width:64ch}
+.doc-body h2{margin:56px 0 0;font-size:var(--t-head);font-stretch:75%;letter-spacing:-.02em;line-height:1}
+.doc-body h2:first-child{margin-top:0}
+.doc-body p{margin-top:16px}
+.doc-body ol,.doc-body ul{margin:16px 0 0;padding-left:1.3em}
+.doc-body li{margin-top:8px;padding-left:4px}
+.doc-body .note{font-size:var(--t-small);color:var(--soft)}
+.doc-body .btn{margin-top:40px}
+
+@media (max-width:900px){
+  .links{display:none}
+  .doc{grid-template-columns:1fr}
+  .doc-body{max-width:none}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important}
+}
