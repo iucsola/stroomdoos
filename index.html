@@ -3,18 +3,19 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>MixPrep by Stroomdoos</title>
-<meta name="description" content="MixPrep puts your multitrack WAV files on their own tracks in Logic Pro in one batch: named, grouped, coloured and routed.">
-<meta property="og:title" content="MixPrep by Stroomdoos">
+<title>Primer by Stroomdoos</title>
+<meta name="description" content="Primer puts your multitrack WAV files on their own tracks in Logic Pro in one batch: named, grouped, coloured and routed.">
+<meta property="og:title" content="Primer by Stroomdoos">
 <meta property="og:url" content="https://www.stroomdoos.com/">
 <meta property="og:image" content="https://www.stroomdoos.com/og.jpg">
-<meta property="og:image:alt" content="MixPrep main window under the Stroomdoos logo">
+<meta property="og:image:alt" content="The Primer app icon and main window">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Stroomdoos">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="https://www.stroomdoos.com/">
 <meta property="og:description" content="A Mac app that puts your multitrack WAVs into Logic Pro in one batch. Looking for beta testers.">
 <meta name="theme-color" content="#f1f0ea">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,6 +29,9 @@ section{padding:clamp(96px,12vw,192px) 0}
 
 .hero{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,4vw,72px);align-items:center;padding:clamp(40px,7vh,96px) 0 clamp(80px,10vw,144px)}
 .hero h1{font-size:clamp(52px,7.4vw,116px)}
+.hero .app{display:flex;align-items:center;gap:14px;margin-bottom:28px;font-size:var(--t-lead)}
+.hero .app img{width:56px;height:56px}
+.hero .app b{font-weight:800}
 .hero .lede{margin-top:32px;font-size:var(--t-lead);line-height:1.4;max-width:30ch}
 .hero .row{display:flex;align-items:center;gap:24px;margin-top:40px;flex-wrap:wrap}
 .hero .meta{margin-top:32px;font-size:var(--t-small);color:var(--soft)}
@@ -57,17 +61,6 @@ section{padding:clamp(96px,12vw,192px) 0}
 .coffee .cup{position:relative;width:100%;max-width:560px;justify-self:end}
 .coffee .cup img{width:100%;border-radius:var(--radius)}
 .coffee p+p{margin-top:20px}
-/* Steam over the cup in the screenshot; viewBox is the screenshot's own pixels around the cup. */
-.steam{position:absolute;left:calc(70 / 636 * 100%);top:calc(40 / 593 * 100%);width:calc(46 / 636 * 100%);height:calc(44 / 593 * 100%);overflow:visible}
-.steam path{fill:none;stroke:#6f93e6;stroke-width:4.5;stroke-linecap:round;opacity:0;transform-box:fill-box;transform-origin:50% 100%;animation:steam 2.7s ease-in-out infinite}
-.steam path:nth-child(2){animation-delay:.9s;stroke:#5f86e0}
-.steam path:nth-child(3){animation-delay:1.8s}
-@keyframes steam{
-  0%{opacity:0;transform:translate(0,7px) scaleY(.75)}
-  30%{opacity:.95}
-  60%{transform:translate(1.5px,-2px) scaleY(1)}
-  100%{opacity:0;transform:translate(-1px,-10px) scaleY(1.1)}
-}
 
 .test{background:var(--motif)}
 .test-grid{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:clamp(48px,6vw,112px);align-items:start}
@@ -115,14 +108,13 @@ section{padding:clamp(96px,12vw,192px) 0}
 }
 @media (prefers-reduced-motion:reduce){
   .js [data-in]{transform:none}
-  .steam path{animation:none;opacity:.85}
 }
 </style>
 </head>
 <body>
 <div class="wrap">
   <header class="bar">
-    <a class="word" href="/" aria-label="Stroomdoos home"><img src="stroomdoos-wordmark-s-dark.png" width="2172" height="724" alt="Stroomdoos"></a>
+    <a class="word" href="/" aria-label="Stroomdoos home"><img src="stroomdoos-woordmerk.svg" width="2026" height="405" alt="Stroomdoos"></a>
     <nav class="links" aria-label="Main">
       <a href="#how">How it works</a><a href="#about">About</a><a href="/bugreport.html" target="_blank" rel="noopener">Report a bug</a>
     </nav>
@@ -134,17 +126,18 @@ section{padding:clamp(96px,12vw,192px) 0}
 <div class="wrap">
   <div class="hero">
     <div>
-      <h1 id="top" data-in>More time<br>spent mixing.</h1>
-      <p class="lede" data-in style="--i:1">Take a walk, stretch your legs, grab a coffee. MixPrep is your hardworking assistant engineer, prepping your session while you're taking a break.</p>
-      <div class="row" data-in style="--i:2">
+      <p class="app" data-in><img src="primer-icon.svg" width="64" height="64" alt=""><span><b>Primer</b> for Logic Pro</span></p>
+      <h1 id="top" data-in style="--i:1">More time<br>spent mixing.</h1>
+      <p class="lede" data-in style="--i:2">Take a walk, stretch your legs, grab a coffee. Primer is your hardworking assistant engineer, prepping your session while you're taking a break.</p>
+      <div class="row" data-in style="--i:3">
         <a class="btn" href="#test">Try it first</a>
         <a href="#how">How it works</a>
       </div>
-      <p class="meta" data-in style="--i:3">macOS 14 or newer · Apple Silicon or Intel · Logic Pro 12 and 13 in English, tested</p>
+      <p class="meta" data-in style="--i:4">macOS 14 or newer · Apple Silicon or Intel · Logic Pro 12 and 13 in English, tested</p>
     </div>
-    <figure class="hero-shot"><img src="shot-files.jpg" width="1600" height="1006" alt="MixPrep main window: nine tracks with their group and their name in Logic, and Import to Logic with its options on the right."></figure>
-    <!-- Demo video: when the screen recording is ready, save it as mixprep-import.mp4 and replace the <figure> above with:
-    <figure class="hero-shot"><video autoplay muted loop playsinline poster="shot-files.jpg" width="1600" height="1006" aria-label="MixPrep importing nine tracks into Logic Pro."><source src="mixprep-import.mp4" type="video/mp4"></video></figure> -->
+    <figure class="hero-shot"><img src="shot-files.jpg" width="1600" height="1006" alt="Primer main window: nine tracks in four groups, each with its name in Logic and its aux, and Import to Logic with its options on the right."></figure>
+    <!-- Demo video: when the screen recording is ready, save it as primer-import.mp4 and replace the <figure> above with:
+    <figure class="hero-shot"><video autoplay muted loop playsinline poster="shot-files.jpg" width="1600" height="1006" aria-label="Primer importing nine tracks into Logic Pro."><source src="primer-import.mp4" type="video/mp4"></video></figure> -->
   </div>
 </div>
 
@@ -152,9 +145,9 @@ section{padding:clamp(96px,12vw,192px) 0}
   <div class="wrap">
     <h2 id="how-h" class="sec-head" data-in>Four steps. One batch.</h2>
     <ol>
-      <li data-in style="--i:0"><h3>Drop the WAVs</h3><p>Drag in a folder or a few files. MixPrep checks them first and tells you about any problem, like mixed sample rates.</p></li>
-      <li data-in style="--i:1"><h3>Name and group</h3><p>MixPrep guesses a group from each file name. Check the list, then rename or move what you like. Right-click a stereo WAV to split it into two mono tracks.</p></li>
-      <li data-in style="--i:2"><h3>Prepare copies</h3><p>MixPrep works on copies with your names and order. Your originals stay untouched.</p></li>
+      <li data-in style="--i:0"><h3>Drop the WAVs</h3><p>Drag in a folder or a few files. Primer checks them first and tells you about any problem, like mixed sample rates.</p></li>
+      <li data-in style="--i:1"><h3>Name and group</h3><p>Primer guesses a group from each file name. Check the list, then rename or move what you like. Right-click a stereo WAV to split it into two mono tracks.</p></li>
+      <li data-in style="--i:2"><h3>Prepare copies</h3><p>Primer works on copies with your names and order. Your originals stay untouched.</p></li>
       <li data-in style="--i:3"><h3>Import to Logic</h3><p>One track per file, coloured and routed to your auxes. Logic not open yet? Pick your template or an empty project, then watch it go.</p></li>
     </ol>
   </div>
@@ -164,7 +157,7 @@ section{padding:clamp(96px,12vw,192px) 0}
   <div class="wrap">
     <h2 id="show-h" class="sec-head" data-in>Names. Groups. Colours.<br>Routing. Strip Silence.</h2>
     <div class="show-grid">
-      <figure class="f-template"><img src="shot-template.jpg" width="1720" height="652" loading="lazy" data-in alt="MixPrep's aux table: the auxes from the Logic template, each with its bus, group, colour and the keywords that send files to it."><figcaption data-in style="--i:1"><b>Reads your template.</b><span>MixPrep matches your groups to the auxes in your Logic template and sorts each file by the keywords in its name. Missing auxes get created.</span><span>No template? Pick Empty. MixPrep uses standard auxes, with only the groups your tracks need.</span></figcaption></figure>
+      <figure class="f-template"><img src="shot-template.jpg" width="1720" height="652" loading="lazy" data-in alt="Primer's aux table: the auxes from the Logic template, each with its bus, group, colour and the keywords that send files to it."><figcaption data-in style="--i:1"><b>Reads your template.</b><span>Primer matches your groups to the auxes in your Logic template and sorts each file by the keywords in its name. Missing auxes get created.</span><span>No template? Pick Empty. Primer uses standard auxes, with only the groups your tracks need.</span></figcaption></figure>
     </div>
   </div>
 </section>
@@ -173,11 +166,10 @@ section{padding:clamp(96px,12vw,192px) 0}
   <div class="wrap coffee-grid">
     <div>
       <h2 id="coffee-h" class="sec-head" data-in>Time for a coffee break.</h2>
-      <p data-in style="--i:1">Press Import to Logic and MixPrep runs Logic for you. Hands off the mouse and keyboard.</p>
+      <p data-in style="--i:1">Press Import to Logic and Primer runs Logic for you. Hands off the mouse and keyboard.</p>
     </div>
     <div class="cup" data-in style="--i:2">
-      <img src="shot-coffee-break.jpg" width="636" height="593" loading="lazy" alt="MixPrep's Coffee break panel: check open project, check template and paste tracks done, route outputs working, then No Input, colours and names.">
-      <svg class="steam" viewBox="0 0 46 44" aria-hidden="true"><path d="M7.5 41c-3.5-4.5 3.5-8.5 0-13s3.5-8.5 0-13"/><path d="M22 41c-3.5-4.5 3.5-8.5 0-13s3.5-8.5 0-13"/><path d="M36 41c-3.5-4.5 3.5-8.5 0-13s3.5-8.5 0-13"/></svg>
+      <img src="shot-coffee-break.jpg" width="638" height="406" loading="lazy" alt="Primer's Coffee break panel during an import: Route outputs, step 4 of 7.">
     </div>
   </div>
 </section>
@@ -196,14 +188,14 @@ section{padding:clamp(96px,12vw,192px) 0}
       <input class="hp" type="text" name="email_address_check" value="" tabindex="-1" autocomplete="off" aria-hidden="true">
       <input type="hidden" name="locale" value="en">
       <input type="hidden" name="html_type" value="simple">
-      <p class="signup-note">Only emails about MixPrep. No spam, unsubscribe anytime. <a href="/privacy.html">Privacy</a> · <a href="/beta.html">How the beta works</a> · <a href="https://www.instagram.com/stroomdoos/" rel="me">@stroomdoos</a></p>
+      <p class="signup-note">Only emails about Primer. No spam, unsubscribe anytime. <a href="/privacy.html">Privacy</a> · <a href="/beta.html">How the beta works</a> · <a href="https://www.instagram.com/stroomdoos/" rel="me">@stroomdoos</a></p>
       <p class="signup-msg" id="signup-msg" role="status" aria-live="polite"></p>
     </form>
     </div>
     <ol data-in style="--i:2">
       <li><h3>Install</h3><p>Follow the <a href="/beta.html">install guide</a>.</p></li>
       <li><h3>Setup</h3><p>Select your files, then link your Logic template or start from an empty project.</p></li>
-      <li><h3>Import</h3><p>Press Import to Logic and let MixPrep do the rest.</p></li>
+      <li><h3>Import</h3><p>Press Import to Logic and let Primer do the rest.</p></li>
     </ol>
   </div>
 </section>
@@ -212,20 +204,20 @@ section{padding:clamp(96px,12vw,192px) 0}
   <div class="wrap about-grid">
     <div>
       <h2 id="about-h" class="sec-head" data-in>Made by an engineer, for engineers.</h2>
-      <p data-in style="--i:1">I'm Luc, and I make MixPrep in the Netherlands under the name Stroomdoos (/ˈstroːmdoːs/, Dutch for power box).</p>
+      <p data-in style="--i:1">I'm Luc, and I make Primer in the Netherlands under the name Stroomdoos (/ˈstroːmdoːs/, Dutch for power box).</p>
       <p data-in style="--i:2">Questions? Just mail <a href="mailto:support@stroomdoos.com">support@stroomdoos.com</a>.</p>
     </div>
-    <img class="strip" src="stroomdoos-powerstrip.png" width="720" height="713" alt="" data-in style="--i:2">
+    <img class="strip" src="stroomdoos-stekkerdoos.svg" width="720" height="720" alt="" data-in style="--i:2">
   </div>
 </section>
 </main>
 
 <footer class="foot">
   <div class="wrap">
-    <img class="foot-mark" src="stroomdoos-wordmark.png" width="1600" height="389" alt="Stroomdoos" loading="lazy">
+    <img class="foot-mark" src="stroomdoos-woordmerk.svg" width="2026" height="405" alt="Stroomdoos" loading="lazy">
     <div class="foot-meta">
       <span>© 2026 Stroomdoos · <a href="mailto:info@stroomdoos.com">info@stroomdoos.com</a> · <a href="mailto:support@stroomdoos.com">support@stroomdoos.com</a> · <a href="https://www.instagram.com/stroomdoos/" rel="me">Instagram</a> · <a href="/bugreport.html" target="_blank" rel="noopener">Report a bug</a> · <a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a></span>
-      <span>Logic Pro is a trademark of Apple Inc. MixPrep is not affiliated with Apple.</span>
+      <span>Logic Pro is a trademark of Apple Inc. Primer is not affiliated with Apple.</span>
     </div>
   </div>
 </footer>
@@ -247,7 +239,7 @@ section{padding:clamp(96px,12vw,192px) 0}
     f.elements.email_address_check.value='';
     var b=f.querySelector('button');
     b.disabled=true;msg.className='signup-msg';msg.textContent='Sending…';
-    var mail='<a href="mailto:support@stroomdoos.com?subject=MixPrep%20beta&body=Please%20add%20me%20to%20the%20MixPrep%20beta.">support@stroomdoos.com</a>';
+    var mail='<a href="mailto:support@stroomdoos.com?subject=Primer%20beta&body=Please%20add%20me%20to%20the%20Primer%20beta.">support@stroomdoos.com</a>';
     function done(text){f.querySelector('.signup-row').remove();msg.className='signup-msg';msg.innerHTML=text}
     function fail(){b.disabled=false;msg.className='signup-msg err';msg.innerHTML='Hmm, that didn\'t work. Try again, or just email '+mail+'.'}
     // Blocked or odd response (content blocker, flaky network, bot check): post the form in a hidden frame so the visitor stays here.
