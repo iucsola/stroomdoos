@@ -29,8 +29,8 @@ section{padding:clamp(96px,12vw,192px) 0}
 
 .hero{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,4vw,72px);align-items:center;padding:clamp(40px,7vh,96px) 0 clamp(80px,10vw,144px)}
 .hero h1{font-size:clamp(52px,7.4vw,116px)}
-.hero .app{display:flex;align-items:center;gap:14px;margin-bottom:28px;font-size:var(--t-lead)}
-.hero .app img{width:56px;height:56px}
+.hero .app{display:flex;align-items:center;gap:12px;margin-bottom:20px;font-size:var(--t-body)}
+.hero .app img{width:40px;height:40px}
 .hero .app b{font-weight:800}
 .hero .lede{margin-top:32px;font-size:var(--t-lead);line-height:1.4;max-width:30ch}
 .hero .row{display:flex;align-items:center;gap:24px;margin-top:40px;flex-wrap:wrap}
@@ -59,7 +59,7 @@ section{padding:clamp(96px,12vw,192px) 0}
 .coffee-grid{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:clamp(40px,6vw,112px);align-items:center}
 .coffee p{margin-top:32px;font-size:var(--t-lead);line-height:1.4;max-width:30ch}
 .coffee .cup{position:relative;width:100%;max-width:560px;justify-self:end}
-.coffee .cup img{width:100%;border-radius:var(--radius)}
+.coffee .cup svg{display:block;width:100%;height:auto}
 .coffee p+p{margin-top:20px}
 
 .test{background:var(--motif)}
@@ -83,6 +83,7 @@ section{padding:clamp(96px,12vw,192px) 0}
 .about .sec-head+p{margin-top:32px}
 .strip{width:100%;max-width:420px;justify-self:center}
 .foot{padding-top:0}
+.foot .more{margin-bottom:40px;font-size:var(--t-lead)}
 
 /* Entrances: content stays visible without script. */
 .js [data-in]{opacity:0;transform:translateY(24px);transition:opacity .7s var(--ease),transform .7s var(--ease);transition-delay:calc(var(--i,0) * 80ms)}
@@ -114,7 +115,7 @@ section{padding:clamp(96px,12vw,192px) 0}
 <body>
 <div class="wrap">
   <header class="bar">
-    <a class="word" href="/" aria-label="Stroomdoos home"><img src="stroomdoos-woordmerk.svg" width="2026" height="405" alt="Stroomdoos"></a>
+    <a class="word" href="/" aria-label="Stroomdoos home"><img src="stroomdoos-woordmerk-kop.svg" width="2172" height="724" alt="Stroomdoos"></a>
     <nav class="links" aria-label="Main">
       <a href="#how">How it works</a><a href="#about">About</a><a href="/bugreport.html" target="_blank" rel="noopener">Report a bug</a>
     </nav>
@@ -126,7 +127,7 @@ section{padding:clamp(96px,12vw,192px) 0}
 <div class="wrap">
   <div class="hero">
     <div>
-      <p class="app" data-in><img src="primer-icon.svg" width="64" height="64" alt=""><span><b>Primer</b> for Logic Pro</span></p>
+      <p class="app" data-in><img data-icon src="primer-icon.svg" width="40" height="40" alt=""><span><b>Primer</b> for Logic Pro</span></p>
       <h1 id="top" data-in style="--i:1">More time<br>spent mixing.</h1>
       <p class="lede" data-in style="--i:2">Take a walk, stretch your legs, grab a coffee. Primer is your hardworking assistant engineer, prepping your session while you're taking a break.</p>
       <div class="row" data-in style="--i:3">
@@ -166,10 +167,9 @@ section{padding:clamp(96px,12vw,192px) 0}
   <div class="wrap coffee-grid">
     <div>
       <h2 id="coffee-h" class="sec-head" data-in>Time for a coffee break.</h2>
-      <p data-in style="--i:1">Press Import to Logic and Primer runs Logic for you. Hands off the mouse and keyboard.</p>
     </div>
     <div class="cup" data-in style="--i:2">
-      <img src="shot-coffee-break.jpg" width="638" height="406" loading="lazy" alt="Primer's Coffee break panel during an import: Route outputs, step 4 of 7.">
+      <svg id="coffee-card" viewBox="0 0 320 226" role="img" aria-label="Primer's Coffee break card: a cup in the logo style, a waveform that fills with the track colours and the step that runs."></svg>
     </div>
   </div>
 </section>
@@ -207,14 +207,15 @@ section{padding:clamp(96px,12vw,192px) 0}
       <p data-in style="--i:1">I'm Luc, and I make Primer in the Netherlands under the name Stroomdoos (/ˈstroːmdoːs/, Dutch for power box).</p>
       <p data-in style="--i:2">Questions? Just mail <a href="mailto:support@stroomdoos.com">support@stroomdoos.com</a>.</p>
     </div>
-    <img class="strip" src="stroomdoos-stekkerdoos.svg" width="720" height="720" alt="" data-in style="--i:2">
+    <img class="strip" src="stroomdoos-stekkerdoos.svg" width="720" height="713" alt="" data-in style="--i:2">
   </div>
 </section>
 </main>
 
 <footer class="foot">
   <div class="wrap">
-    <img class="foot-mark" src="stroomdoos-woordmerk.svg" width="2026" height="405" alt="Stroomdoos" loading="lazy">
+    <p class="more">More exciting audio tools coming your way, <a href="https://www.instagram.com/stroomdoos/" rel="me">follow us</a> for updates.</p>
+    <img class="foot-mark" src="stroomdoos-woordmerk.svg" width="1600" height="389" alt="Stroomdoos" loading="lazy">
     <div class="foot-meta">
       <span>© 2026 Stroomdoos · <a href="mailto:info@stroomdoos.com">info@stroomdoos.com</a> · <a href="mailto:support@stroomdoos.com">support@stroomdoos.com</a> · <a href="https://www.instagram.com/stroomdoos/" rel="me">Instagram</a> · <a href="/bugreport.html" target="_blank" rel="noopener">Report a bug</a> · <a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a></span>
       <span>Logic Pro is a trademark of Apple Inc. Primer is not affiliated with Apple.</span>
@@ -258,5 +259,6 @@ section{padding:clamp(96px,12vw,192px) 0}
   });
 })();
 </script>
+<script src="coffee-break.js" defer></script>
 </body>
 </html>
