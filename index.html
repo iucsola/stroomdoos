@@ -66,17 +66,6 @@ section{padding:clamp(96px,12vw,192px) 0}
 .how li{counter-increment:step;border-top:3px solid var(--ink);padding-top:20px}
 .how li::before{content:counter(step);display:block;margin-bottom:28px;font-size:var(--t-small);font-weight:700;color:var(--motif)}
 .how li p{margin-top:16px;max-width:28ch;font-size:var(--t-lead);line-height:1.4}
-/* One small picture per step, cut from real screenshots. It moves once, when the step scrolls into view. */
-.how figure{position:relative;aspect-ratio:4/3;margin-bottom:24px;border-radius:var(--radius);overflow:hidden;background:#121214}
-.how figure img{position:absolute;top:0;left:0;width:100%;height:100%;max-width:none;object-fit:cover}
-.how figure .pan{width:auto}
-.js .how figure .b{opacity:0;transition:opacity 1s ease-in-out calc(1s + var(--i,0) * .7s)}
-.js .how li.in figure .b{opacity:1}
-.how figure .pan{transform:translateX(-66.4%)}
-.js .how li:not(.in) figure .pan{transform:none}
-.js .how li.in figure .pan{animation:step-pan 5.5s ease-in-out calc(1s + var(--i,0) * .7s) both}
-@keyframes step-pan{0%{transform:none}38%,56%{transform:translateX(-40.6%)}100%{transform:translateX(-66.4%)}}
-@media (prefers-reduced-motion:reduce){.js .how figure .b{transition:none}.js .how li.in figure .pan{animation:none}}
 
 .show{background:var(--ink);color:var(--ground)}
 .show .sec-head{font-size:clamp(32px,6.6vw,104px)}
@@ -185,10 +174,10 @@ section{padding:clamp(96px,12vw,192px) 0}
   <div class="wrap">
     <h2 id="how-h" class="sec-head" data-in>Four steps. One batch.</h2>
     <ol>
-      <li data-in style="--i:0"><figure><img src="step-1a.jpg" width="720" height="540" alt=""><img class="b" src="step-1b.jpg" width="720" height="540" alt="The Primer list with four drum files, each with its format."></figure><h3>Drop the WAVs</h3><p>Drag in a folder or a few files. Primer checks them first and tells you about any problem, like mixed sample rates.</p></li>
-      <li data-in style="--i:1"><figure><img class="pan" src="step-2.jpg" width="2002" height="504" alt="Four drum files, each with its name in Logic and its group, Drums."></figure><h3>Name and group</h3><p>Primer guesses a group from each file name. Check the list, then rename or move what you like. Right-click a stereo WAV to split it into two mono tracks.</p></li>
-      <li data-in style="--i:2"><figure><img src="step-3a.jpg" width="720" height="540" alt=""><img class="b" src="step-3b.jpg" width="720" height="540" alt="The file Bass DI gets the name Bass DI, as a mono copy."></figure><h3>Prepare copies</h3><p>Primer works on copies with your names and order. Your originals stay untouched.</p></li>
-      <li data-in style="--i:3"><figure><img src="step-4a.jpg" width="720" height="540" alt=""><img class="b" src="step-4b.jpg" width="720" height="540" alt="Logic Pro with the imported tracks, coloured by group and with the silence cut out."></figure><h3>Import to Logic</h3><p>One track per file, coloured and routed to your auxes. Logic not open yet? Pick your template or an empty project, then watch it go.</p></li>
+      <li data-in style="--i:0"><h3>Drop the WAVs</h3><p>Drag in a folder or a few files. Primer checks them first and tells you about any problem, like mixed sample rates.</p></li>
+      <li data-in style="--i:1"><h3>Name and group</h3><p>Primer guesses a group from each file name. Check the list, then rename or move what you like. Right-click a stereo WAV to split it into two mono tracks.</p></li>
+      <li data-in style="--i:2"><h3>Prepare copies</h3><p>Primer works on copies with your names and order. Your originals stay untouched.</p></li>
+      <li data-in style="--i:3"><h3>Import to Logic</h3><p>One track per file, coloured and routed to your auxes. Logic not open yet? Pick your template or an empty project, then watch it go.</p></li>
     </ol>
   </div>
 </section>
