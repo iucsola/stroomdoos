@@ -44,18 +44,7 @@ section{padding:clamp(96px,12vw,192px) 0}
 
 .show{background:var(--ink);color:var(--ground)}
 .show .sec-head{font-size:clamp(32px,6.6vw,104px)}
-.show-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:clamp(56px,7vw,104px) clamp(24px,3vw,48px);margin-top:clamp(56px,7vw,104px);align-items:end}
-.show-grid img{width:100%;border-radius:var(--radius)}
-.show-grid figcaption{margin-top:20px;max-width:40ch;color:#d6d2c8}
-.show-grid figcaption b{color:var(--ground)}
-.f-template{grid-column:1 / -1;display:grid;grid-template-columns:subgrid;align-items:end}
-.f-template img{grid-column:1 / span 8}
-.f-template figcaption{grid-column:9 / span 4;margin:0 0 8px;font-size:var(--t-lead);line-height:1.4}
-.f-template figcaption b{display:block;margin-bottom:24px;font-size:var(--t-head);font-weight:800;font-stretch:75%;letter-spacing:-.02em;line-height:1}
-.f-template figcaption span{display:block}
-.f-template figcaption span+span{margin-top:16px}
-.show .f-template figcaption{align-self:end;padding:clamp(20px,2.4vw,32px);border-radius:var(--radius);background:rgba(23,25,28,.92);color:var(--ground);box-shadow:0 0 0 1px rgba(241,240,234,.08)}
-
+.show 
 .coffee{background:#dfdbd1}
 .coffee-grid{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:clamp(40px,6vw,112px);align-items:center}
 .coffee p{margin-top:32px;font-size:var(--t-lead);line-height:1.4;max-width:30ch}
@@ -99,15 +88,12 @@ section{padding:clamp(96px,12vw,192px) 0}
   .hero,.test-grid,.coffee-grid{grid-template-columns:1fr}
   .coffee .cup{justify-self:start}
   .hero{padding-top:24px}
-  .f-template{display:block}
-  .f-template figcaption{margin-top:20px;font-size:var(--t-body)}
-}
+    }
 @media (max-width:620px){
   .how ol{grid-template-columns:1fr}
   .about-grid{grid-template-columns:1fr}
   .strip{max-width:220px;justify-self:start}
-  .f-template img{aspect-ratio:1260 / 652;object-fit:cover;object-position:left center}
-}
+  }
 @media (prefers-reduced-motion:reduce){
   .js [data-in]{transform:none}
 }
@@ -116,6 +102,13 @@ section{padding:clamp(96px,12vw,192px) 0}
   -webkit-mask-image:linear-gradient(180deg,transparent 0,#000 18%,#000 82%,transparent 100%);mask-image:linear-gradient(180deg,transparent 0,#000 18%,#000 82%,transparent 100%)}
 .show .sec-bg{opacity:.36;filter:saturate(.8);transition:opacity 1.2s ease}
 .show .sec-bg.rust{opacity:0}
+.show.focus{min-height:min(82vh,820px);display:flex;align-items:center}
+.show.focus .wrap{width:100%}
+.show.focus .sec-head{font-size:clamp(44px,8vw,128px)}
+.focus-schaduw .sec-bg{opacity:.6}
+.focus-schaduw::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(100deg,rgba(23,25,28,.92) 0%,rgba(23,25,28,.7) 38%,rgba(23,25,28,.15) 75%,rgba(23,25,28,0) 100%)}
+.focus-schaduw .sec-head{text-shadow:0 2px 30px rgba(0,0,0,.55)}
+@media (max-width:620px){.focus-schaduw::before{background:rgba(23,25,28,.62)}}
 </style>
 </head>
 <body>
@@ -160,13 +153,10 @@ section{padding:clamp(96px,12vw,192px) 0}
   </div>
 </section>
 
-<section class="show has-bg" aria-labelledby="show-h">
+<section class="show has-bg focus focus-schaduw" aria-labelledby="show-h">
   <video class="sec-bg" autoplay muted loop playsinline preload="auto" poster="primer-import.jpg" aria-hidden="true"><source src="primer-import.mp4" type="video/mp4"></video>
   <div class="wrap">
     <h2 id="show-h" class="sec-head" data-in>Names. Groups. Colours.<br>Routing. Strip Silence.</h2>
-    <div class="show-grid">
-      <figure class="f-template"><img src="shot-template.jpg" width="1720" height="652" loading="lazy" data-in alt="Primer's aux table: the auxes from the Logic template, each with its bus, group, colour and the keywords that send files to it."><figcaption data-in style="--i:1"><b>Reads your template.</b><span>Primer sends each file to the right aux in your Logic template. Missing auxes get created.</span><span>No template? Pick Empty.</span></figcaption></figure>
-    </div>
   </div>
 </section>
 
