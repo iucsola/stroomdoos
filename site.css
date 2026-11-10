@@ -38,7 +38,7 @@ h3{font-size:var(--t-head);font-weight:800;font-stretch:75%;letter-spacing:-.02e
 
 /* Text pages: title on the left, the text on the right, both on the header's edge. */
 .doc{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,6vw,112px);padding:clamp(48px,9vh,112px) 0 0;align-items:start}
-.doc .app-icon{display:block;width:72px;height:72px;margin-bottom:28px}
+.doc .app-icon{display:block;width:48px;height:48px;margin-bottom:20px}
 .doc h1{font-size:clamp(44px,5.4vw,80px)}
 .doc h1 em{font-style:normal;color:var(--motif)}
 .doc .lead{margin-top:24px;font-size:var(--t-lead);line-height:1.4;max-width:30ch}
@@ -60,3 +60,8 @@ h3{font-size:var(--t-head);font-weight:800;font-stretch:75%;letter-spacing:-.02e
   html{scroll-behavior:auto}
   *,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important}
 }
+
+/* Primer icon: a small hop and tilt on hover. */
+[data-icon]{transition:transform .35s cubic-bezier(.3,1.6,.5,1)}
+[data-icon]:hover{transform:translateY(-3px) rotate(-6deg) scale(1.06)}
+@media (prefers-reduced-motion:reduce){[data-icon]{transition:none}}
