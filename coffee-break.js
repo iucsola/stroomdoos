@@ -69,7 +69,7 @@ function makeCard(parent,defs,th,cupName,id,layout){
   return t=>{
     const failed=tFail!=null&&t>=tFail,done=!failed&&t>=tEnd,tt=failed?tFail:t;
     const fade=t>LOOP-FADE?clamp(1-(t-(LOOP-FADE))/FADE):1;
-    const p=plan.find(q=>t>=q.t0&&t<q.t1)||plan[failed?FAIL_STEP:plan.length-1];
+    const p=plan.find(q=>t>=q.t0&&t<q.t1)||plan[failed?FAIL_STEP:(t<plan[0].t0?0:plan.length-1)];
     const shown=p.paints?p:plan[PAINT_FROM],front=LX+LW*(p.paints?frontAt(p,tt):0);
     const swap=p.paints&&p.i>PAINT_FROM&&t<p.td?(t-p.t0)/TR:null,ripple=done?(t-tEnd)/RIPPLE:null;
     bars.forEach((b,j)=>{const x=BX[j];let h,fill,op=1;
