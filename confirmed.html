@@ -30,12 +30,11 @@ h1,p{margin:0}
 .word img{display:block;height:30px;width:auto}
 .tag{font-size:14px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--motif)}
 main{flex:1;display:flex;align-items:center}
-.hero{display:grid;grid-template-columns:1.3fr .7fr;gap:clamp(32px,6vw,96px);align-items:center;padding-top:clamp(48px,10vh,120px);padding-bottom:clamp(48px,10vh,120px)}
+.hero{display:grid;grid-template-columns:1fr;gap:clamp(32px,6vw,96px);align-items:center;padding-top:clamp(48px,10vh,120px);padding-bottom:clamp(48px,10vh,120px)}
 h1{font-weight:800;font-stretch:75%;letter-spacing:-.03em;line-height:.9;text-wrap:balance;font-size:clamp(56px,9vw,144px)}
 h1 span{color:var(--motif)}
 .lead{margin-top:32px;font-size:clamp(19px,1.8vw,26px);max-width:32ch;line-height:1.35}
 .specs{margin-top:20px;font-size:15px;color:var(--soft)}
-.strip{width:100%;max-width:360px;height:auto;justify-self:end}
 .pill{display:inline-flex;align-items:center;padding:14px 24px;border-radius:999px;background:var(--ink);color:var(--ground);font-weight:700;text-decoration:none}
 .signup{margin-top:clamp(36px,5vh,56px);max-width:560px}
 .signup label{display:block;font-weight:700;font-size:17px;margin-bottom:10px}
@@ -52,8 +51,7 @@ footer{padding:32px 0 40px}
 .foot-meta{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;font-size:14px;color:var(--soft)}
 @media (max-width:860px){
   .hero{grid-template-columns:1fr}
-  .strip{justify-self:start;max-width:200px;order:-1}
-}
+  }
 </style>
 </head>
 <body>
@@ -70,7 +68,6 @@ footer{padding:32px 0 40px}
       <p class="lead">Thanks for confirming! I'll email you as soon as the Primer test version is ready.</p>
       <p class="signup"><a class="pill" href="/">Back to the site</a></p>
     </div>
-    <img class="strip" src="stroomdoos-stekkerdoos.svg" width="720" height="713" alt="">
   </div>
 </main>
 <footer>
