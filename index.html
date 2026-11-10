@@ -36,34 +36,35 @@ section{padding:clamp(96px,12vw,192px) 0}
 .hero .row{display:flex;align-items:center;gap:24px;margin-top:40px;flex-wrap:wrap}
 .hero .meta{text-wrap:balance;margin-top:32px;font-size:var(--t-small);color:var(--soft)}
 .hero-shot img,.hero-shot video{width:100%;height:auto;border-radius:var(--radius)}
-/* Hero loop: real screenshots only. Empty window, the groups arrive, Import to Logic is pressed, the Coffee break card shows. */
+/* Hero loop: real screenshots and frames of the real screen recording. Start screen, the tracks, Import to Logic is pressed, Logic colours the files and cuts the silence, back to the start screen. */
 .hero-shot{position:relative;border-radius:var(--radius);overflow:hidden;animation:settle 1.4s var(--ease) both}
 .hero-shot img{animation:none}
 .loop{position:absolute;inset:0;display:none}
 .loop.play{display:block}
-.loop i{position:absolute;inset:0;opacity:0;background-size:100% 100%;animation:12s var(--ease) infinite both;animation-play-state:var(--run,running);will-change:opacity,transform}
+.loop i{position:absolute;inset:0;opacity:0;background-size:cover;background-position:50% 0;animation:19s ease-in-out infinite both;animation-play-state:var(--run,running);will-change:opacity,transform}
 .loop .empty{background-image:url(shot-empty.jpg)}
 .loop .start{opacity:1;animation:none}
-.loop .base,.loop .g,.loop .press{background-image:url(shot-files.jpg)}
+.loop .base,.loop .press{background-image:url(shot-files.jpg)}
 .loop .base{animation-name:l-base}
-.loop .base::after{content:"";position:absolute;left:1.25%;top:6.8%;width:73.5%;height:84%;background:#121214}
-.loop .g{animation-name:l-group;animation-delay:calc(var(--n) * .42s)}
-.loop .g1{--n:0;clip-path:inset(7.7% 26% 64% 2%)}
-.loop .g2{--n:1;clip-path:inset(37.4% 26% 51.2% 2%)}
-.loop .g3{--n:2;clip-path:inset(50.1% 26% 32.9% 2%)}
-.loop .g4{--n:3;clip-path:inset(68.5% 26% 14.4% 2%)}
 .loop .press{clip-path:inset(2.4% 2% 90.6% 76.8%);animation-name:l-press}
-.loop .dot{inset:auto;left:62%;top:58%;width:1.5%;aspect-ratio:1;border-radius:50%;background:var(--motif);animation-name:l-dot}
-.loop .dim{background:#000;animation-name:l-dim}
-.loop .card{inset:auto;left:32%;top:50%;width:36%;aspect-ratio:640/406;border-radius:4.4%/7%;background-image:url(shot-coffee-card.jpg);animation-name:l-card}
+.loop .dot{inset:auto;left:62%;top:58%;width:1.5%;aspect-ratio:1;border-radius:50%;background:var(--motif);animation-name:l-dot;animation-timing-function:var(--ease)}
 .loop .end{animation-name:l-end}
-@keyframes l-base{0%,10%{opacity:0}17%,100%{opacity:1}}
-@keyframes l-group{0%,15%{opacity:0;transform:translateY(1.2%)}22%,100%{opacity:1;transform:none}}
-@keyframes l-dot{0%,47%{opacity:0;transform:none}50%{opacity:1;transform:none}58%,60.5%{opacity:1;transform:translate(1690%,-2200%)}64%,100%{opacity:0;transform:translate(1690%,-2200%)}}
-@keyframes l-press{0%,58.5%{opacity:0;filter:none}58.6%{opacity:1;filter:none}60.5%{opacity:1;filter:brightness(.82)}63.5%{opacity:1;filter:none}63.6%,100%{opacity:0}}
-@keyframes l-dim{0%,64%{opacity:0}71%,100%{opacity:.55}}
-@keyframes l-card{0%,65%{opacity:0;transform:translateY(6%)}72%,100%{opacity:1;transform:none}}
-@keyframes l-end{0%,91%{opacity:0}98%,100%{opacity:1}}
+@keyframes l-base{0%,7.37%{opacity:0}13.16%,100%{opacity:1}}
+@keyframes l-dot{0%,24.21%{opacity:0;transform:none}26.32%{opacity:1;transform:none}31.05%,33.68%{opacity:1;transform:translate(1690%,-2200%)}36.32%,100%{opacity:0;transform:translate(1690%,-2200%)}}
+@keyframes l-press{0%,31.05%{opacity:0;filter:none}31.11%{opacity:1;filter:none}32.63%{opacity:1;filter:brightness(.82)}35.26%{opacity:1;filter:none}35.32%,100%{opacity:0}}
+.loop .r1{background-image:url(shot-logic-1.jpg);animation-name:l-r1}
+@keyframes l-r1{0%,36.84%{opacity:0}43.16%,100%{opacity:1}}
+.loop .r2{background-image:url(shot-logic-2.jpg);animation-name:l-r2}
+@keyframes l-r2{0%,45.79%{opacity:0}52.11%,100%{opacity:1}}
+.loop .r3{background-image:url(shot-logic-3.jpg);animation-name:l-r3}
+@keyframes l-r3{0%,54.74%{opacity:0}61.05%,100%{opacity:1}}
+.loop .r4{background-image:url(shot-logic-4.jpg);animation-name:l-r4}
+@keyframes l-r4{0%,63.68%{opacity:0}70.00%,100%{opacity:1}}
+.loop .r5{background-image:url(shot-logic-5.jpg);animation-name:l-r5}
+@keyframes l-r5{0%,72.63%{opacity:0}78.95%,100%{opacity:1}}
+.loop .r6{background-image:url(shot-logic-6.jpg);animation-name:l-r6}
+@keyframes l-r6{0%,81.58%{opacity:0}87.89%,100%{opacity:1}}
+@keyframes l-end{0%,91.05%{opacity:0}97.37%,100%{opacity:1}}
 @media (prefers-reduced-motion:reduce){.loop,.loop.play{display:none}}
 
 .how ol{list-style:none;counter-reset:step;margin:clamp(48px,6vw,88px) 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:48px clamp(24px,3vw,48px)}
@@ -168,7 +169,7 @@ section{padding:clamp(96px,12vw,192px) 0}
       <p class="meta" data-in style="--i:4">macOS 14 or newer&nbsp;· Apple Silicon or Intel&nbsp;· Logic Pro 12 and 13 in English, tested</p>
     </div>
     <figure class="hero-shot"><img src="shot-files.jpg" width="1600" height="1006" alt="Primer main window: nine tracks in four groups, each with its name in Logic and its aux, and Import to Logic with its options on the right.">
-      <div class="loop" id="hero-loop" aria-hidden="true"><i class="empty start"></i><i class="base"></i><i class="g g1"></i><i class="g g2"></i><i class="g g3"></i><i class="g g4"></i><i class="press"></i><i class="dot"></i><i class="dim"></i><i class="card"></i><i class="empty end"></i></div></figure>
+      <div class="loop" id="hero-loop" aria-hidden="true"><i class="empty start"></i><i class="base"></i><i class="press"></i><i class="dot"></i><i class="r1"></i><i class="r2"></i><i class="r3"></i><i class="r4"></i><i class="r5"></i><i class="r6"></i><i class="empty end"></i></div></figure>
     <!-- Demo video: when the screen recording is ready, save it as primer-import.mp4 and replace the <figure> above with:
     <figure class="hero-shot"><video autoplay muted loop playsinline poster="shot-files.jpg" width="1600" height="1006" aria-label="Primer importing nine tracks into Logic Pro."><source src="primer-import.mp4" type="video/mp4"></video></figure> -->
   </div>
@@ -293,7 +294,7 @@ section{padding:clamp(96px,12vw,192px) 0}
 <script>
 // Hero loop: start when its pictures are loaded, pause while it is off screen.
 (function(){var l=document.getElementById('hero-loop');if(!l)return;
-var srcs=['shot-empty.jpg','shot-files.jpg','shot-coffee-card.jpg'],n=0;
+var srcs=['shot-empty.jpg','shot-files.jpg','shot-logic-1.jpg','shot-logic-2.jpg','shot-logic-3.jpg','shot-logic-4.jpg','shot-logic-5.jpg','shot-logic-6.jpg'],n=0;
 srcs.forEach(function(s){var i=new Image();i.onload=function(){if(++n===srcs.length)l.classList.add('play')};i.src=s});
 if('IntersectionObserver' in window)new IntersectionObserver(function(es){l.style.setProperty('--run',es[0].isIntersecting?'running':'paused')}).observe(l);})();
 </script>
