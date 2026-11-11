@@ -62,18 +62,17 @@ section{padding:clamp(96px,12vw,192px) 0}
 @keyframes l-end{0%,90.30%{opacity:0}94.78%,100%{opacity:1}}
 @media (prefers-reduced-motion:reduce){.loop,.loop.on{display:none}}
 
-.how ol{list-style:none;counter-reset:step;margin:clamp(48px,6vw,88px) 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:48px clamp(24px,3vw,48px)}
-.how li{counter-increment:step;border-top:3px solid var(--ink);padding-top:20px}
-.how li::before{content:counter(step);display:block;margin-bottom:28px;font-size:var(--t-small);font-weight:700;color:var(--motif)}
-.how li p{margin-top:16px;max-width:28ch;font-size:var(--t-lead);line-height:1.4}
-
-.coffee{background:#dfdbd1}
-.coffee-grid{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:clamp(40px,6vw,112px);align-items:center}
-.coffee .sec-head{font-size:clamp(34px,4.7vw,74px)}
-.coffee p{margin-top:32px;font-size:var(--t-lead);line-height:1.4;max-width:30ch}
-.coffee .cup{position:relative;width:100%;max-width:560px;justify-self:end}
+/* Four steps on a dark field: the card stays in view while the steps pass, the step in the middle of the screen is lit. */
+.coffee{background:var(--ink);color:var(--ground)}
+.coffee-grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(40px,6vw,112px);align-items:start}
+.coffee .intro{margin-top:32px;font-size:var(--t-lead);line-height:1.4;max-width:30ch}
+.coffee ol{list-style:none;margin:clamp(56px,7vw,112px) 0 0;padding:0;display:grid;gap:clamp(40px,5vw,72px)}
+.coffee li b{display:block;font-size:clamp(40px,5.6vw,88px);font-weight:800;font-stretch:75%;letter-spacing:-.03em;line-height:.92}
+.coffee li span{display:block;margin-top:14px;font-size:var(--t-lead);line-height:1.4;max-width:34ch}
+.js .coffee li{opacity:.3;transition:opacity .7s var(--ease)}
+.js .coffee li.on{opacity:1}
+.coffee .cup{position:sticky;top:calc(50vh - 170px);width:100%;max-width:480px;justify-self:end}
 .coffee .cup svg{display:block;width:100%;height:auto}
-.coffee p+p{margin-top:20px}
 
 .test{background:var(--motif)}
 .test-grid{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:clamp(48px,6vw,112px);align-items:start}
@@ -104,20 +103,21 @@ section{padding:clamp(96px,12vw,192px) 0}
 @keyframes settle{from{transform:scale(1.04)}to{transform:none}}
 
 @media (max-width:1100px){
-  .how ol{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 @media (max-width:900px){
   .hero,.test-grid,.coffee-grid{grid-template-columns:1fr}
-  .coffee .cup{justify-self:start}
+  .coffee .cup{position:static;justify-self:start;max-width:420px;grid-row:2}
+  .coffee-grid>div:first-child{display:contents}
+  .coffee ol{margin-top:0;grid-row:3}
   .hero{padding-top:24px}
     }
 @media (max-width:620px){
-  .how ol{grid-template-columns:1fr}
   .about-grid{grid-template-columns:1fr}
   .strip{max-width:220px;justify-self:start}
   }
 @media (prefers-reduced-motion:reduce){
   .js [data-in]{transform:none}
+  .js .coffee li{transition:none}
 }
 </style>
 </head>
@@ -150,23 +150,18 @@ section{padding:clamp(96px,12vw,192px) 0}
   </div>
 </div>
 
-<section id="how" class="how" aria-labelledby="how-h">
-  <div class="wrap">
-    <h2 id="how-h" class="sec-head" data-in>Four steps. One batch.</h2>
-    <ol>
-      <li data-in style="--i:0"><h3>Drop the WAVs</h3><p>Drag in a folder or a few files. Primer checks them first and tells you about any problem, like mixed sample rates.</p></li>
-      <li data-in style="--i:1"><h3>Name and group</h3><p>Primer guesses a group from each file name. Check the list, then rename or move what you like. Right-click a stereo WAV to split it into two mono tracks.</p></li>
-      <li data-in style="--i:2"><h3>Prepare copies</h3><p>Primer works on copies with your names and order. Your originals stay untouched.</p></li>
-      <li data-in style="--i:3"><h3>Import to Logic</h3><p>One track per file, coloured and routed to your auxes. Logic not open yet? Pick your template or an empty project, then watch it go.</p></li>
-    </ol>
-  </div>
-</section>
-
-<section class="coffee" aria-labelledby="coffee-h">
+<section id="how" class="coffee" aria-labelledby="how-h">
   <div class="wrap coffee-grid">
     <div>
-      <h2 id="coffee-h" class="sec-head" data-in>Names. Groups. Colours.<br>Routing. Strip Silence.</h2>
-      <p data-in style="--i:1">Time for a coffee break.</p>
+      <div class="head">
+        <h2 id="how-h" class="sec-head" data-in>Four steps. One batch.</h2>
+      </div>
+      <ol id="does">
+        <li><b>Drop the WAVs</b><span>Drag in a folder or a few files. Primer checks them first and tells you about any problem, like mixed sample rates.</span></li>
+        <li><b>Name and group</b><span>Primer guesses a group from each file name. Check the list, then rename or move what you like. Right-click a stereo WAV to split it into two mono tracks.</span></li>
+        <li><b>Prepare copies</b><span>Primer works on copies with your names and order. Your originals stay untouched.</span></li>
+        <li><b>Import to Logic</b><span>One track per file, coloured and routed to your auxes. Logic not open yet? Pick your template or an empty project, then watch it go.</span></li>
+      </ol>
     </div>
     <div class="cup" data-in style="--i:2">
       <svg id="coffee-card" viewBox="0 0 320 226" role="img" aria-label="Primer's Coffee break card: a cup in the logo style, a waveform that fills with the track colours and the step that runs."></svg>
@@ -215,7 +210,7 @@ section{padding:clamp(96px,12vw,192px) 0}
 <footer class="foot">
   <div class="wrap">
     <p class="more">More exciting audio tools coming your way, <a href="https://www.instagram.com/stroomdoos/" rel="me">follow us</a> for updates.</p>
-    <img class="foot-mark" src="stroomdoos-woordmerk.svg" width="1600" height="389" alt="Stroomdoos" loading="lazy">
+    <img class="foot-mark" data-in src="stroomdoos-woordmerk.svg" width="1600" height="389" alt="Stroomdoos" loading="lazy">
     <div class="foot-meta">
       <span>© 2026 Stroomdoos · <a href="mailto:info@stroomdoos.com">info@stroomdoos.com</a> · <a href="mailto:support@stroomdoos.com">support@stroomdoos.com</a> · <a href="https://www.instagram.com/stroomdoos/" rel="me">Instagram</a> · <a href="/bugreport.html" target="_blank" rel="noopener">Report a bug</a> · <a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a></span>
       <span>Logic Pro is a trademark of Apple Inc. Primer is not affiliated with Apple.</span>
@@ -272,6 +267,14 @@ srcs.forEach(function(s){var i=new Image();i.onload=function(){if(++n===srcs.len
 [].forEach.call(v,function(x){x.preload='auto';x.src=x.getAttribute('data-src')});run()}};i.src=s});
 if('IntersectionObserver' in window)new IntersectionObserver(function(es){seen=es[0].isIntersecting;run()}).observe(l);
 document.addEventListener('visibilitychange',run);})();
+</script>
+<script>
+// The four steps: the one nearest the middle of the screen is lit.
+(function(){var ul=document.getElementById('does');if(!ul)return;var li=ul.children,tick=false;
+function set(){tick=false;var mid=innerHeight*.5,best=0,d=1e9;for(var i=0;i<li.length;i++){var r=li[i].getBoundingClientRect(),x=Math.abs(r.top+r.height/2-mid);if(x<d){d=x;best=i}}
+for(i=0;i<li.length;i++)li[i].classList.toggle('on',i===best)}
+function ask(){if(!tick){tick=true;requestAnimationFrame(set)}}
+addEventListener('scroll',ask,{passive:true});addEventListener('resize',ask);set()})();
 </script>
 <script src="coffee-break.js" defer></script>
 </body>
