@@ -67,13 +67,23 @@ section{padding:clamp(96px,12vw,192px) 0}
 .how li::before{content:counter(step);display:block;margin-bottom:28px;font-size:var(--t-small);font-weight:700;color:var(--motif)}
 .how li p{margin-top:16px;max-width:28ch;font-size:var(--t-lead);line-height:1.4}
 
-.coffee{background:#dfdbd1}
-.coffee-grid{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:clamp(40px,6vw,112px);align-items:center}
-.coffee .sec-head{font-size:clamp(34px,4.7vw,74px)}
-.coffee p{margin-top:32px;font-size:var(--t-lead);line-height:1.4;max-width:30ch}
-.coffee .cup{position:relative;width:100%;max-width:560px;justify-self:end}
+.how li{position:relative;border-top-color:transparent}
+.how li::after{content:"";position:absolute;left:0;right:0;top:-3px;height:3px;background:var(--ink);transform-origin:0 50%}
+.js .how li::after{transform:scaleX(0);transition:transform 1.1s var(--ease) calc(var(--i,0) * 140ms + .1s)}
+.js .how li.in::after{transform:none}
+
+/* What Primer does while you take the break: dark field, the card stays in view while the five lines pass. */
+.coffee{background:var(--ink);color:var(--ground)}
+.coffee-grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(40px,6vw,112px);align-items:start}
+.coffee .intro{margin-top:32px;font-size:var(--t-lead);line-height:1.4;max-width:30ch}
+.coffee ul{list-style:none;margin:clamp(56px,7vw,112px) 0 0;padding:0;display:grid;gap:clamp(40px,5vw,72px)}
+.coffee li b{display:block;font-size:clamp(40px,5.6vw,88px);font-weight:800;font-stretch:75%;letter-spacing:-.03em;line-height:.92}
+.coffee li span{display:block;margin-top:14px;font-size:var(--t-lead);line-height:1.4;max-width:30ch}
+.js .coffee li{opacity:.3;transition:opacity .7s var(--ease)}
+.js .coffee li.on{opacity:1}
+.coffee .fact{margin-top:clamp(56px,7vw,112px);font-size:var(--t-lead);line-height:1.4;max-width:30ch}
+.coffee .cup{position:sticky;top:calc(50vh - 170px);width:100%;max-width:480px;justify-self:end}
 .coffee .cup svg{display:block;width:100%;height:auto}
-.coffee p+p{margin-top:20px}
 
 .test{background:var(--motif)}
 .test-grid{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:clamp(48px,6vw,112px);align-items:start}
@@ -108,7 +118,10 @@ section{padding:clamp(96px,12vw,192px) 0}
 }
 @media (max-width:900px){
   .hero,.test-grid,.coffee-grid{grid-template-columns:1fr}
-  .coffee .cup{justify-self:start}
+  .coffee .cup{position:static;justify-self:start;max-width:420px;grid-row:2}
+  .coffee-grid>div:first-child{display:contents}
+  .coffee ul{margin-top:0;grid-row:3}
+  .coffee .fact{margin-top:0;grid-row:4}
   .hero{padding-top:24px}
     }
 @media (max-width:620px){
@@ -118,6 +131,7 @@ section{padding:clamp(96px,12vw,192px) 0}
   }
 @media (prefers-reduced-motion:reduce){
   .js [data-in]{transform:none}
+  .js .coffee li,.js .how li::after{transition:none}
 }
 </style>
 </head>
@@ -165,8 +179,18 @@ section{padding:clamp(96px,12vw,192px) 0}
 <section class="coffee" aria-labelledby="coffee-h">
   <div class="wrap coffee-grid">
     <div>
-      <h2 id="coffee-h" class="sec-head" data-in>Names. Groups. Colours.<br>Routing. Strip Silence.</h2>
-      <p data-in style="--i:1">Time for a coffee break.</p>
+      <div class="head">
+        <h2 id="coffee-h" class="sec-head" data-in>Time for a coffee break.</h2>
+        <p class="intro" data-in style="--i:1">Press Import to Logic and take your hands off the mouse. Primer does this for you:</p>
+      </div>
+      <ul id="does">
+        <li><b>Names.</b><span>Primer cleans up the file names.</span></li>
+        <li><b>Groups.</b><span>Drums, bass, keys, vocals. Sorted by name, or by sound when the name says nothing.</span></li>
+        <li><b>Colours.</b><span>Every group gets its own colour in Logic.</span></li>
+        <li><b>Routing.</b><span>Each group goes to its aux in your template. Missing auxes get created.</span></li>
+        <li><b>Strip Silence.</b><span>Switch it on and silence gets cut out, with its own threshold for each file.</span></li>
+      </ul>
+      <p class="fact" data-in>100 tracks take about four and a half minutes. Measured on test audio.</p>
     </div>
     <div class="cup" data-in style="--i:2">
       <svg id="coffee-card" viewBox="0 0 320 226" role="img" aria-label="Primer's Coffee break card: a cup in the logo style, a waveform that fills with the track colours and the step that runs."></svg>
@@ -215,7 +239,7 @@ section{padding:clamp(96px,12vw,192px) 0}
 <footer class="foot">
   <div class="wrap">
     <p class="more">More exciting audio tools coming your way, <a href="https://www.instagram.com/stroomdoos/" rel="me">follow us</a> for updates.</p>
-    <img class="foot-mark" src="stroomdoos-woordmerk.svg" width="1600" height="389" alt="Stroomdoos" loading="lazy">
+    <img class="foot-mark" data-in src="stroomdoos-woordmerk.svg" width="1600" height="389" alt="Stroomdoos" loading="lazy">
     <div class="foot-meta">
       <span>© 2026 Stroomdoos · <a href="mailto:info@stroomdoos.com">info@stroomdoos.com</a> · <a href="mailto:support@stroomdoos.com">support@stroomdoos.com</a> · <a href="https://www.instagram.com/stroomdoos/" rel="me">Instagram</a> · <a href="/bugreport.html" target="_blank" rel="noopener">Report a bug</a> · <a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a></span>
       <span>Logic Pro is a trademark of Apple Inc. Primer is not affiliated with Apple.</span>
@@ -272,6 +296,14 @@ srcs.forEach(function(s){var i=new Image();i.onload=function(){if(++n===srcs.len
 [].forEach.call(v,function(x){x.preload='auto';x.src=x.getAttribute('data-src')});run()}};i.src=s});
 if('IntersectionObserver' in window)new IntersectionObserver(function(es){seen=es[0].isIntersecting;run()}).observe(l);
 document.addEventListener('visibilitychange',run);})();
+</script>
+<script>
+// The five lines under "Time for a coffee break": the one nearest the middle of the screen is lit.
+(function(){var ul=document.getElementById('does');if(!ul)return;var li=ul.children,tick=false;
+function set(){tick=false;var mid=innerHeight*.5,best=0,d=1e9;for(var i=0;i<li.length;i++){var r=li[i].getBoundingClientRect(),x=Math.abs(r.top+r.height/2-mid);if(x<d){d=x;best=i}}
+for(i=0;i<li.length;i++)li[i].classList.toggle('on',i===best)}
+function ask(){if(!tick){tick=true;requestAnimationFrame(set)}}
+addEventListener('scroll',ask,{passive:true});addEventListener('resize',ask);set()})();
 </script>
 <script src="coffee-break.js" defer></script>
 </body>
