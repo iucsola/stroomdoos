@@ -3,14 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Primer beta · Stroomdoos</title>
-<meta name="description" content="How the Primer beta works: what you need, how to install it on your Mac and what to test.">
+<title>Primer beta guide · Stroomdoos</title>
+<!-- Tester guide. The beta is invite-only (Luc 11-11): testers get this link by email. noindex, not in the menu or sitemap. -->
+<meta name="robots" content="noindex">
+<meta name="description" content="Guide for Primer beta testers: what you need, how to install Primer and what to test.">
 <meta name="theme-color" content="#f1f0ea">
 <link rel="canonical" href="https://www.stroomdoos.com/beta.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Stroomdoos">
 <meta property="og:title" content="Primer beta">
-<meta property="og:description" content="How the Primer beta works: what you need, how to install it and what to test.">
+<meta property="og:description" content="Guide for Primer beta testers.">
 <meta property="og:url" content="https://www.stroomdoos.com/beta.html">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -24,51 +26,61 @@
 <header class="bar">
   <a class="word" href="/" aria-label="Stroomdoos home"><img src="/stroomdoos-woordmerk.svg" width="1600" height="389" alt="Stroomdoos"></a>
   <nav class="links" aria-label="Main">
-    <a href="/#how">How it works</a><a href="/beta.html">Beta</a><a href="/#about">About</a><a href="/bugreport.html" target="_blank" rel="noopener">Report a bug</a>
+    <a href="/#how">How it works</a><a href="/#about">About</a><a href="/bugreport.html" target="_blank" rel="noopener">Report a bug</a>
   </nav>
 </header>
 <main class="doc">
 <div class="doc-head">
 <img class="app-icon" data-icon src="/primer-icon.svg" width="48" height="48" alt="Primer app icon">
 <h1>The Primer <em>beta.</em></h1>
-<p class="lead">Primer puts your multitrack WAVs into Logic Pro in one go: each file on its own track, named, coloured and routed to an aux per group.</p>
+<p class="lead">This guide is for beta testers. Primer puts your multitrack WAVs into Logic Pro in one batch: one track per file, named, coloured and routed to an aux per group.</p>
 </div>
 <div class="doc-body">
-<p>Signed up? The download link comes by email. Not yet? <a href="/#test">Sign up here</a>.</p>
+<p>The beta is invite-only. Not a tester? <a href="/#test">Join the mailing list</a> and we'll tell you when Primer is out.</p>
 
 <h2>What you need</h2>
 <ul>
-<li>A Mac (Apple Silicon or Intel) with macOS 14 or newer.</li>
-<li>Logic Pro set to English. Tested on 12 and 13; other versions are very welcome.</li>
-<li>A few audio files or a massive multitrack, up to you!</li>
+<li>A Mac with macOS 14 or newer, Apple Silicon or Intel.</li>
+<li>Logic Pro 12 or 13, set to English.</li>
+<li>Multitrack WAV files. A few files or a full session.</li>
 </ul>
 
 <h2>Install</h2>
 <ol>
-<li>Open the .dmg and drag Primer to Applications. Open it from there, not from the .dmg or Downloads.</li>
-<li>The first time, macOS says Primer was downloaded from the internet and checked by Apple. Click <strong>Open</strong>.</li>
-<li>In Primer, the setup guide shows <strong>Open Accessibility Settings</strong>. Click it and turn Primer on in the list. Primer asks to restart: click <strong>Restart Primer</strong>. Back in Primer, the step gets a green check. That's how Primer operates Logic for you.</li>
+<li>Open the .dmg. Drag Primer to Applications.</li>
+<li>Open Primer from Applications. Do not open it from the .dmg or from Downloads.</li>
+<li>macOS tells you that Primer comes from the internet. Click <strong>Open</strong>.</li>
+<li>In the setup guide, click <strong>Open Accessibility Settings</strong>.</li>
+<li>Turn on Primer in the list.</li>
+<li>Click <strong>Restart Primer</strong>. The step gets a green check.</li>
 </ol>
-<p class="note">Primer icon bouncing in the Dock and nothing opens? A macOS message is waiting, probably behind another window.</p>
-<p class="note">Accessibility gives an app broad control over your Mac. Primer only uses it to operate Logic during an import.</p>
-<p class="note">macOS may also ask if Primer can access Apple Music and your media library. That's how macOS names your Music folder, where Logic keeps its projects and templates. Primer only reads them. Click <strong>Allow</strong>.</p>
+<p class="note">Primer bounces in the Dock but does not open? A macOS message is open behind another window. Find it and answer it.</p>
+<p class="note">Accessibility gives an app wide control of your Mac. Primer uses it only to operate Logic during an import.</p>
+<p class="note">macOS can ask for access to Apple Music and your media library. That is your Music folder, where Logic keeps projects and templates. Primer only reads them. Click <strong>Allow</strong>.</p>
 
 <h2>Test</h2>
 <ol>
-<li>Drop your files in Primer and press <strong>Import to Logic</strong>. Logic closed or no project open? Primer asks where the tracks go: your template or an empty project.</li>
-<li>Hands off the mouse and keyboard until it's done. The red Stop button stops it. On our test audio, 100 tracks took about 4.5 minutes and 150 tracks about 7.</li>
+<li>Drop your files in Primer.</li>
+<li>Press <strong>Import to Logic</strong>. Logic closed or no project open? Select your template or an empty project.</li>
+<li>Do not touch the mouse or keyboard until Primer is done. To stop, press the red <strong>Stop</strong> button.</li>
 <li>Save the project in Logic.</li>
-<li>Look in Logic: right auxes? Names? Colours? Silence stripped?</li>
-<li>Send us a report, also when everything worked: click <strong>Tell Us It Worked…</strong> on the result screen, or <strong>Bug Report</strong> when something went wrong, then <strong>Send Report</strong>. The report has your Primer, Mac, macOS and Logic version, your Primer settings and the last steps in Logic. It contains no audio. You can also use <a href="/bugreport.html" target="_blank" rel="noopener">the bug report page</a>.</li>
+<li>Check the project: auxes, names, colours and stripped silence.</li>
+<li>Send a report, also when everything worked. On the result screen, click <strong>Tell Us It Worked…</strong> or <strong>Bug Report</strong>. Then click <strong>Send Report</strong>.</li>
 </ol>
+<p class="note">On our test audio, 100 tracks took about 4.5 minutes.</p>
+<p class="note">A report contains your Primer, Mac, macOS and Logic versions, your Primer settings and the last steps in Logic. It contains no audio. You can also use <a href="/bugreport.html" target="_blank" rel="noopener">the bug report page</a>.</p>
 
 <h2>Updates</h2>
-<p>Choose <strong>Primer &gt; Check for Updates…</strong> and click <strong>Install Update</strong>: Primer restarts by itself. Or by hand: quit Primer, drag the new version from the .dmg to Applications and choose <strong>Replace</strong>. The first time macOS may ask again (see Install). If the setup guide asks for Accessibility again, switch Primer off and on in System Settings &gt; Privacy &amp; Security &gt; Accessibility.</p>
+<ol>
+<li>Choose <strong>Primer &gt; Check for Updates…</strong></li>
+<li>Click <strong>Install Update</strong>. Primer restarts.</li>
+</ol>
+<p class="note">The setup guide asks for Accessibility again? Open System Settings &gt; Privacy &amp; Security &gt; Accessibility. Turn Primer off, then on.</p>
 
 <h2>Your files</h2>
-<p>Primer runs on your Mac and only goes online when you choose Check for Updates or press Send Report in a bug report. It works on copies and never changes your original files. This is a test version: keep copies of your projects. More in the <a href="/privacy.html">privacy notice</a>.</p>
+<p>Primer runs on your Mac. It only goes online when you click Check for Updates or Send Report. Primer works on copies, so your original files do not change. This is a test version: keep copies of your projects. More in the <a href="/privacy.html">privacy notice</a>.</p>
 
-<a class="btn" href="mailto:support@stroomdoos.com">Questions? Email me</a>
+<a class="btn" href="mailto:support@stroomdoos.com">Questions? Email support</a>
 </div>
 </main>
 <footer class="foot">

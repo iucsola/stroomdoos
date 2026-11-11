@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="Stroomdoos">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="https://www.stroomdoos.com/">
-<meta property="og:description" content="A Mac app that puts your multitrack WAVs into Logic Pro in one batch. Looking for beta testers.">
+<meta property="og:description" content="A Mac app that puts your multitrack WAVs into Logic Pro in one batch.">
 <meta name="theme-color" content="#f1f0ea">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -128,7 +128,7 @@ section{padding:clamp(96px,12vw,192px) 0}
     <nav class="links" aria-label="Main">
       <a href="#how">How it works</a><a href="#about">About</a><a href="/bugreport.html" target="_blank" rel="noopener">Report a bug</a>
     </nav>
-    <a class="btn btn-small" href="#test">Try it first</a>
+    <a class="btn btn-small" href="#test">Get updates</a>
   </header>
 </div>
 
@@ -140,7 +140,7 @@ section{padding:clamp(96px,12vw,192px) 0}
       <h1 id="top" data-in style="--i:1">More time<br>spent mixing.</h1>
       <p class="lede" data-in style="--i:2">Take a walk, stretch your legs, grab a coffee. Primer is your hardworking assistant engineer, prepping your session while you're taking a break.</p>
       <div class="row" data-in style="--i:3">
-        <a class="btn" href="#test">Try it first</a>
+        <a class="btn" href="#test">Get updates</a>
         <a href="#how">How it works</a>
       </div>
       <p class="meta" data-in style="--i:4">macOS 14 or newer&nbsp;· Apple Silicon or Intel&nbsp;· Logic Pro 12 and 13 in English, tested</p>
@@ -157,10 +157,10 @@ section{padding:clamp(96px,12vw,192px) 0}
         <h2 id="how-h" class="sec-head" data-in>Four steps. One batch.</h2>
       </div>
       <ol id="does">
-        <li><b>Drop the WAVs</b><span>Drag in a folder or a few files. Primer checks them first and tells you about any problem, like mixed sample rates.</span></li>
-        <li><b>Name and group</b><span>Primer guesses a group from each file name. Check the list, then rename or move what you like. Right-click a stereo WAV to split it into two mono tracks.</span></li>
-        <li><b>Prepare copies</b><span>Primer works on copies with your names and order. Your originals stay untouched.</span></li>
-        <li><b>Import to Logic</b><span>One track per file, coloured and routed to your auxes. Logic not open yet? Pick your template or an empty project, then watch it go.</span></li>
+        <li><b>Drop the WAVs</b><span>Drag in a folder or some files. Primer checks them and tells you about problems, such as mixed sample rates.</span></li>
+        <li><b>Name and group</b><span>Primer finds a group for each file from its name. Check the list. Change names and groups where needed. To split a stereo WAV into two mono tracks, right-click it.</span></li>
+        <li><b>Prepare copies</b><span>Primer makes copies with your names and order. Your original files do not change.</span></li>
+        <li><b>Import to Logic</b><span>Press Import to Logic. Primer makes one track per file, coloured and routed to your auxes. Logic closed? Select your template or an empty project.</span></li>
       </ol>
     </div>
     <div class="cup" data-in style="--i:2">
@@ -172,25 +172,26 @@ section{padding:clamp(96px,12vw,192px) 0}
 <section id="test" class="test" aria-labelledby="test-h">
   <div class="wrap test-grid">
     <div>
-      <h2 id="test-h" class="sec-head" data-in>Wanna test it?</h2>
-      <p class="intro" data-in style="--i:1">The beta is open to everyone with a Mac on macOS 14+ and Logic Pro 12 or 13. Sign up and the download link comes by email. Here's the deal:</p>
-    <form class="signup" data-in style="--i:2" id="signup" method="POST" action="https://7b8107a8.sibforms.com/serve/MUIFAFnwMQP7iq7N-pFmc7aV6stExarzyUCg815D9GCm9vrje8pgOC8jF2bD0t4WscMcAnFUdw3Af7226kEA_cTakxoMIXmgEM1MZmeFtgro3Noeo3K-GAAb6b40942MaQ5s1FE2ilaNT9U3Eqo2kRf8XTHdQ_Oo9QSoXqxM6o8K6PdjfvkX4Hs3Kx1-6L9bLewN3x2LIhuyGjDEfg==">
+      <h2 id="test-h" class="sec-head" data-in>Hear it first.</h2>
+      <p class="intro" data-in style="--i:1">The beta is invite-only. Leave your email and we'll tell you when Primer is out.</p>
+    <!-- Mailing list (closed beta, Luc 11-11). Before going live: replace MAILINGLIST-FORM-URL with the Brevo form of "Primer mailinglist". -->
+    <form class="signup" data-in style="--i:2" id="signup" method="POST" action="MAILINGLIST-FORM-URL">
       <label for="signup-email">Your email</label>
       <div class="signup-row">
         <input type="email" id="signup-email" name="EMAIL" placeholder="you@example.com" autocomplete="email" required>
-        <button class="btn" type="submit">I'm in</button>
+        <button class="btn" type="submit">Sign up</button>
       </div>
       <input class="hp" type="text" name="email_address_check" value="" tabindex="-1" autocomplete="off" aria-hidden="true">
       <input type="hidden" name="locale" value="en">
       <input type="hidden" name="html_type" value="simple">
-      <p class="signup-note">Only emails about Primer. No spam, unsubscribe anytime. <a href="/privacy.html">Privacy</a> · <a href="/beta.html">How the beta works</a> · <a href="https://www.instagram.com/stroomdoos/" rel="me">@stroomdoos</a></p>
+      <p class="signup-note">Only emails from Stroomdoos. No spam, unsubscribe anytime. <a href="/privacy.html">Privacy</a> · <a href="https://www.instagram.com/stroomdoos/" rel="me">@stroomdoos</a></p>
       <p class="signup-msg" id="signup-msg" role="status" aria-live="polite"></p>
     </form>
     </div>
     <ol data-in style="--i:2">
-      <li><h3>Install</h3><p>Follow the <a href="/beta.html">install guide</a>.</p></li>
-      <li><h3>Setup</h3><p>Select your files, then link your Logic template or start from an empty project.</p></li>
-      <li><h3>Import</h3><p>Press Import to Logic and let Primer do the rest.</p></li>
+      <li><h3>Release</h3><p>An email when Primer is out.</p></li>
+      <li><h3>Progress</h3><p>Short updates while we build it.</p></li>
+      <li><h3>New tools</h3><p>News when a new Stroomdoos app is ready.</p></li>
     </ol>
   </div>
 </section>
@@ -200,7 +201,7 @@ section{padding:clamp(96px,12vw,192px) 0}
     <div>
       <h2 id="about-h" class="sec-head" data-in>Made by an engineer, for engineers.</h2>
       <p data-in style="--i:1">I'm Luc, and I make Primer in the Netherlands under the name Stroomdoos (/ˈstroːmdoːs/, Dutch for power box).</p>
-      <p data-in style="--i:2">Questions? Just mail <a href="mailto:support@stroomdoos.com">support@stroomdoos.com</a>.</p>
+      <p data-in style="--i:2">Need help with Primer? Mail <a href="mailto:support@stroomdoos.com">support@stroomdoos.com</a>. Anything else: <a href="mailto:info@stroomdoos.com">info@stroomdoos.com</a>.</p>
     </div>
     <img class="strip" src="stroomdoos-stekkerdoos.svg" width="720" height="713" alt="" data-in style="--i:2">
   </div>
@@ -235,21 +236,21 @@ section{padding:clamp(96px,12vw,192px) 0}
     f.elements.email_address_check.value='';
     var b=f.querySelector('button');
     b.disabled=true;msg.className='signup-msg';msg.textContent='Sending…';
-    var mail='<a href="mailto:support@stroomdoos.com?subject=Primer%20beta&body=Please%20add%20me%20to%20the%20Primer%20beta.">support@stroomdoos.com</a>';
+    var mail='<a href="mailto:info@stroomdoos.com?subject=Mailing%20list&body=Please%20add%20me%20to%20the%20Stroomdoos%20mailing%20list.">info@stroomdoos.com</a>';
     function done(text){f.querySelector('.signup-row').remove();msg.className='signup-msg';msg.innerHTML=text}
     function fail(){b.disabled=false;msg.className='signup-msg err';msg.innerHTML='Hmm, that didn\'t work. Try again, or just email '+mail+'.'}
     // Blocked or odd response (content blocker, flaky network, bot check): post the form in a hidden frame so the visitor stays here.
     function plainPost(){
       var fr=document.createElement('iframe');fr.name='signup-frame';fr.hidden=true;document.body.appendChild(fr);
-      fr.onload=function(){try{if(fr.contentWindow.location.href==='about:blank')return}catch(x){}done('Almost there: a welcome email should arrive within a few minutes (check spam too). Nothing? Email '+mail+' and I\'ll add you.')};
+      fr.onload=function(){try{if(fr.contentWindow.location.href==='about:blank')return}catch(x){}done('Thanks, you\'re on the list. Something wrong? Email '+mail+' and I\'ll add you.')};
       f.target='signup-frame';HTMLFormElement.prototype.submit.call(f);
     }
-    fetch('https://stroomdoos-signup.empty-voice-4b54.workers.dev/signup',{method:'POST',body:new FormData(f)})
+    fetch('https://stroomdoos-signup.empty-voice-4b54.workers.dev/updates',{method:'POST',body:new FormData(f)})
       .then(function(r){return r.json()})
       .then(function(d){
         // The service could not confirm it: the browser posts it itself, which Brevo accepts.
         if(!d.success)return plainPost();
-        done('Nice, you\'re on the list! Check your inbox for a welcome email (or your spam folder).');
+        done('Nice, you\'re on the list.');
       },plainPost);
   });
 })();
