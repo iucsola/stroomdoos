@@ -20,6 +20,7 @@
 .card .meta{margin:18px 0 0;font-size:var(--t-small)}
 .card .meta span+span::before{content:" · "}
 .card+.note{margin-top:20px}
+.card .started{margin:14px 0 0;font-size:var(--t-small)}
 </style>
 </head>
 <body>
@@ -34,15 +35,17 @@
 <div class="doc-head">
 <img class="app-icon" data-icon src="/primer-icon.svg" width="48" height="48" alt="Primer app icon">
 <h1>Download <em>Primer.</em></h1>
-<p class="lead">Thanks for testing. Download Primer, install it and send us a report.</p>
+<p class="lead">Thanks for testing.</p>
 </div>
 <div class="doc-body">
 
 <div class="card">
-  <!-- At the release: replace the Coming soon line with this button (VERSION 2x) and add the size to the meta line.
-  <a class="btn" href="https://github.com/iucsola/stroomdoos/releases/download/primer-VERSION/Primer-VERSION.dmg" download>Download Primer VERSION (.dmg)</a> -->
+  <!-- At the release: delete the Coming soon line, uncomment the button and the line under it, fill in VERSION (3x) and add the size to the meta line.
+  The email button links to /download.html?start: then the download starts by itself, so testers need one click.
+  <a class="btn" id="dl" href="https://github.com/iucsola/stroomdoos/releases/download/primer-VERSION/Primer-VERSION.dmg">Download Primer VERSION</a>
+  <p class="started" id="dl-started" hidden>Your download has started. Nothing happening? Click the button.</p> -->
   <p><strong>Coming soon.</strong> The beta is invite-only. Testers get an email when the download is ready.</p>
-  <p class="meta"><span>macOS 14 or newer</span><span>Apple Silicon and Intel</span><span>Logic Pro 12+</span></p>
+  <p class="meta"><span>macOS 14 or newer</span><span>Apple Silicon or Intel</span><span>Logic Pro 12+ in English</span></p>
 </div>
 <p class="note">Already have Primer? Choose <strong>Primer &gt; Check for Updates…</strong> instead.</p>
 
@@ -53,11 +56,13 @@
 <li>In the setup guide, click <strong>Open Accessibility Settings</strong> and turn on Primer. Primer needs this to click through Logic for you.</li>
 <li>If macOS asks about Apple Music and your media library, click <strong>Allow</strong>. Logic keeps your templates in your Music folder, so Primer looks there to show them. It only reads them.</li>
 </ol>
-<p class="note">During an import, do not touch the mouse or keyboard. On our test audio, 100 tracks took about 4.5 minutes.</p>
-<p>All steps, what to test and how updates work: <a href="/beta.html">the beta guide</a>.</p>
+<p class="note">During an import, keep your hands off the mouse and keyboard. On our test audio, 100 tracks took about 4.5 minutes.</p>
+
+<h2>After your first import</h2>
+<p>Open <strong>Bug Report</strong> in Primer and click <strong>Send Report</strong>, also if everything worked. The report has no audio in it. What to test and how updates work: <a href="/beta.html">the beta guide</a>.</p>
 
 <h2>Your files</h2>
-<p>Primer runs on your Mac. It only goes online when you click Check for Updates or Send Report. Primer works on copies, so your original files do not change. This is a test version: keep copies of your projects. More in the <a href="/privacy.html">privacy notice</a>.</p>
+<p>Primer works on copies, so your original files stay as they are. It only goes online when you click Check for Updates or Send Report. This is a test version, so keep copies of your projects. More in the <a href="/privacy.html">privacy notice</a>.</p>
 
 <a class="btn" href="mailto:support@stroomdoos.com">Stuck? Email support</a>
 </div>
@@ -69,5 +74,15 @@
   </div>
 </footer>
 </div>
+<script>
+// Opened from the beta email (/download.html?start): start the download by itself.
+(function () {
+  var a = document.getElementById('dl');
+  if (!a || !/[?&]start\b/.test(location.search)) return;
+  var note = document.getElementById('dl-started');
+  if (note) note.hidden = false;
+  setTimeout(function () { location.href = a.href; }, 500);
+})();
+</script>
 </body>
 </html>
