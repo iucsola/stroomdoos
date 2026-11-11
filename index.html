@@ -67,11 +67,9 @@ section{padding:clamp(96px,12vw,192px) 0}
 .how li::before{content:counter(step);display:block;margin-bottom:28px;font-size:var(--t-small);font-weight:700;color:var(--motif)}
 .how li p{margin-top:16px;max-width:28ch;font-size:var(--t-lead);line-height:1.4}
 
-.show{background:var(--ink);color:var(--ground)}
-.show .sec-head{font-size:clamp(32px,6.6vw,104px)}
-.show 
 .coffee{background:#dfdbd1}
 .coffee-grid{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:clamp(40px,6vw,112px);align-items:center}
+.coffee .sec-head{font-size:clamp(34px,4.7vw,74px)}
 .coffee p{margin-top:32px;font-size:var(--t-lead);line-height:1.4;max-width:30ch}
 .coffee .cup{position:relative;width:100%;max-width:560px;justify-self:end}
 .coffee .cup svg{display:block;width:100%;height:auto}
@@ -121,22 +119,6 @@ section{padding:clamp(96px,12vw,192px) 0}
 @media (prefers-reduced-motion:reduce){
   .js [data-in]{transform:none}
 }
-.has-bg{position:relative;isolation:isolate;overflow:hidden}
-.sec-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-1;pointer-events:none;
-  -webkit-mask-image:linear-gradient(180deg,transparent 0,#000 8%,#000 92%,transparent 100%);mask-image:linear-gradient(180deg,transparent 0,#000 8%,#000 92%,transparent 100%)}
-.show .sec-bg{opacity:.36;filter:saturate(.8);transition:opacity 1.2s ease}
-.show .sec-bg.rust{opacity:0}
-.show.focus{min-height:min(94vh,980px);display:flex;align-items:center}
-.show.focus .wrap{width:100%}
-.show.focus .sec-head{font-size:clamp(44px,8vw,128px)}
-.focus-schaduw .sec-bg{opacity:.6}
-.focus-schaduw::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(100deg,rgba(23,25,28,.92) 0%,rgba(23,25,28,.7) 38%,rgba(23,25,28,.15) 75%,rgba(23,25,28,0) 100%)}
-.focus-schaduw .sec-head{text-shadow:0 2px 30px rgba(0,0,0,.55)}
-@media (max-width:620px){.focus-schaduw::before{background:rgba(23,25,28,.62)}}
-.show .edge{position:absolute;left:0;right:0;height:clamp(64px,9vw,140px);z-index:0;pointer-events:none}
-.show .edge-top{top:-1px;background:linear-gradient(180deg,rgba(241,240,234,1) 0%,rgba(241,240,234,.74) 19%,rgba(241,240,234,.54) 34%,rgba(241,240,234,.38) 47%,rgba(241,240,234,.27) 56.5%,rgba(241,240,234,.18) 65%,rgba(241,240,234,.11) 73%,rgba(241,240,234,.06) 80%,rgba(241,240,234,.03) 86%,rgba(241,240,234,.01) 91%,rgba(241,240,234,0) 100%)}
-.show .edge-bottom{bottom:-1px;background:linear-gradient(0deg,rgba(241,240,234,1) 0%,rgba(241,240,234,.74) 19%,rgba(241,240,234,.54) 34%,rgba(241,240,234,.38) 47%,rgba(241,240,234,.27) 56.5%,rgba(241,240,234,.18) 65%,rgba(241,240,234,.11) 73%,rgba(241,240,234,.06) 80%,rgba(241,240,234,.03) 86%,rgba(241,240,234,.01) 91%,rgba(241,240,234,0) 100%)}
-.show .wrap{position:relative;z-index:1}
 </style>
 </head>
 <body>
@@ -165,8 +147,6 @@ section{padding:clamp(96px,12vw,192px) 0}
     </div>
     <figure class="hero-shot"><img src="shot-files.jpg" width="1600" height="1006" alt="Primer main window: nine tracks in four groups, each with its name in Logic and its aux, and Import to Logic with its options on the right.">
       <div class="loop" id="hero-loop" aria-hidden="true"><i class="empty start"></i><i class="base"></i><i class="press"></i><i class="dot"></i><video class="v1" muted playsinline preload="none" data-src="hero-colour.mp4"></video><video class="v2" muted playsinline preload="none" data-src="hero-cut.mp4"></video><i class="empty end"></i></div></figure>
-    <!-- Demo video: when the screen recording is ready, save it as primer-import.mp4 and replace the <figure> above with:
-    <figure class="hero-shot"><video autoplay muted loop playsinline poster="shot-files.jpg" width="1600" height="1006" aria-label="Primer importing nine tracks into Logic Pro."><source src="primer-import.mp4" type="video/mp4"></video></figure> -->
   </div>
 </div>
 
@@ -182,18 +162,11 @@ section{padding:clamp(96px,12vw,192px) 0}
   </div>
 </section>
 
-<section class="show has-bg focus focus-schaduw" aria-labelledby="show-h">
-  <span class="edge edge-top" aria-hidden="true"></span><span class="edge edge-bottom" aria-hidden="true"></span>
-  <video class="sec-bg" autoplay muted loop playsinline preload="auto" poster="primer-import.jpg" aria-hidden="true"><source src="primer-import.mp4" type="video/mp4"></video>
-  <div class="wrap">
-    <h2 id="show-h" class="sec-head" data-in>Names. Groups. Colours.<br>Routing. Strip Silence.</h2>
-  </div>
-</section>
-
 <section class="coffee" aria-labelledby="coffee-h">
   <div class="wrap coffee-grid">
     <div>
-      <h2 id="coffee-h" class="sec-head" data-in>Time for a coffee break.</h2>
+      <h2 id="coffee-h" class="sec-head" data-in>Names. Groups. Colours.<br>Routing. Strip Silence.</h2>
+      <p data-in style="--i:1">Time for a coffee break.</p>
     </div>
     <div class="cup" data-in style="--i:2">
       <svg id="coffee-card" viewBox="0 0 320 226" role="img" aria-label="Primer's Coffee break card: a cup in the logo style, a waveform that fills with the track colours and the step that runs."></svg>
@@ -301,11 +274,5 @@ if('IntersectionObserver' in window)new IntersectionObserver(function(es){seen=e
 document.addEventListener('visibilitychange',run);})();
 </script>
 <script src="coffee-break.js" defer></script>
-<script>
-// Background video: fade out just before the end and fade back in from the start, so the loop is calm.
-(function(){var v=document.querySelector('.sec-bg');if(!v)return;v.loop=false;
-v.addEventListener('timeupdate',function(){if(v.duration&&v.duration-v.currentTime<1.3)v.classList.add('rust')});
-v.addEventListener('ended',function(){v.currentTime=0;var p=v.play();if(p&&p.catch)p.catch(function(){});setTimeout(function(){v.classList.remove('rust')},150)});})();
-</script>
 </body>
 </html>
