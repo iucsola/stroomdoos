@@ -25,6 +25,9 @@
 <script>document.documentElement.classList.add('js')</script>
 <style>
 section{padding:clamp(96px,12vw,192px) 0}
+/* Each section fills at least one screen, so a jump from the menu lands on a clean section on every device. */
+#how,#test,#about{min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:center}
+#how>.wrap,#test>.wrap,#about>.wrap{width:100%}
 .sec-head{font-size:var(--t-display)}
 
 .hero{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,4vw,72px);align-items:center;padding:clamp(40px,7vh,96px) 0 clamp(80px,10vw,144px)}
