@@ -26,8 +26,8 @@
 <style>
 section{padding:clamp(96px,12vw,192px) 0}
 /* Each section fills at least one screen, so a jump from the menu lands on a clean section on every device. */
-#how,#test,#about{min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:center}
-#how>.wrap,#test>.wrap,#about>.wrap{width:100%}
+#test,#about{min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:center}
+#test>.wrap,#about>.wrap{width:100%}
 .sec-head{font-size:var(--t-display)}
 
 .hero{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,4vw,72px);align-items:center;padding:clamp(40px,7vh,96px) 0 clamp(80px,10vw,144px)}
@@ -39,26 +39,54 @@ section{padding:clamp(96px,12vw,192px) 0}
 .hero .row{display:flex;align-items:center;gap:24px;margin-top:40px;flex-wrap:wrap}
 .hero .meta{text-wrap:balance;margin-top:32px;font-size:var(--t-small);color:var(--soft)}
 .hero-shot img,.hero-shot video{width:100%;height:auto;border-radius:var(--radius)}
-.hero-shot{margin:0;border-radius:var(--radius);overflow:hidden;animation:settle 1.4s var(--ease) both}
+.hero-shot{position:relative;margin:0;border-radius:var(--radius);overflow:hidden;animation:settle 1.4s var(--ease) both}
 .hero-shot img{display:block}
-@keyframes l-base{0%,3.73%{opacity:0}7.46%,100%{opacity:1}}
-@keyframes l-dot{0%,11.19%{opacity:0;transform:none}12.69%{opacity:1;transform:none}16.04%,17.91%{opacity:1;transform:translate(1690%,-2200%)}19.78%,100%{opacity:0;transform:translate(1690%,-2200%)}}
-@keyframes l-press{0%,16.04%{opacity:0;filter:none}16.08%{opacity:1;filter:none}17.16%{opacity:1;filter:brightness(.82)}19.03%{opacity:1;filter:none}19.07%,100%{opacity:0}}
-@keyframes l-v1{0%,20.15%{opacity:0}25.00%,100%{opacity:1}}
-@keyframes l-v2{0%,57.46%{opacity:0}60.82%,100%{opacity:1}}
-@keyframes l-end{0%,90.30%{opacity:0}94.78%,100%{opacity:1}}
+/* Hero loop (Luc 18-11): the light picture, a click on Import to Logic, Luc's own import in Logic (screen recording,
+   sped up) with the light Coffee break card, and back to the picture. Restarts every 24 s. */
+.loop{position:absolute;inset:0;display:none}
+.loop.on{display:block}
+.loop>*{position:absolute;inset:0;opacity:0;will-change:opacity,transform}
+.loop.play>*{animation:24s linear both}
+.loop .press{background:url(shot-light.jpg) 0 0/100% 100%;clip-path:inset(8.3% 3.1% 83.9% 71.7%);filter:brightness(2.4)}
+.loop.play .press{animation-name:l-press}
+.loop .dot{inset:auto;left:58%;top:64%;width:1.6%;aspect-ratio:1;border-radius:50%;background:var(--motif)}
+.loop.play .dot{animation-name:l-dot;animation-timing-function:var(--ease)}
+.loop .clip>*{position:absolute;left:0;bottom:0;width:100%;height:auto;border-radius:0}
+.loop .c1,.loop .c2{background:#302f30}
+.loop .end{background:url(shot-light.jpg) 0 0/100% 100%}
+.loop.play .c1{animation-name:l-c1}
+.loop.play .c2{animation-name:l-c2}
+.loop.play .end{animation-name:l-end}
+@keyframes l-dot{0%,8.33%{opacity:0;transform:none}9.58%{opacity:1;transform:none}14.58%{opacity:1;transform:translate(1594%,-2215%)}15.42%{opacity:1;transform:translate(1594%,-2215%) scale(.72)}16.25%,17.5%{opacity:1;transform:translate(1594%,-2215%)}18.75%,100%{opacity:0;transform:translate(1594%,-2215%)}}
+@keyframes l-press{0%,14.58%{opacity:0}15%,16.25%{opacity:1}17.5%,100%{opacity:0}}
+@keyframes l-c1{0%,17.5%{opacity:0}20.83%,100%{opacity:1}}
+@keyframes l-c2{0%,54.17%{opacity:0}56.67%,100%{opacity:1}}
+@keyframes l-end{0%,85.83%{opacity:0}89.17%,100%{opacity:1}}
 
-/* Four steps on a dark field: the card stays in view while the steps pass, the step in the middle of the screen is lit. */
-.coffee{background:var(--ink);color:var(--ground)}
-.coffee-grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(40px,6vw,112px);align-items:start}
-.coffee .intro{margin-top:32px;font-size:var(--t-lead);line-height:1.4;max-width:30ch}
-.coffee ol{list-style:none;margin:clamp(56px,7vw,112px) 0 0;padding:0;display:grid;gap:clamp(40px,5vw,72px)}
-.coffee li b{display:block;font-size:clamp(40px,5.6vw,88px);font-weight:800;font-stretch:75%;letter-spacing:-.03em;line-height:.92}
-.coffee li span{display:block;margin-top:14px;font-size:var(--t-lead);line-height:1.4;max-width:34ch}
-.js .coffee li{opacity:.3;transition:opacity .7s var(--ease)}
-.js .coffee li.on{opacity:1}
-.coffee .cup{position:sticky;top:calc(50vh - 170px);width:100%;max-width:480px;justify-self:end}
-.coffee .cup svg{display:block;width:100%;height:auto}
+/* How it works, without words (Luc 18-11): Primer's Coffee break card in its light look floats in the middle, over a
+   Logic-like arrange area, and the scroll runs the import step by step (coffee-break.js). */
+.coffee{background:var(--ink);padding:0;--per:44svh}
+.js .coffee{height:calc(100vh + 6.6 * var(--per));height:calc(100svh + 6.6 * var(--per))}
+.coffee-stage{position:sticky;top:0;height:100vh;height:100svh;display:grid;place-items:center;overflow:hidden}
+.lanes{position:absolute;inset:11% var(--pad);display:grid;grid-template-rows:repeat(9,1fr);align-items:center}
+.lane{position:relative;height:46%}
+.lane::before,.lane::after{content:"";position:absolute;left:0;top:0;bottom:0;width:94%;border-radius:4px;transition:opacity .45s var(--ease)}
+.lane::before{background:#30333a}
+.lane::after{background:var(--c);opacity:0}
+.lane.col::after{opacity:1}
+.lane.cut::before,.lane.cut::after{opacity:0}
+.lane i{position:absolute;top:0;bottom:0;background:#30333a}
+.lane i::after{content:"";position:absolute;inset:0;border-radius:inherit;background:var(--c);opacity:0;transition:opacity .5s var(--ease)}
+.lane i:first-child{border-radius:4px 0 0 4px}
+.lane i:last-child{border-radius:0 4px 4px 0}
+.lane.col i::after{opacity:1}
+.lane i.quiet{transition:transform .45s var(--ease),opacity .45s var(--ease)}
+.lane.cut i.quiet{transform:scaleX(0);opacity:0}
+.lane.cut i.sound{border-radius:4px}
+.js .lane{opacity:0;transform:translateX(-40px);transition:opacity .5s var(--ease),transform .6s var(--ease)}
+.js .lane.in{opacity:1;transform:none}
+#coffee-card{position:relative;display:block;width:min(620px,100% - 2 * var(--pad),(100svh - 120px) * 1.55);height:auto;filter:drop-shadow(0 10px 28px rgba(0,0,0,.5))} /* taste-skill-ignore: the card floats over Logic, with the shadow it has in Primer (CoffeeBreak.swift) */
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
 
 .test{background:var(--motif)}
 .test :focus-visible{outline-color:var(--ink)}
@@ -92,13 +120,8 @@ section{padding:clamp(96px,12vw,192px) 0}
 .js [data-in].in{opacity:1;transform:none}
 @keyframes settle{from{transform:scale(1.04)}to{transform:none}}
 
-@media (max-width:1100px){
-}
 @media (max-width:900px){
-  .hero,.test-grid,.coffee-grid{grid-template-columns:1fr}
-  .coffee .cup{position:static;justify-self:start;max-width:420px;grid-row:2}
-  .coffee-grid>div:first-child{display:contents}
-  .coffee ol{margin-top:0;grid-row:3}
+  .hero,.test-grid{grid-template-columns:1fr}
   .hero{padding-top:24px}
     }
 @media (max-width:620px){
@@ -107,7 +130,10 @@ section{padding:clamp(96px,12vw,192px) 0}
   }
 @media (prefers-reduced-motion:reduce){
   .js [data-in]{transform:none}
-  .js .coffee li{transition:none}
+  .loop,.loop.on{display:none}
+  .js .coffee{height:auto}
+  .coffee-stage{position:relative}
+  .js .lane,.lane i,.lane i::after{transition:none}
 }
 </style>
 </head>
@@ -135,26 +161,16 @@ section{padding:clamp(96px,12vw,192px) 0}
       </div>
       <p class="meta" data-in style="--i:4">macOS 14 or newer&nbsp;· Logic Pro 11+</p>
     </div>
-    <figure class="hero-shot"><img src="shot-light.jpg" width="1600" height="1070" alt="Primer main window in light mode: nine tracks in four groups, each with its name in Logic. On the right: Import to Logic and where the tracks go."></figure>
+    <figure class="hero-shot"><img src="shot-light.jpg" width="1600" height="1070" alt="Primer main window in light mode: nine tracks in four groups, each with its name in Logic. On the right: Import to Logic and where the tracks go.">
+      <div class="loop" id="hero-loop" aria-hidden="true"><i class="press"></i><i class="dot"></i><div class="clip c1"><video muted playsinline preload="none" poster="hero-import.jpg" data-src="hero-import.mp4"></video></div><div class="clip c2"><video muted playsinline preload="none" poster="hero-cut.jpg" data-src="hero-cut.mp4"></video></div><i class="end"></i></div></figure>
   </div>
 </div>
 
 <section id="how" class="coffee" aria-labelledby="how-h">
-  <div class="wrap coffee-grid">
-    <div>
-      <div class="head">
-        <h2 id="how-h" class="sec-head" data-in>Four steps.</h2>
-      </div>
-      <ol id="does">
-        <li><b>Drop your audio</b><span>Files or a folder.</span></li>
-        <li><b>Names and groups</b><span>Primer sorts by name. Change what's wrong.</span></li>
-        <li><b>Import to Logic</b><span>One track per file, coloured and routed.</span></li>
-        <li><b>Coffee time</b></li>
-      </ol>
-    </div>
-    <div class="cup" data-in style="--i:2">
-      <svg id="coffee-card" viewBox="0 0 320 226" role="img" aria-label="Primer's Coffee break card: a cup in the logo style, a waveform that fills with the track colours and the step that runs."></svg>
-    </div>
+  <h2 id="how-h" class="sr-only">How it works</h2>
+  <div class="coffee-stage">
+    <div class="lanes" aria-hidden="true"></div>
+    <svg id="coffee-card" viewBox="0 0 320 206" role="img" aria-label="Primer's Coffee break card during an import: it pastes the tracks, routes the outputs, sets No Input, sends the colours, cleans the names and, if you choose, strips the silence."></svg>
   </div>
 </section>
 
@@ -242,12 +258,19 @@ section{padding:clamp(96px,12vw,192px) 0}
 })();
 </script>
 <script>
-// The four steps: the one nearest the middle of the screen is lit.
-(function(){var ul=document.getElementById('does');if(!ul)return;var li=ul.children,tick=false;
-function set(){tick=false;var mid=innerHeight*.5,best=0,d=1e9;for(var i=0;i<li.length;i++){var r=li[i].getBoundingClientRect(),x=Math.abs(r.top+r.height/2-mid);if(x<d){d=x;best=i}}
-for(i=0;i<li.length;i++)li[i].classList.toggle('on',i===best)}
-function ask(){if(!tick){tick=true;requestAnimationFrame(set)}}
-addEventListener('scroll',ask,{passive:true});addEventListener('resize',ask);set()})();
+// Hero loop: starts once the picture is loaded, the two clips play at their moment, pauses while off screen.
+(function(){var l=document.getElementById('hero-loop');if(!l||(window.matchMedia&&matchMedia('(prefers-reduced-motion:reduce)').matches))return;
+var v=l.querySelectorAll('video'),pic=l.parentNode.querySelector('img'),T=[],ready=false,seen=true;
+function at(s,f){T.push(setTimeout(f,s*1000))}
+function clip(x){x.currentTime=0;var p=x.play();if(p&&p.catch)p.catch(function(){})}
+function stop(){T.forEach(clearTimeout);T=[];l.classList.remove('play');[].forEach.call(v,function(x){x.pause()})}
+function run(){stop();if(!ready||!seen||document.hidden)return;void l.offsetWidth;l.classList.add('on','play');
+at(4.2,function(){clip(v[0])});at(13,function(){clip(v[1])});at(24,run)}
+function start(){ready=true;[].forEach.call(v,function(x){x.preload='auto';x.src=x.getAttribute('data-src')});run()}
+if(pic.complete)start();else pic.addEventListener('load',start);
+// The figure, not the loop: the loop has no box until it starts.
+if('IntersectionObserver' in window)new IntersectionObserver(function(es){seen=es[0].isIntersecting;run()}).observe(l.parentNode);
+document.addEventListener('visibilitychange',run)})();
 </script>
 <script src="coffee-break.js" defer></script>
 </body>
