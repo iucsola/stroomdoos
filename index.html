@@ -40,20 +40,22 @@ section{padding:clamp(96px,12vw,192px) 0}
 .hero .meta{text-wrap:balance;margin-top:32px;font-size:var(--t-small);color:var(--soft)}
 .hero-shot img,.hero-shot video{width:100%;height:auto;border-radius:var(--radius)}
 .hero-shot{position:relative;margin:0;border-radius:var(--radius);overflow:hidden;animation:settle 1.4s var(--ease) both}
-.hero-shot img{display:block}
+.hero-shot img{display:block;aspect-ratio:1280/802;object-fit:cover;object-position:top}
+/* The frame has the shape of the Logic clips (1280x802), so Logic fills it from the top (no dark band above it, Luc 18-11);
+   the Primer picture loses only an empty strip at the bottom. */
 /* Hero loop (Luc 18-11): the light picture, a click on Import to Logic, Luc's own import in Logic (screen recording,
    sped up) with the light Coffee break card, and back to the picture. Restarts every 24 s. */
 .loop{position:absolute;inset:0;display:none}
 .loop.on{display:block}
 .loop>*{position:absolute;inset:0;opacity:0;will-change:opacity,transform}
 .loop.play>*{animation:24s linear both}
-.loop .press{background:url(shot-light.jpg) 0 0/100% 100%;clip-path:inset(8.3% 3.1% 83.9% 71.7%);filter:brightness(2.4)}
+.loop .press{background:url(shot-light.jpg) 0 0/100% auto;clip-path:inset(8.86% 3.1% 82.8% 71.7%);filter:brightness(2.4)}
 .loop.play .press{animation-name:l-press}
-.loop .dot{inset:auto;left:58%;top:64%;width:1.6%;aspect-ratio:1;border-radius:50%;background:var(--motif)}
+.loop .dot{inset:auto;left:58%;top:68.34%;width:1.6%;aspect-ratio:1;border-radius:50%;background:var(--motif)}
 .loop.play .dot{animation-name:l-dot;animation-timing-function:var(--ease)}
-.loop .clip>*{position:absolute;left:0;bottom:0;width:100%;height:auto;border-radius:0}
+.loop .clip>*{position:absolute;left:0;top:0;width:100%;height:auto;border-radius:0}
 .loop .c1,.loop .c2{background:#302f30}
-.loop .end{background:url(shot-light.jpg) 0 0/100% 100%}
+.loop .end{background:url(shot-light.jpg) 0 0/100% auto}
 .loop.play .c1{animation-name:l-c1}
 .loop.play .c2{animation-name:l-c2}
 .loop.play .end{animation-name:l-end}
@@ -161,7 +163,7 @@ section{padding:clamp(96px,12vw,192px) 0}
       </div>
       <p class="meta" data-in style="--i:4">macOS 14 or newer&nbsp;· Logic Pro 11+</p>
     </div>
-    <figure class="hero-shot"><img src="shot-light.jpg" width="1600" height="1070" alt="Primer main window in light mode: nine tracks in four groups, each with its name in Logic. On the right: Import to Logic and where the tracks go.">
+    <figure class="hero-shot"><img src="shot-light.jpg" width="1600" height="1003" alt="Primer main window in light mode: nine tracks in four groups, each with its name in Logic. On the right: Import to Logic and where the tracks go.">
       <div class="loop" id="hero-loop" aria-hidden="true"><i class="press"></i><i class="dot"></i><div class="clip c1"><video muted playsinline preload="none" poster="hero-import.jpg" data-src="hero-import.mp4"></video></div><div class="clip c2"><video muted playsinline preload="none" poster="hero-cut.jpg" data-src="hero-cut.mp4"></video></div><i class="end"></i></div></figure>
   </div>
 </div>
