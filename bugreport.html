@@ -2,12 +2,13 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<script>/* Clean address: /page instead of /page.html */if(/\.html$/.test(location.pathname))history.replaceState(null,"",location.pathname.replace(/(index)?\.html$/,"")+location.search+location.hash)</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Report a bug · Stroomdoos</title>
 <meta name="description" content="Send a bug report for Primer to Stroomdoos.">
 <meta name="robots" content="noindex">
 <meta name="theme-color" content="#f1f0ea">
-<link rel="canonical" href="https://www.stroomdoos.com/bugreport.html">
+<link rel="canonical" href="https://www.stroomdoos.com/bugreport">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -43,7 +44,7 @@ footer a{display:inline-block;padding:14px 6px;margin:-14px -6px}
 <main>
 <h1>Report a bug</h1>
 <p class="lead">Found a problem in Primer? Tell us what you did and what happened.</p>
-<p>Add your Primer, macOS and Logic versions if you know them. <strong>No audio or file names, please.</strong> <a href="/privacy.html#bug-reports">Privacy</a></p>
+<p>Add your Primer, macOS and Logic versions if you know them. <strong>No audio or file names, please.</strong> <a href="/privacy#bug-reports">Privacy</a></p>
 <form id="bug-form">
 <label for="report">Your report</label>
 <textarea id="report" name="report" required maxlength="51200" placeholder="What did you do? What happened? What did you expect?"></textarea>
@@ -53,7 +54,7 @@ footer a{display:inline-block;padding:14px 6px;margin:-14px -6px}
 </form>
 <p id="status" role="status"></p>
 </main>
-<footer>© 2026 Stroomdoos · <a href="/contact.html">Contact</a> · <a href="/bugreport.html" target="_blank" rel="noopener">Report a bug</a> · <a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a></footer>
+<footer>© 2026 Stroomdoos · <a href="/contact">Contact</a> · <a href="/bugreport" target="_blank" rel="noopener">Report a bug</a> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a></footer>
 </div>
 <script>
 const ENDPOINT = "https://primer-bugreports.empty-voice-4b54.workers.dev/report";

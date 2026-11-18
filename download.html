@@ -2,30 +2,47 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<script>/* Clean address: /page instead of /page.html */if(/\.html$/.test(location.pathname))history.replaceState(null,"",location.pathname.replace(/(index)?\.html$/,"")+location.search+location.hash)</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Download Primer beta · Stroomdoos</title>
 <!-- Target of the button in the beta email, so the email links to stroomdoos.com, not straight to a .dmg.
-     On each release replace VERSION (2x); the .dmg comes from scripts/publish-update.sh (GitHub release primer-VERSION).
+     On each release fill in the version (link, button text, file line) and the size.
+     The .dmg comes from scripts/publish-update.sh (GitHub release primer-VERSION); put this page live only after that release exists.
+     The email links to /download?start (older mails: /download.html?start): then the download starts by itself.
      noindex and not in the sitemap: testers get the link by email. -->
 <meta name="robots" content="noindex">
+<meta name="description" content="Download the Primer beta for Logic Pro.">
 <meta name="theme-color" content="#f1f0ea">
+<link rel="canonical" href="https://www.stroomdoos.com/download">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,400..900&display=swap">
 <link rel="stylesheet" href="/site.css">
 <style>
-.card{margin-top:0;background:var(--motif);padding:clamp(24px,4vw,40px);border-radius:var(--radius)}
-.card .btn{font-size:19px;padding:16px 28px}
-.card .meta{margin:18px 0 0;font-size:var(--t-small)}
-.card .started{margin:14px 0 0;font-size:var(--t-small)}
-.doc-body .steps{list-style:none;margin:56px 0 0;padding:0;display:grid;gap:32px;counter-reset:step}
-.doc-body .steps li{counter-increment:step;display:grid;grid-template-columns:52px 1fr;gap:6px 18px;margin:0;padding:0}
-.steps li::before{content:counter(step);grid-row:span 2;font-weight:800;font-stretch:75%;font-size:60px;line-height:.8;color:var(--motif)}
+.dl{background:var(--motif);color:var(--ink);padding:clamp(24px,4vw,44px);border-radius:var(--radius);display:grid;gap:18px;justify-items:start}
+.doc-body .dl .btn{margin:0;gap:12px;font-size:19px;padding:17px 30px 17px 26px;white-space:nowrap}
+.dl .btn svg{width:20px;height:20px;flex:none;transition:transform .25s var(--ease)}
+.dl .btn:hover svg{transform:translateY(2px)}
+.dl .file{font-size:var(--t-small);font-variant-numeric:tabular-nums}
+.doc-body .dl .note{margin:0;font-size:var(--t-small);font-weight:600;color:var(--ink)}
+.dl .note[hidden]{display:none}
+.doc-body .needs{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 0;padding:0;list-style:none}
+.doc-body .needs li{margin:0;padding:6px 12px;border:1px solid rgba(23,25,28,.16);border-radius:999px;font-size:var(--t-small);color:var(--soft)}
+.doc-body .steps{list-style:none;margin:56px 0 0;padding:0;counter-reset:step;border-top:1px solid rgba(23,25,28,.14)}
+.doc-body .steps li{counter-increment:step;display:grid;grid-template-columns:56px 1fr;gap:6px 18px;margin:0;padding:24px 0;border-bottom:1px solid rgba(23,25,28,.14)}
+.steps li::before{content:counter(step);grid-row:span 2;font-weight:800;font-stretch:75%;font-size:56px;line-height:.8;color:var(--motif)}
 .steps b{font-size:var(--t-head);font-weight:800;font-stretch:75%;letter-spacing:-.02em;line-height:1}
 .steps span{color:var(--soft)}
-.doc-body .small{margin-top:48px;font-size:var(--t-small);color:var(--soft)}
-.doc-body .small+.small{margin-top:6px}
+.help{margin-top:40px;display:grid;gap:6px;font-size:var(--t-small);color:var(--soft)}
+.doc-body .help p{margin:0}
+@media (max-width:900px){
+  .doc{padding-top:clamp(24px,5vh,48px)}
+  .doc-body .dl .btn{width:100%;font-size:18px;padding:16px 20px}
+  .doc-body .steps li{grid-template-columns:44px 1fr;padding:20px 0}
+  .steps li::before{font-size:46px}
+}
 </style>
 </head>
 <body>
@@ -33,7 +50,7 @@
 <header class="bar">
   <a class="word" href="/" aria-label="Stroomdoos home"><img src="/stroomdoos-woordmerk.svg" width="1600" height="389" alt="Stroomdoos"></a>
   <nav class="links" aria-label="Main">
-    <a href="/#how">How it works</a><a href="/#about">About</a><a href="/bugreport.html" target="_blank" rel="noopener">Report a bug</a>
+    <a href="/#how">How it works</a><a href="/#about">About</a><a href="/bugreport" target="_blank" rel="noopener">Report a bug</a>
   </nav>
 </header>
 <main class="doc">
@@ -44,14 +61,19 @@
 </div>
 <div class="doc-body">
 
-<div class="card">
-  <!-- On each release fill in the version (2x). The email button links to /download.html?start: then the
-  download starts by itself, so testers need one click. The .dmg comes from scripts/publish-update.sh (GitHub release primer-<version>):
-  put this page live only after that release exists. -->
-  <a class="btn" id="dl" href="https://github.com/iucsola/stroomdoos/releases/download/primer-0.83.0/Primer-0.83.0.dmg">Download Primer 0.83.0</a>
-  <p class="started" id="dl-started" hidden>Your download has started. Nothing happening? Click the button.</p>
-  <p class="meta">macOS 14 or newer · Logic Pro 11+ in English</p>
+<div class="dl">
+  <p class="note" id="dl-phone" hidden>Primer runs on a Mac. Open this page on your Mac to download it.</p>
+  <a class="btn" id="dl" href="https://github.com/iucsola/stroomdoos/releases/download/primer-0.83.0/Primer-0.83.0.dmg">
+    <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 3v10m-4.5-4.5L10 13l4.5-4.5M4 17h12"/></svg>
+    Download Primer 0.83.0
+  </a>
+  <span class="file">Beta · version 0.83.0 · 10.5 MB (.dmg)</span>
+  <p class="note" id="dl-started" role="status" hidden>Your download has started. Nothing happening? Click the button.</p>
 </div>
+<ul class="needs" aria-label="Requirements">
+  <li>macOS 14 or newer</li>
+  <li>Logic Pro 11+ in English</li>
+</ul>
 
 <ol class="steps">
 <li><b>Drag Primer to Applications.</b><span>Open the download first.</span></li>
@@ -59,24 +81,33 @@
 <li><b>Turn on Primer.</b><span>Primer shows you where, in System Settings.</span></li>
 </ol>
 
-<p class="small">Already have Primer? Choose Primer &gt; Check for Updates.</p>
-<p class="small">Stuck? Mail <a href="mailto:support@stroomdoos.com">support@stroomdoos.com</a> or read <a href="/beta.html">the beta guide</a>.</p>
+<div class="help">
+<p>Already have Primer? Choose Primer &gt; Check for Updates.</p>
+<p>Stuck? Mail <a href="mailto:support@stroomdoos.com">support@stroomdoos.com</a> or read <a href="/beta">the beta guide</a>.</p>
+</div>
 </div>
 </main>
 <footer class="foot">
   <div class="foot-meta">
-    <span>© 2026 Stroomdoos · <a href="/contact.html">Contact</a> · <a href="/bugreport.html" target="_blank" rel="noopener">Report a bug</a> · <a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a></span>
+    <span>© 2026 Stroomdoos · <a href="/contact">Contact</a> · <a href="/bugreport" target="_blank" rel="noopener">Report a bug</a> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a></span>
   </div>
 </footer>
 </div>
 <script>
-// Opened from the beta email (/download.html?start): start the download by itself.
 (function () {
   var a = document.getElementById('dl');
-  if (!a || !/[?&]start\b/.test(location.search)) return;
-  var note = document.getElementById('dl-started');
-  if (note) note.hidden = false;
-  setTimeout(function () { location.href = a.href; }, 500);
+  if (!a) return;
+  var ua = navigator.userAgent;
+  // Phone or tablet: say that Primer is for the Mac. The button stays.
+  var mobile = /iPhone|iPod|iPad|Android/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  if (mobile) document.getElementById('dl-phone').hidden = false;
+  // Opened from the beta email (/download?start): start the download by itself, once
+  // (the address loses ?start, so a reload does not download again).
+  if (!mobile && /[?&]start\b/.test(location.search)) {
+    document.getElementById('dl-started').hidden = false;
+    history.replaceState(null, '', location.pathname + location.hash);
+    setTimeout(function () { location.href = a.href; }, 500);
+  }
 })();
 </script>
 </body>
