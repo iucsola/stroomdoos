@@ -64,3 +64,12 @@ h3{font-size:var(--t-head);font-weight:800;font-stretch:75%;letter-spacing:-.02e
 [data-icon]{transition:transform .35s cubic-bezier(.3,1.6,.5,1)}
 [data-icon]:hover{transform:translateY(-3px) rotate(-6deg) scale(1.06)}
 @media (prefers-reduced-motion:reduce){[data-icon]{transition:none}}
+
+/* Phones: every link and button is at least 44 px to tap. */
+@media (max-width:900px){
+  .word{display:inline-flex;align-items:center;min-height:44px}
+  .btn-small{min-height:44px}
+  .hero .row a:not(.btn){display:inline-flex;align-items:center;min-height:44px}
+  .foot-meta a,.foot .more a{display:inline-block;padding:14px 6px;margin:-14px -6px}
+  .foot-meta span{line-height:1.2}
+}

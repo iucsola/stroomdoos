@@ -39,31 +39,14 @@ section{padding:clamp(96px,12vw,192px) 0}
 .hero .row{display:flex;align-items:center;gap:24px;margin-top:40px;flex-wrap:wrap}
 .hero .meta{text-wrap:balance;margin-top:32px;font-size:var(--t-small);color:var(--soft)}
 .hero-shot img,.hero-shot video{width:100%;height:auto;border-radius:var(--radius)}
-/* Hero loop: real screenshots and two cuts of the real screen recording. Start screen, the tracks, Import to Logic is pressed, Logic colours the files and cuts the silence, back to the start screen. The script below restarts it every 26.8 s. */
-.hero-shot{position:relative;border-radius:var(--radius);overflow:hidden;animation:settle 1.4s var(--ease) both}
-.hero-shot img{animation:none}
-.loop{position:absolute;inset:0;display:none}
-.loop.on{display:block}
-.loop>*{position:absolute;inset:0;width:100%;height:100%;opacity:0;background-size:cover;object-fit:cover;object-position:50% 0;will-change:opacity,transform}
-.loop.play>*{animation:26.8s ease-in-out both}
-.loop .empty{background-image:url(shot-empty.jpg)}
-.loop .start,.loop.play .start{opacity:1;animation:none}
-.loop .base,.loop .press{background-image:url(shot-files.jpg)}
-.loop.play .base{animation-name:l-base}
-.loop .press{clip-path:inset(2.6% 2.1% 91.4% 79.7%)}
-.loop.play .press{animation-name:l-press}
-.loop .dot{inset:auto;left:62%;top:58%;width:1.5%;height:auto;aspect-ratio:1;border-radius:50%;background:var(--motif)}
-.loop.play .dot{animation-name:l-dot;animation-timing-function:var(--ease)}
-.loop.play .v1{animation-name:l-v1}
-.loop.play .v2{animation-name:l-v2}
-.loop.play .end{animation-name:l-end}
+.hero-shot{margin:0;border-radius:var(--radius);overflow:hidden;animation:settle 1.4s var(--ease) both}
+.hero-shot img{display:block}
 @keyframes l-base{0%,3.73%{opacity:0}7.46%,100%{opacity:1}}
 @keyframes l-dot{0%,11.19%{opacity:0;transform:none}12.69%{opacity:1;transform:none}16.04%,17.91%{opacity:1;transform:translate(1690%,-2200%)}19.78%,100%{opacity:0;transform:translate(1690%,-2200%)}}
 @keyframes l-press{0%,16.04%{opacity:0;filter:none}16.08%{opacity:1;filter:none}17.16%{opacity:1;filter:brightness(.82)}19.03%{opacity:1;filter:none}19.07%,100%{opacity:0}}
 @keyframes l-v1{0%,20.15%{opacity:0}25.00%,100%{opacity:1}}
 @keyframes l-v2{0%,57.46%{opacity:0}60.82%,100%{opacity:1}}
 @keyframes l-end{0%,90.30%{opacity:0}94.78%,100%{opacity:1}}
-@media (prefers-reduced-motion:reduce){.loop,.loop.on{display:none}}
 
 /* Four steps on a dark field: the card stays in view while the steps pass, the step in the middle of the screen is lit. */
 .coffee{background:var(--ink);color:var(--ground)}
@@ -152,8 +135,7 @@ section{padding:clamp(96px,12vw,192px) 0}
       </div>
       <p class="meta" data-in style="--i:4">macOS 14 or newer&nbsp;· Logic Pro 11+</p>
     </div>
-    <figure class="hero-shot"><img src="shot-files.jpg" width="1600" height="1006" alt="Primer main window: nine tracks in four groups, each with its name in Logic and its aux. On the right: Import to Logic and where the tracks go.">
-      <div class="loop" id="hero-loop" aria-hidden="true"><i class="empty start"></i><i class="base"></i><i class="press"></i><i class="dot"></i><video class="v1" muted playsinline preload="none" data-src="hero-colour.mp4"></video><video class="v2" muted playsinline preload="none" data-src="hero-cut.mp4"></video><i class="empty end"></i></div></figure>
+    <figure class="hero-shot"><img src="shot-files.jpg" width="1600" height="1006" alt="Primer main window: nine tracks in four groups, each with its name in Logic and its aux. On the right: Import to Logic and where the tracks go."></figure>
   </div>
 </div>
 
@@ -258,20 +240,6 @@ section{padding:clamp(96px,12vw,192px) 0}
       },plainPost);
   });
 })();
-</script>
-<script>
-// Hero loop: start when its pictures are loaded; the two clips of the screen recording play at their moment. Stops while it is off screen.
-(function(){var l=document.getElementById('hero-loop');if(!l||(window.matchMedia&&matchMedia('(prefers-reduced-motion:reduce)').matches))return;
-var v=l.querySelectorAll('video'),T=[],ready=false,seen=true,n=0,srcs=['shot-empty.jpg','shot-files.jpg'];
-function at(s,f){T.push(setTimeout(f,s*1000))}
-function clip(x){x.currentTime=0;x.playbackRate=.8;var p=x.play();if(p&&p.catch)p.catch(function(){})}
-function stop(){T.forEach(clearTimeout);T=[];l.classList.remove('play');v[0].pause();v[1].pause()}
-function run(){stop();if(!ready||!seen||document.hidden)return;void l.offsetWidth;l.classList.add('on','play');
-at(5.4,function(){clip(v[0])});at(15.4,function(){clip(v[1])});at(26.8,run)}
-srcs.forEach(function(s){var i=new Image();i.onload=function(){if(++n===srcs.length){ready=true;
-[].forEach.call(v,function(x){x.preload='auto';x.src=x.getAttribute('data-src')});run()}};i.src=s});
-if('IntersectionObserver' in window)new IntersectionObserver(function(es){seen=es[0].isIntersecting;run()}).observe(l);
-document.addEventListener('visibilitychange',run);})();
 </script>
 <script>
 // The four steps: the one nearest the middle of the screen is lit.
