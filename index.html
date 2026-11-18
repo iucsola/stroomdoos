@@ -75,6 +75,7 @@ section{padding:clamp(96px,12vw,192px) 0}
 .coffee .cup svg{display:block;width:100%;height:auto}
 
 .test{background:var(--motif)}
+.test :focus-visible{outline-color:var(--ink)}
 .test-grid{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:clamp(48px,6vw,112px);align-items:start}
 .test .intro{margin-top:32px;font-size:var(--t-lead);line-height:1.4;max-width:32ch}
 .test ol{list-style:none;margin:0;padding:clamp(28px,3vw,44px);display:grid;gap:36px;background:var(--ground);border-radius:var(--radius)}
@@ -93,7 +94,10 @@ section{padding:clamp(96px,12vw,192px) 0}
 .about-grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(32px,5vw,96px);align-items:center}
 .about p{margin-top:20px;font-size:var(--t-lead);line-height:1.45;max-width:38ch}
 .about .sec-head+p{margin-top:32px}
-.strip{width:100%;max-width:420px;justify-self:center}
+.about-icon{width:100%;max-width:260px;justify-self:center}
+.js .about-icon.in{transition:transform .35s cubic-bezier(.3,1.6,.5,1),opacity .7s var(--ease);transition-delay:0s}
+.js .about-icon.in:hover{transform:translateY(-3px) rotate(-6deg) scale(1.06)}
+.about{padding-bottom:clamp(56px,7vw,112px)}
 .foot{padding-top:0}
 .foot .more{margin-bottom:40px;font-size:var(--t-lead)}
 
@@ -113,7 +117,7 @@ section{padding:clamp(96px,12vw,192px) 0}
     }
 @media (max-width:620px){
   .about-grid{grid-template-columns:1fr}
-  .strip{max-width:220px;justify-self:start}
+  .about-icon{max-width:160px;justify-self:start}
   }
 @media (prefers-reduced-motion:reduce){
   .js [data-in]{transform:none}
@@ -154,13 +158,13 @@ section{padding:clamp(96px,12vw,192px) 0}
   <div class="wrap coffee-grid">
     <div>
       <div class="head">
-        <h2 id="how-h" class="sec-head" data-in>Four steps. One batch.</h2>
+        <h2 id="how-h" class="sec-head" data-in>Four steps.</h2>
       </div>
       <ol id="does">
-        <li><b>Drop the WAVs</b><span>Drag in a folder or some files. Primer checks them and tells you about problems, such as mixed sample rates.</span></li>
-        <li><b>Name and group</b><span>Primer finds a group for each file from its name. Check the list. Change names and groups where needed. To split a stereo WAV into two mono tracks, right-click it.</span></li>
-        <li><b>Prepare copies</b><span>Primer makes copies with your names and order. Your original files do not change.</span></li>
-        <li><b>Import to Logic</b><span>Press Import to Logic. Primer makes one track per file, coloured and routed to your auxes. Logic closed? Primer opens a new project for you.</span></li>
+        <li><b>Drop your audio</b><span>Files or a folder.</span></li>
+        <li><b>Names and groups</b><span>Primer sorts by name. Change what's wrong.</span></li>
+        <li><b>Import to Logic</b><span>One track per file, coloured and routed.</span></li>
+        <li><b>Coffee time</b></li>
       </ol>
     </div>
     <div class="cup" data-in style="--i:2">
@@ -190,7 +194,7 @@ section{padding:clamp(96px,12vw,192px) 0}
     </div>
     <ol data-in style="--i:2">
       <li><h3>Release</h3><p>An email when Primer is out.</p></li>
-      <li><h3>Progress</h3><p>Short updates while we build it.</p></li>
+      <li><h3>Progress</h3><p>Short updates while we work on the app.</p></li>
       <li><h3>New tools</h3><p>News when a new Stroomdoos app is ready.</p></li>
     </ol>
   </div>
@@ -203,7 +207,7 @@ section{padding:clamp(96px,12vw,192px) 0}
       <p data-in style="--i:1">I'm Luc, and I make Primer in the Netherlands under the name Stroomdoos (/ˈstroːmdoːs/, Dutch for power box).</p>
       <p data-in style="--i:2">Need help with Primer? Mail <a href="mailto:support@stroomdoos.com">support@stroomdoos.com</a>. Anything else: <a href="mailto:info@stroomdoos.com">info@stroomdoos.com</a>.</p>
     </div>
-    <img class="strip" src="stroomdoos-stekkerdoos.svg" width="720" height="713" alt="" data-in style="--i:2">
+    <img class="about-icon" data-icon src="primer-icon.svg" width="512" height="512" alt="" data-in style="--i:2">
   </div>
 </section>
 </main>
@@ -211,7 +215,6 @@ section{padding:clamp(96px,12vw,192px) 0}
 <footer class="foot">
   <div class="wrap">
     <p class="more">More exciting audio tools coming your way, <a href="https://www.instagram.com/stroomdoos/" rel="me">follow us</a> for updates.</p>
-    <img class="foot-mark" data-in src="stroomdoos-woordmerk.svg" width="1600" height="389" alt="Stroomdoos" loading="lazy">
     <div class="foot-meta">
       <span>© 2026 Stroomdoos · <a href="mailto:info@stroomdoos.com">info@stroomdoos.com</a> · <a href="mailto:support@stroomdoos.com">support@stroomdoos.com</a> · <a href="https://www.instagram.com/stroomdoos/" rel="me">Instagram</a> · <a href="/bugreport.html" target="_blank" rel="noopener">Report a bug</a> · <a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a></span>
       <span>Logic Pro is a trademark of Apple Inc. Primer is not affiliated with Apple.</span>

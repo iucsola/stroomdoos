@@ -32,9 +32,8 @@ h3{font-size:var(--t-head);font-weight:800;font-stretch:75%;letter-spacing:-.02e
 .btn-small{padding:10px 18px;font-size:var(--t-small)}
 
 .foot{padding:clamp(56px,8vw,112px) 0 40px}
-.foot-mark{width:100%;max-width:1100px}
 .foot-meta{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px 32px;margin-top:32px;font-size:var(--t-small);color:var(--soft)}
-.foot-meta a{color:inherit}
+.foot-meta a{color:inherit;white-space:nowrap}
 
 /* Text pages: title on the left, the text on the right, both on the header's edge. */
 .doc{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,6vw,112px);padding:clamp(48px,9vh,112px) 0 0;align-items:start}
