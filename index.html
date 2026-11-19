@@ -40,7 +40,9 @@ main>.wrap:first-child{scroll-snap-align:end}
 #about{min-height:calc(100vh - var(--foot-h,200px));min-height:calc(100svh - var(--foot-h,200px))}
 .sec-head{font-size:var(--t-display)}
 
-.hero{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,4vw,72px);align-items:center;padding:clamp(40px,7vh,96px) 0 clamp(80px,10vw,144px)}
+.hero{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,3.4vw,56px);align-items:center;padding:clamp(24px,4vh,56px) 0 clamp(48px,7vh,96px)}
+/* Landing (19-11): the hero fills the first screen under the header, so the first stop shows nothing of the next section. */
+@media (min-width:901px){.hero{min-height:calc(100vh - 78px);min-height:calc(100svh - 78px)}}
 .hero h1{font-size:clamp(52px,7.4vw,116px)}
 .hero .app{display:flex;align-items:center;gap:12px;margin-bottom:20px;font-size:var(--t-body)}
 .hero .app img{width:40px;height:40px}
@@ -53,27 +55,21 @@ main>.wrap:first-child{scroll-snap-align:end}
 .hero-shot img{display:block;aspect-ratio:1280/802;object-fit:cover;object-position:top}
 /* The frame has the shape of the Logic clips (1280x802), so Logic fills it from the top (no dark band above it, Luc 18-11);
    the Primer picture loses only an empty strip at the bottom. */
-/* Hero loop (Luc 18-11): the light picture, a click on Import to Logic, Luc's own import in Logic (screen recording,
-   sped up) with the light Coffee break card, and back to the picture. Restarts every 24 s. */
+/* Hero loop (Luc 19-11): starts in Logic (Luc's own import, then the cut, screen recordings) with the light Coffee
+   break card, and lands on the Primer window at the end. Restarts every 19 s. */
 .loop{position:absolute;inset:0;display:none}
 .loop.on{display:block}
-.loop>*{position:absolute;inset:0;opacity:0;will-change:opacity,transform}
-.loop.play>*{animation:24s linear both}
-.loop .press{background:url(shot-light.jpg) 0 0/100% auto;clip-path:inset(8.86% 3.1% 82.8% 71.7%);filter:brightness(2.4)}
-.loop.play .press{animation-name:l-press}
-.loop .dot{inset:auto;left:58%;top:68.34%;width:1.6%;aspect-ratio:1;border-radius:50%;background:var(--motif)}
-.loop.play .dot{animation-name:l-dot;animation-timing-function:var(--ease)}
+.loop>*{position:absolute;inset:0;opacity:0;will-change:opacity}
+.loop.play>*{animation:19s linear both}
 .loop .clip>*{position:absolute;left:0;top:0;width:100%;height:auto;border-radius:0}
 .loop .c1,.loop .c2{background:#302f30}
 .loop .end{background:url(shot-light.jpg) 0 0/100% auto}
 .loop.play .c1{animation-name:l-c1}
 .loop.play .c2{animation-name:l-c2}
 .loop.play .end{animation-name:l-end}
-@keyframes l-dot{0%,8.33%{opacity:0;transform:none}9.58%{opacity:1;transform:none}14.58%{opacity:1;transform:translate(1594%,-2215%)}15.42%{opacity:1;transform:translate(1594%,-2215%) scale(.72)}16.25%,17.5%{opacity:1;transform:translate(1594%,-2215%)}18.75%,100%{opacity:0;transform:translate(1594%,-2215%)}}
-@keyframes l-press{0%,14.58%{opacity:0}15%,16.25%{opacity:1}17.5%,100%{opacity:0}}
-@keyframes l-c1{0%,17.5%{opacity:0}20.83%,100%{opacity:1}}
-@keyframes l-c2{0%,54.17%{opacity:0}56.67%,100%{opacity:1}}
-@keyframes l-end{0%,85.83%{opacity:0}89.17%,100%{opacity:1}}
+@keyframes l-c1{0%{opacity:0}3.2%,100%{opacity:1}}
+@keyframes l-c2{0%,43.2%{opacity:0}45.8%,100%{opacity:1}}
+@keyframes l-end{0%,80.5%{opacity:0}84.2%,100%{opacity:1}}
 
 /* How it works, without words (Luc 18-11): Primer's Coffee break card in its light look floats in the middle, over a
    Logic-like arrange area, and the scroll runs the import step by step (coffee-break.js). */
@@ -104,8 +100,11 @@ main>.wrap:first-child{scroll-snap-align:end}
 .test :focus-visible{outline-color:var(--ink)}
 .test-grid{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:clamp(48px,6vw,112px);align-items:start}
 .test .intro{margin-top:32px;font-size:var(--t-lead);line-height:1.4;max-width:32ch}
-.test ol{list-style:none;margin:0;padding:clamp(28px,3vw,44px);display:grid;gap:36px;background:var(--ground);border-radius:var(--radius)}
-.test ol p{margin-top:10px}
+.test .sec-head{font-size:clamp(64px,10vw,164px)}
+.test-grid{align-items:center}
+.test ol{list-style:none;margin:0;padding:0;display:grid;gap:clamp(28px,4vh,48px)}
+.test ol h3{font-size:clamp(34px,3.6vw,56px)}
+.test ol p{margin-top:8px;font-size:var(--t-lead)}
 .signup{margin-top:48px;max-width:560px}
 .signup label{display:block;font-weight:700;margin-bottom:12px}
 .signup-row{display:flex;gap:10px;flex-wrap:wrap}
@@ -123,8 +122,14 @@ main>.wrap:first-child{scroll-snap-align:end}
 .about-icon{width:100%;max-width:260px;justify-self:center}
 .js .about-icon.in{transition:transform .35s cubic-bezier(.3,1.6,.5,1),opacity .7s var(--ease);transition-delay:0s}
 .js .about-icon.in:hover{transform:translateY(-3px) rotate(-6deg) scale(1.06)}
-.about{padding-bottom:clamp(56px,7vw,112px)}
+.about{padding:clamp(56px,10vh,120px) 0 clamp(40px,6vh,72px)}
+/* The bottom screen is dark, so the page closes on the Stroomdoos name in its own colours (19-11). */
+.about,.foot{background:var(--ink);color:var(--ground)}
+.foot .foot-meta{color:#b9b6ac}
+.about :focus-visible,.foot :focus-visible{outline-color:var(--motif)}
 .foot{padding-top:0}
+.foot-word{display:block;width:min(100%,30vh * 4.11);width:min(100%,30svh * 4.11);height:auto;margin-top:clamp(32px,5vh,56px)}
+.foot .foot-meta{margin-top:20px}
 .foot .more{margin-bottom:40px;font-size:var(--t-lead)}
 
 /* Entrances: content stays visible without script. */
@@ -174,7 +179,7 @@ main>.wrap:first-child{scroll-snap-align:end}
       <p class="meta" data-in style="--i:4">macOS 14 or newer&nbsp;· Logic Pro 11+</p>
     </div>
     <figure class="hero-shot"><img src="shot-light.jpg" width="1600" height="1003" alt="Primer main window in light mode: nine tracks in four groups, each with its name in Logic. On the right: Import to Logic and where the tracks go.">
-      <div class="loop" id="hero-loop" aria-hidden="true"><i class="press"></i><i class="dot"></i><div class="clip c1"><video muted playsinline preload="none" poster="hero-import.jpg" data-src="hero-import.mp4"></video></div><div class="clip c2"><video muted playsinline preload="none" poster="hero-cut.jpg" data-src="hero-cut.mp4"></video></div><i class="end"></i></div></figure>
+      <div class="loop" id="hero-loop" aria-hidden="true"><div class="clip c1"><video muted playsinline preload="none" poster="hero-import.jpg" data-src="hero-import.mp4"></video></div><div class="clip c2"><video muted playsinline preload="none" poster="hero-cut.jpg" data-src="hero-cut.mp4"></video></div><i class="end"></i></div></figure>
   </div>
 </div>
 
@@ -227,6 +232,7 @@ main>.wrap:first-child{scroll-snap-align:end}
 <footer class="foot">
   <div class="wrap">
     <p class="more">More exciting audio tools coming your way, <a href="https://www.instagram.com/stroomdoos/" rel="me">follow us</a> for updates.</p>
+    <img class="foot-word" src="stroomdoos-woordmerk-licht.svg" width="1916" height="466" alt="Stroomdoos">
     <div class="foot-meta">
       <span>© 2026 Stroomdoos · <a href="/contact">Contact</a> · <a href="/bugreport" target="_blank" rel="noopener">Report a bug</a> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a></span>
     </div>
@@ -270,14 +276,14 @@ main>.wrap:first-child{scroll-snap-align:end}
 })();
 </script>
 <script>
-// Hero loop: starts once the picture is loaded, the two clips play at their moment, pauses while off screen.
+// Hero loop: Logic first, Primer last (19 s); starts once the picture is loaded, the two clips play at their moment, pauses while off screen.
 (function(){var l=document.getElementById('hero-loop');if(!l||(window.matchMedia&&matchMedia('(prefers-reduced-motion:reduce)').matches))return;
 var v=l.querySelectorAll('video'),pic=l.parentNode.querySelector('img'),T=[],ready=false,seen=true;
 function at(s,f){T.push(setTimeout(f,s*1000))}
-function clip(x){x.currentTime=0;var p=x.play();if(p&&p.catch)p.catch(function(){})}
+function clip(x){x.currentTime=0;x.playbackRate=1.1;var p=x.play();if(p&&p.catch)p.catch(function(){})}
 function stop(){T.forEach(clearTimeout);T=[];l.classList.remove('play');[].forEach.call(v,function(x){x.pause()})}
 function run(){stop();if(!ready||!seen||document.hidden)return;void l.offsetWidth;l.classList.add('on','play');
-at(4.2,function(){clip(v[0])});at(13,function(){clip(v[1])});at(24,run)}
+clip(v[0]);at(8.2,function(){clip(v[1])});at(19,run)}
 function start(){ready=true;[].forEach.call(v,function(x){x.preload='auto';x.src=x.getAttribute('data-src')});run()}
 if(pic.complete)start();else pic.addEventListener('load',start);
 // The figure, not the loop: the loop has no box until it starts.
