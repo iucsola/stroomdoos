@@ -3,15 +3,15 @@
     <channel>
         <title>Primer</title>
         <item>
-            <title>0.84.2</title>
-            <pubDate>Thu, 19 Nov 2026 01:32:13 -0500</pubDate>
+            <title>0.84.3</title>
+            <pubDate>Thu, 19 Nov 2026 14:05:32 -0500</pubDate>
             <link>https://www.stroomdoos.com/beta.html</link>
-            <sparkle:version>464040</sparkle:version>
-            <sparkle:shortVersionString>0.84.2</sparkle:shortVersionString>
+            <sparkle:version>464111</sparkle:version>
+            <sparkle:shortVersionString>0.84.3</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
             <description><![CDATA[<ul><li>Many smaller fixes.</li></ul>
 ]]></description>
-            <enclosure url="https://github.com/iucsola/stroomdoos/releases/download/primer-0.84.2/Primer-0.84.2.zip" length="7222189" type="application/octet-stream" sparkle:edSignature="ff1LXCDOCONM9kz6VqoRVFM/1m7Q97/gJfxqeWOrCC9oxgqdTVOERFdBTSxT075IUxsnkA2DQ+0kByilK/BtBg=="/>
+            <enclosure url="https://github.com/iucsola/stroomdoos/releases/download/primer-0.84.3/Primer-0.84.3.zip" length="7222355" type="application/octet-stream" sparkle:edSignature="AzVPxYUsLJ47l7hK4gfSzBbzgathdR01YY/cjN59/FCzUs6l25XL4Lg7NmcvYvdO8QZyDRM2UNcRBiMN3Oo6Bg=="/>
         </item>
     </channel>
 </rss>
