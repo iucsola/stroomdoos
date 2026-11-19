@@ -27,14 +27,14 @@
 <style>
 section{padding:clamp(96px,12vw,192px) 0}
 /* Each section fills at least one screen, so a jump from the menu lands on a clean section on every device. */
-#test,#about{min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:center}
-#test>.wrap,#about>.wrap{width:100%}
+#updates,#about{min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:center}
+#updates>.wrap,#about>.wrap{width:100%}
 /* Snap scroll (Luc 19-11): the page stops on the top, the orange sign-up page and the bottom (About with the footer).
    The Coffee break is taller than a screen, so the scroll runs freely through it and its animation stays as it is. */
 html{scroll-snap-type:y mandatory}
 body>.wrap:first-child{scroll-snap-align:start}
 main>.wrap:first-child{scroll-snap-align:end}
-.coffee,#test,#about{scroll-snap-align:start}
+.coffee,#updates,#about{scroll-snap-align:start}
 .foot{scroll-snap-align:end}
 /* About and the footer fill one screen together; --foot-h is the footer's height (set by the script below). */
 #about{min-height:calc(100vh - var(--foot-h,200px));min-height:calc(100svh - var(--foot-h,200px))}
@@ -116,21 +116,20 @@ main>.wrap:first-child{scroll-snap-align:end}
 .signup-msg:empty{display:none}
 .signup-msg.err{text-decoration:underline}
 
-.about-grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(32px,5vw,96px);align-items:center}
-.about p{margin-top:20px;font-size:var(--t-lead);line-height:1.45;max-width:38ch}
-.about .sec-head+p{margin-top:32px}
-.about-icon{width:100%;max-width:260px;justify-self:center}
-.js .about-icon.in{transition:transform .35s cubic-bezier(.3,1.6,.5,1),opacity .7s var(--ease);transition-delay:0s}
-.js .about-icon.in:hover{transform:translateY(-3px) rotate(-6deg) scale(1.06)}
-.about{padding:clamp(56px,10vh,120px) 0 clamp(40px,6vh,72px)}
+/* Bottom screen (Luc 19-11): one centred column. Heading, Luc's line, the follow line, then the Stroomdoos name
+   and the footer links, all on the same middle line. */
+.about-grid{text-align:center}
+.about .sec-head{max-width:20ch;margin:0 auto}
+.about p{margin:32px auto 0;font-size:var(--t-lead);line-height:1.45;max-width:36ch;color:#d9d6cc}
+.about p.more{max-width:none;margin-top:20px;font-size:var(--t-body);color:#b9b6ac}
+.about{padding:clamp(56px,10vh,120px) 0 clamp(32px,5vh,56px)}
 /* The bottom screen is dark, so the page closes on the Stroomdoos name in its own colours (19-11). */
 .about,.foot{background:var(--ink);color:var(--ground)}
 .foot .foot-meta{color:#b9b6ac}
 .about :focus-visible,.foot :focus-visible{outline-color:var(--motif)}
-.foot{padding-top:0}
-.foot-word{display:block;width:min(100%,30vh * 4.11);width:min(100%,30svh * 4.11);height:auto;margin-top:clamp(32px,5vh,56px)}
-.foot .foot-meta{margin-top:20px}
-.foot .more{margin-bottom:40px;font-size:var(--t-lead)}
+.foot{padding:0 0 32px;text-align:center}
+.foot-word{display:block;width:min(100%,420px);height:auto;margin:0 auto}
+.foot .foot-meta{justify-content:center;margin-top:28px;padding-top:24px;border-top:1px solid rgba(241,240,234,.14)}
 
 /* Entrances: content stays visible without script. */
 .js [data-in]{opacity:0;transform:translateY(24px);transition:opacity .7s var(--ease),transform .7s var(--ease);transition-delay:calc(var(--i,0) * 80ms)}
@@ -142,8 +141,8 @@ main>.wrap:first-child{scroll-snap-align:end}
   .hero{padding-top:24px}
     }
 @media (max-width:620px){
-  .about-grid{grid-template-columns:1fr}
-  .about-icon{max-width:160px;justify-self:start}
+  .foot-word{width:min(100%,280px)}
+  .about .more a{display:inline-block;padding:14px 6px;margin:-14px -6px}
   }
 @media (prefers-reduced-motion:reduce){
   .js [data-in]{transform:none}
@@ -161,7 +160,7 @@ main>.wrap:first-child{scroll-snap-align:end}
     <nav class="links" aria-label="Main">
       <a href="#how">How it works</a><a href="#about">About</a><a href="/bugreport" target="_blank" rel="noopener">Report a bug</a>
     </nav>
-    <a class="btn btn-small" href="#test">Get updates</a>
+    <a class="btn btn-small" href="#updates">Get updates</a>
   </header>
 </div>
 
@@ -173,7 +172,7 @@ main>.wrap:first-child{scroll-snap-align:end}
       <h1 id="top" data-in style="--i:1">More time<br>spent mixing.</h1>
       <p class="lede" data-in style="--i:2">Take a walk, stretch your legs, grab a coffee. Primer is your hardworking assistant engineer, prepping your session while you're taking a break.</p>
       <div class="row" data-in style="--i:3">
-        <a class="btn" href="#test">Get updates</a>
+        <a class="btn" href="#updates">Get updates</a>
         <a href="#how">How it works</a>
       </div>
       <p class="meta" data-in style="--i:4">macOS 14 or newer&nbsp;· Logic Pro 11+</p>
@@ -191,7 +190,7 @@ main>.wrap:first-child{scroll-snap-align:end}
   </div>
 </section>
 
-<section id="test" class="test" aria-labelledby="test-h">
+<section id="updates" class="test" aria-labelledby="test-h">
   <div class="wrap test-grid">
     <div>
       <h2 id="test-h" class="sec-head" data-in>Hear it first.</h2>
@@ -223,15 +222,14 @@ main>.wrap:first-child{scroll-snap-align:end}
     <div>
       <h2 id="about-h" class="sec-head" data-in>Made by an engineer, for engineers.</h2>
       <p data-in style="--i:1">I'm Luc, and I make Primer in the Netherlands under the name Stroomdoos (/ˈstroːmdoːs/, Dutch for power box).</p>
+      <p class="more" data-in style="--i:2">More exciting audio tools coming your way, <a href="https://www.instagram.com/stroomdoos/" rel="me">follow us</a> for updates.</p>
     </div>
-    <img class="about-icon" data-icon src="primer-icon.svg" width="512" height="512" alt="" data-in style="--i:2">
   </div>
 </section>
 </main>
 
 <footer class="foot">
   <div class="wrap">
-    <p class="more">More exciting audio tools coming your way, <a href="https://www.instagram.com/stroomdoos/" rel="me">follow us</a> for updates.</p>
     <img class="foot-word" src="stroomdoos-woordmerk-licht.svg" width="1916" height="466" alt="Stroomdoos">
     <div class="foot-meta">
       <span>© 2026 Stroomdoos · <a href="/contact">Contact</a> · <a href="/bugreport" target="_blank" rel="noopener">Report a bug</a> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a></span>
