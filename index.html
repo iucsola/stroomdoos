@@ -29,6 +29,15 @@ section{padding:clamp(96px,12vw,192px) 0}
 /* Each section fills at least one screen, so a jump from the menu lands on a clean section on every device. */
 #test,#about{min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:center}
 #test>.wrap,#about>.wrap{width:100%}
+/* Snap scroll (Luc 19-11): the page stops on the top, the orange sign-up page and the bottom (About with the footer).
+   The Coffee break is taller than a screen, so the scroll runs freely through it and its animation stays as it is. */
+html{scroll-snap-type:y mandatory}
+body>.wrap:first-child{scroll-snap-align:start}
+main>.wrap:first-child{scroll-snap-align:end}
+.coffee,#test,#about{scroll-snap-align:start}
+.foot{scroll-snap-align:end}
+/* About and the footer fill one screen together; --foot-h is the footer's height (set by the script below). */
+#about{min-height:calc(100vh - var(--foot-h,200px));min-height:calc(100svh - var(--foot-h,200px))}
 .sec-head{font-size:var(--t-display)}
 
 .hero{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,4vw,72px);align-items:center;padding:clamp(40px,7vh,96px) 0 clamp(80px,10vw,144px)}
@@ -274,6 +283,12 @@ if(pic.complete)start();else pic.addEventListener('load',start);
 // The figure, not the loop: the loop has no box until it starts.
 if('IntersectionObserver' in window)new IntersectionObserver(function(es){seen=es[0].isIntersecting;run()}).observe(l.parentNode);
 document.addEventListener('visibilitychange',run)})();
+</script>
+<script>
+// Snap scroll: About is one screen minus the footer, so the bottom stop shows both in full.
+(function(){var f=document.querySelector('.foot');if(!f)return;
+function set(){document.documentElement.style.setProperty('--foot-h',f.offsetHeight+'px')}
+set();if('ResizeObserver' in window)new ResizeObserver(set).observe(f);else addEventListener('resize',set)})();
 </script>
 <script src="coffee-break.js" defer></script>
 </body>
