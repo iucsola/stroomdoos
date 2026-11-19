@@ -3,15 +3,15 @@
     <channel>
         <title>Primer</title>
         <item>
-            <title>0.83.0</title>
-            <pubDate>Wed, 18 Nov 2026 00:22:33 -0500</pubDate>
+            <title>0.84.1</title>
+            <pubDate>Thu, 19 Nov 2026 00:47:53 -0500</pubDate>
             <link>https://www.stroomdoos.com/beta.html</link>
-            <sparkle:version>462196</sparkle:version>
-            <sparkle:shortVersionString>0.83.0</sparkle:shortVersionString>
+            <sparkle:version>463663</sparkle:version>
+            <sparkle:shortVersionString>0.84.1</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-            <description><![CDATA[<ul><li>Horn and sax tracks get their own Brass group in an empty project.</li><li>Logic closed or no project open? Primer opens a new project for you.</li><li>Clearer messages when a file is gone, has more than two channels, or when a click in Logic interrupts the import.</li><li>Many smaller fixes.</li></ul>
+            <description><![CDATA[<ul><li>Many smaller fixes.</li></ul>
 ]]></description>
-            <enclosure url="https://github.com/iucsola/stroomdoos/releases/download/primer-0.83.0/Primer-0.83.0.zip" length="8540110" type="application/octet-stream" sparkle:edSignature="NHRVFLXMmemGEijRkVUWxj/miSerL9YurNmBDhPL3LZkdMgAPaRwndwwLp/TIAKURJ0RNRX8d7/0B+K87wWwDw=="/>
+            <enclosure url="https://github.com/iucsola/stroomdoos/releases/download/primer-0.84.1/Primer-0.84.1.zip" length="7357060" type="application/octet-stream" sparkle:edSignature="h2Dv43fdorAXtxUh0zR6vM3jcgzXEIHKyesY93IeGknOpcRngqObnBFcN6vwqhqJ5LfO5ON3vZkJSo4qoQBpBw=="/>
         </item>
     </channel>
 </rss>
