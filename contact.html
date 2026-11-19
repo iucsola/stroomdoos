@@ -7,39 +7,54 @@
 <title>Contact · Stroomdoos</title>
 <meta name="description" content="Contact Stroomdoos, maker of Primer for Logic Pro.">
 <meta name="theme-color" content="#f1f0ea">
+<link rel="canonical" href="https://www.stroomdoos.com/contact">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,400..900&display=swap">
 <link rel="stylesheet" href="/site.css">
+<style>
+body{min-height:100vh;min-height:100svh;display:flex;flex-direction:column}
+main{flex:1}
+.contact{padding:clamp(48px,10vh,120px) 0 0}
+.contact h1{font-size:clamp(64px,11vw,168px)}
+.contact .lead{margin-top:28px;font-size:var(--t-lead);line-height:1.4;max-width:34ch}
+.ways{list-style:none;margin:clamp(56px,9vh,104px) 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(12px,1.4vw,20px)}
+.ways a{display:flex;flex-direction:column;justify-content:space-between;gap:48px;min-height:220px;height:100%;padding:clamp(24px,2.4vw,36px);border-radius:var(--radius);background:var(--surface);text-decoration:none;transition:background-color .25s var(--ease),color .25s var(--ease),transform .25s var(--ease)}
+.ways a:hover{background:var(--ink);color:var(--ground);transform:translateY(-3px)}
+.ways a:focus-visible{outline-offset:4px}
+.ways span{font-size:var(--t-body);color:var(--soft);transition:color .25s var(--ease)}
+.ways a:hover span{color:#b9b6ac}
+.ways b{font-weight:800;font-stretch:75%;letter-spacing:-.02em;line-height:1;font-size:clamp(28px,2.6vw,40px);overflow-wrap:anywhere}
+@media (max-width:900px){.ways{grid-template-columns:1fr}.ways a{min-height:0;gap:20px}}
+@media (prefers-reduced-motion:reduce){.ways a:hover{transform:none}}
+</style>
 </head>
 <body>
 <div class="wrap">
 <header class="bar">
-  <a class="word" href="/" aria-label="Stroomdoos home"><img src="/stroomdoos-woordmerk.svg" width="1600" height="389" alt="Stroomdoos"></a>
+  <a class="word" href="/" aria-label="Stroomdoos home"><img src="/stroomdoos-woordmerk-kop.svg" width="2172" height="724" alt="Stroomdoos"></a>
   <nav class="links" aria-label="Main">
-    <a href="/#how">How it works</a><a href="/#about">About</a><a href="/bugreport" target="_blank" rel="noopener">Report a bug</a>
+    <a href="/#how">How it works</a><a href="/#about">About</a><a href="/bugreport">Report a bug</a>
   </nav>
+  <a class="btn btn-small" href="/#updates">Get updates</a>
 </header>
-<main class="doc">
-<div class="doc-head">
-<h1>Contact</h1>
-</div>
-<div class="doc-body">
-<h2>Help with Primer</h2>
-<p><a href="mailto:support@stroomdoos.com">support@stroomdoos.com</a></p>
-<h2>Anything else</h2>
-<p><a href="mailto:info@stroomdoos.com">info@stroomdoos.com</a></p>
-<h2>Instagram</h2>
-<p><a href="https://www.instagram.com/stroomdoos/" rel="me">@stroomdoos</a></p>
-</div>
+<main class="contact">
+<h1>Say hello.</h1>
+<p class="lead">Questions about Primer, an idea, or just want to talk shop? Pick the inbox that fits.</p>
+<ul class="ways">
+<li><a href="mailto:support@stroomdoos.com"><span>Help with Primer</span><b>support@<wbr>stroomdoos.com</b></a></li>
+<li><a href="mailto:info@stroomdoos.com"><span>Anything else</span><b>info@<wbr>stroomdoos.com</b></a></li>
+<li><a href="https://www.instagram.com/stroomdoos/" rel="me"><span>Instagram</span><b>@stroomdoos</b></a></li>
+</ul>
 </main>
-<footer class="foot">
-  <div class="foot-meta">
-    <span>© 2026 Stroomdoos · <a href="/contact">Contact</a> · <a href="/bugreport" target="_blank" rel="noopener">Report a bug</a> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a></span>
+</div>
+<footer class="foot foot-dark">
+  <div class="wrap">
+    <img class="foot-word" src="/stroomdoos-woordmerk-licht.svg" width="1916" height="466" alt="Stroomdoos">
+    <div class="foot-meta"><span>© 2026 Stroomdoos · <a href="/contact">Contact</a> · <a href="/bugreport">Report a bug</a> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a></span></div>
   </div>
 </footer>
-</div>
 </body>
 </html>

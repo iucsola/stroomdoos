@@ -20,7 +20,7 @@ h3{font-size:var(--t-head);font-weight:800;font-stretch:75%;letter-spacing:-.02e
 
 .bar{display:flex;align-items:center;gap:32px;padding:24px 0}
 .word{margin-right:auto}
-.word img{height:30px;width:auto}
+.word img{height:38px;width:auto}
 .links{display:flex;gap:28px;font-size:var(--t-small)}
 .links a{text-decoration:none;transition:opacity .2s}
 .links a:hover{text-decoration:underline}
@@ -73,3 +73,20 @@ h3{font-size:var(--t-head);font-weight:800;font-stretch:75%;letter-spacing:-.02e
   .foot-meta a,.foot .more a{display:inline-block;padding:14px 6px;margin:-14px -6px}
   .foot-meta span{line-height:1.2}
 }
+
+/* Dark closing footer for the other pages, the same close as the home page (19-11). */
+.foot-dark{background:var(--ink);color:var(--ground);text-align:center;padding:clamp(56px,9vh,96px) 0 32px;margin-top:clamp(96px,14vh,160px)}
+.foot-dark .foot-word{display:block;width:min(100%,300px);height:auto;margin:0 auto}
+.foot-dark .foot-meta{justify-content:center;color:#b9b6ac;margin-top:28px;padding-top:24px;border-top:1px solid rgba(241,240,234,.14)}
+.foot-dark :focus-visible{outline-color:var(--motif)}
+
+/* Form fields (bug report). */
+.field{display:block;margin-top:24px}
+.field>span{display:block;font-weight:700;font-size:var(--t-small);margin-bottom:8px}
+.field input,.field textarea{display:block;width:100%;padding:14px 16px;border:1.5px solid #cfccc3;border-radius:var(--radius);background:var(--surface);color:var(--ink);font:400 17px/1.5 Archivo,system-ui,sans-serif;transition:border-color .2s}
+.field input:hover,.field textarea:hover{border-color:#a9a59b}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--ink)}
+.field textarea{min-height:240px;resize:vertical}
+.field-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.field-row .field{margin-top:0}
+@media (max-width:620px){.field-row{grid-template-columns:1fr;gap:0}.field-row .field{margin-top:24px}}
