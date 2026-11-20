@@ -3,15 +3,15 @@
     <channel>
         <title>Primer</title>
         <item>
-            <title>0.84.3</title>
-            <pubDate>Thu, 19 Nov 2026 14:05:32 -0500</pubDate>
+            <title>0.85.0</title>
+            <pubDate>Thu, 19 Nov 2026 21:18:00 -0500</pubDate>
             <link>https://www.stroomdoos.com/beta.html</link>
-            <sparkle:version>464111</sparkle:version>
-            <sparkle:shortVersionString>0.84.3</sparkle:shortVersionString>
+            <sparkle:version>465187</sparkle:version>
+            <sparkle:shortVersionString>0.85.0</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-            <description><![CDATA[<ul><li>Many smaller fixes.</li></ul>
+            <description><![CDATA[<ul><li>Add a Backing Vocals or Lead Vocals group and Primer splits your vocals between them. Move a file Primer doesn't recognize to another group before you import, and Primer puts files with that name there next time. A sent bug report now ends with a short thank-you.</li></ul>
 ]]></description>
-            <enclosure url="https://github.com/iucsola/stroomdoos/releases/download/primer-0.84.3/Primer-0.84.3.zip" length="7222355" type="application/octet-stream" sparkle:edSignature="AzVPxYUsLJ47l7hK4gfSzBbzgathdR01YY/cjN59/FCzUs6l25XL4Lg7NmcvYvdO8QZyDRM2UNcRBiMN3Oo6Bg=="/>
+            <enclosure url="https://github.com/iucsola/stroomdoos/releases/download/primer-0.85.0/Primer-0.85.0.zip" length="7265432" type="application/octet-stream" sparkle:edSignature="JvTYPDj+my+BwmmWAUOycFd4M5lWANzU6/fC8yLaZ1v9ZBxgpg+Ithpo5mve37Zn8AkuQVw1TraOL8+SU5bnCQ=="/>
         </item>
     </channel>
 </rss>
