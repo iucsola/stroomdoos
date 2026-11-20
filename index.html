@@ -57,21 +57,22 @@ main>.wrap:first-child{scroll-snap-align:end}
 .hero-shot img{display:block;aspect-ratio:1280/802;object-fit:cover;object-position:top}
 /* The frame has the shape of the Logic clips (1280x802), so Logic fills it from the top (no dark band above it, Luc 18-11);
    the Primer picture loses only an empty strip at the bottom. */
-/* Hero loop (Luc 19-11): starts in Logic (Luc's own import, then the cut, screen recordings) with the light Coffee
-   break card, and lands on the Primer window at the end. Restarts every 19 s. */
+/* Hero loop (Luc 19-11, calmer 20-11): starts in Logic (Luc's own import at 4x, then a wider view of a larger
+   session where the silence is cut, 4x, screen recordings) with the light Coffee break card, and lands on the
+   Primer window at the end. Restarts every 28 s. */
 .loop{position:absolute;inset:0;display:none}
 .loop.on{display:block}
 .loop>*{position:absolute;inset:0;opacity:0;will-change:opacity}
-.loop.play>*{animation:19s linear both}
+.loop.play>*{animation:28s linear both}
 .loop .clip>*{position:absolute;left:0;top:0;width:100%;height:auto;border-radius:0}
 .loop .c1,.loop .c2{background:#302f30}
 .loop .end{background:url(shot-light.jpg) 0 0/100% auto}
 .loop.play .c1{animation-name:l-c1}
 .loop.play .c2{animation-name:l-c2}
 .loop.play .end{animation-name:l-end}
-@keyframes l-c1{0%{opacity:0}3.2%,100%{opacity:1}}
-@keyframes l-c2{0%,43.2%{opacity:0}45.8%,100%{opacity:1}}
-@keyframes l-end{0%,80.5%{opacity:0}84.2%,100%{opacity:1}}
+@keyframes l-c1{0%{opacity:0}2.2%,100%{opacity:1}}
+@keyframes l-c2{0%,40.7%{opacity:0}42.5%,100%{opacity:1}}
+@keyframes l-end{0%,82.9%{opacity:0}85.7%,100%{opacity:1}}
 
 /* How it works, without words (Luc 18-11): Primer's Coffee break card in its light look floats in the middle, over a
    Logic-like arrange area, and the scroll runs the import step by step (coffee-break.js). */
@@ -194,7 +195,7 @@ body>.wrap:first-child :focus-visible,main>.wrap:first-child :focus-visible{outl
       <p class="meta" data-in style="--i:4">macOS 14 or newer&nbsp;· Logic Pro 11+</p>
     </div>
     <figure class="hero-shot"><img src="shot-light.jpg" width="1600" height="1003" alt="Primer main window in light mode: nine tracks in four groups, each with its name in Logic. On the right: Import to Logic and where the tracks go.">
-      <div class="loop" id="hero-loop" aria-hidden="true"><div class="clip c1"><video muted playsinline preload="none" poster="hero-import.jpg" data-src="hero-import.mp4"></video></div><div class="clip c2"><video muted playsinline preload="none" poster="hero-cut.jpg" data-src="hero-cut.mp4"></video></div><i class="end"></i></div></figure>
+      <div class="loop" id="hero-loop" aria-hidden="true"><div class="clip c1"><video muted playsinline preload="none" poster="hero-import.jpg" data-src="hero-import.mp4"></video></div><div class="clip c2"><video muted playsinline preload="none" poster="hero-wide.jpg" data-src="hero-wide.mp4"></video></div><i class="end"></i></div></figure>
   </div>
 </div>
 
@@ -286,14 +287,14 @@ body>.wrap:first-child :focus-visible,main>.wrap:first-child :focus-visible{outl
 })();
 </script>
 <script>
-// Hero loop: Logic first, Primer last (19 s); starts once the picture is loaded, the two clips play at their moment, pauses while off screen.
+// Hero loop: Logic first, Primer last (28 s); starts once the picture is loaded, the two clips play at their moment, pauses while off screen.
 (function(){var l=document.getElementById('hero-loop');if(!l||(window.matchMedia&&matchMedia('(prefers-reduced-motion:reduce)').matches))return;
 var v=l.querySelectorAll('video'),pic=l.parentNode.querySelector('img'),T=[],ready=false,seen=true;
 function at(s,f){T.push(setTimeout(f,s*1000))}
-function clip(x){x.currentTime=0;x.playbackRate=1.1;var p=x.play();if(p&&p.catch)p.catch(function(){})}
+function clip(x){x.currentTime=0;x.playbackRate=1;var p=x.play();if(p&&p.catch)p.catch(function(){})}
 function stop(){T.forEach(clearTimeout);T=[];l.classList.remove('play');[].forEach.call(v,function(x){x.pause()})}
 function run(){stop();if(!ready||!seen||document.hidden)return;void l.offsetWidth;l.classList.add('on','play');
-clip(v[0]);at(8.2,function(){clip(v[1])});at(19,run)}
+clip(v[0]);at(11.4,function(){clip(v[1])});at(28,run)}
 function start(){ready=true;[].forEach.call(v,function(x){x.preload='auto';x.src=x.getAttribute('data-src')});run()}
 if(pic.complete)start();else pic.addEventListener('load',start);
 // The figure, not the loop: the loop has no box until it starts.
