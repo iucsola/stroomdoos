@@ -100,14 +100,11 @@ main>.wrap:first-child{scroll-snap-align:end}
 
 .test{background:var(--motif)}
 .test :focus-visible{outline-color:var(--ink)}
-.test-grid{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:clamp(48px,6vw,112px);align-items:start}
-.test .intro{margin-top:32px;font-size:var(--t-lead);line-height:1.4;max-width:32ch}
-.test .sec-head{font-size:clamp(64px,10vw,164px)}
-.test-grid{align-items:center}
-/* Mailing list (20-11): what you get is a small Logic session. Three tracks, each with its own colour, and a fourth
-   track that is you: it takes your email as its name while you type, and gets its colour once you're on the list. */
-.signup{margin-top:44px;max-width:580px}
-.signup label{display:block;font-weight:700;margin-bottom:12px}
+/* Mailing list (Luc 20-11): one centred column on the orange field. The title, the line, the form, the note. */
+.test-grid{text-align:center}
+.test .intro{margin:32px auto 0;font-size:var(--t-lead);line-height:1.4;max-width:32ch}
+.test .sec-head{font-size:clamp(64px,12vw,200px)}
+.signup{margin:48px auto 0;max-width:580px}
 .signup-row{display:flex;align-items:center;gap:6px;padding:6px;border:2px solid var(--ink);border-radius:999px;background:var(--ground)}
 .signup-row:focus-within{outline:3px solid var(--ink);outline-offset:3px}
 .signup input[type=email]{flex:1;min-width:0;padding:12px 8px 12px 18px;border:0;background:none;color:var(--ink);font:500 19px/1.3 Archivo,system-ui,sans-serif}
@@ -119,30 +116,13 @@ main>.wrap:first-child{scroll-snap-align:end}
 .signup-msg{margin-top:16px;font-size:var(--t-lead);font-weight:700}
 .signup-msg:empty{display:none}
 .signup-msg.err{text-decoration:underline}
-.session{list-style:none;margin:0;padding:clamp(10px,1.2vw,16px);display:grid;gap:clamp(8px,1vw,12px);background:var(--ink);border-radius:var(--radius)}
-.session li{display:grid;grid-template-columns:clamp(120px,10vw,160px) minmax(0,1fr);gap:8px;min-height:clamp(64px,9.5vh,104px)}
-.session b,.session span{display:flex;align-items:center;border-radius:4px;padding:12px 18px}
-.session b{background:#262930;color:var(--ground);border-left:6px solid var(--c);font-size:clamp(20px,1.8vw,28px);font-weight:800;font-stretch:75%;letter-spacing:-.01em;line-height:1;white-space:nowrap}
-.session span{background:var(--c);color:var(--ink);font-size:var(--t-lead);font-weight:600;line-height:1.3}
-.session .you b{border-left-color:#4a4d55;transition:border-color .5s var(--ease)}
-.session .you span{background:#30333a;color:#8d8a82;font-weight:500;overflow-wrap:anywhere;transition:background-color .5s var(--ease),color .3s}
-.session .you.typing span{color:var(--ground)}
-.session .you.on b{border-left-color:var(--c)}
-.session .you.on span{background:var(--c);color:var(--ink);font-weight:600}
-.js .session li{opacity:0;transform:translateX(-32px);transition:opacity .5s var(--ease),transform .6s var(--ease);transition-delay:calc(var(--i,0) * 90ms)}
-.js .session.in li{opacity:1;transform:none}
 @media (max-width:480px){
   .signup-row{flex-direction:column;align-items:stretch;gap:10px;padding:0;border:0;background:none}
   .signup-row:focus-within{outline:none}
   .signup input[type=email]{padding:16px 22px;border:2px solid var(--ink);border-radius:999px;background:var(--ground)}
   .signup input[type=email]:focus{outline:3px solid var(--ink);outline-offset:2px}
   .signup .btn{width:100%;min-height:54px}
-  .session li{grid-template-columns:104px minmax(0,1fr);min-height:60px}
-  .session b,.session span{padding:10px 12px}
-  .session b{font-size:20px;white-space:nowrap}
-  .session span{font-size:16px}
 }
-@media (prefers-reduced-motion:reduce){.js .session li{opacity:1;transform:none}}
 
 /* Bottom screen (Luc 19-11): one centred column. Heading, Luc's line, the follow line, then the Stroomdoos name
    and the footer links, all on the same middle line. */
@@ -165,7 +145,7 @@ main>.wrap:first-child{scroll-snap-align:end}
 @keyframes settle{from{transform:scale(1.04)}to{transform:none}}
 
 @media (max-width:900px){
-  .hero,.test-grid{grid-template-columns:1fr}
+  .hero{grid-template-columns:1fr}
   .hero{padding-top:24px}
     }
 @media (max-width:620px){
@@ -233,7 +213,7 @@ body>.wrap:first-child :focus-visible,main>.wrap:first-child :focus-visible{outl
       <p class="intro" data-in style="--i:1">The beta is invite-only. Leave your email and we'll tell you when Primer is out.</p>
     <!-- Mailing list (closed beta, Luc 11-11). Form: Brevo "Website mailinglist", list #6 "Primer mailinglist". -->
     <form class="signup" data-in style="--i:2" id="signup" method="POST" action="https://7b8107a8.sibforms.com/serve/MUIFAJrpXV6Nzi_WEakSymMeDd8-3B6pNt7ME1zK7AIS5nodnvU5cvJEPmvfFbDHz1ThDBhGoZeRR77Ukgxkbv9pEXx1vb1vWm7lTRVUnCH7L6AHIkIzAMbZBtSH9YsGZQUWLP4CLJFGntdbw2PrE1Y4QNFn8mSMeG2j0WvXZ0gHQBpytNhLvtbHEmK_8KNM2RE7Kxs4BUdQLrUqWg==">
-      <label for="signup-email">Your email</label>
+      <label class="sr-only" for="signup-email">Your email</label>
       <div class="signup-row">
         <input type="email" id="signup-email" name="EMAIL" placeholder="you@example.com" autocomplete="email" required>
         <button class="btn" type="submit">Sign up</button>
@@ -245,12 +225,6 @@ body>.wrap:first-child :focus-visible,main>.wrap:first-child :focus-visible{outl
       <p class="signup-msg" id="signup-msg" role="status" aria-live="polite"></p>
     </form>
     </div>
-    <ul class="session" data-in style="--i:2" aria-label="What you get">
-      <li style="--c:#36b5c4;--i:3"><b>Release</b><span>An email when Primer is out.</span></li>
-      <li style="--c:#c85aa2;--i:4"><b>Progress</b><span>Short updates while we work on the app.</span></li>
-      <li style="--c:#e59a36;--i:5"><b>New tools</b><span>News when a new Stroomdoos app is ready.</span></li>
-      <li class="you" id="you" style="--c:#7cc46a;--i:6" aria-hidden="true"><b>You</b><span id="you-name">your email</span></li>
-    </ul>
   </div>
 </section>
 
@@ -285,9 +259,6 @@ body>.wrap:first-child :focus-visible,main>.wrap:first-child :focus-visible{outl
 (function(){
   var f=document.getElementById('signup'),msg=document.getElementById('signup-msg');
   if(!f)return;
-  // The "You" track takes the email as its name while you type (only on this page, nothing is sent).
-  var you=document.getElementById('you'),youName=document.getElementById('you-name'),input=f.elements.EMAIL;
-  if(you&&input)input.addEventListener('input',function(){var v=input.value.trim();youName.textContent=v||'your email';you.classList.toggle('typing',!!v)});
   if(!window.fetch)return;
   f.addEventListener('submit',function(e){
     e.preventDefault();
@@ -296,7 +267,7 @@ body>.wrap:first-child :focus-visible,main>.wrap:first-child :focus-visible{outl
     var b=f.querySelector('button');
     b.disabled=true;msg.className='signup-msg';msg.textContent='Sending…';
     var mail='<a href="mailto:info@stroomdoos.com?subject=Mailing%20list&body=Please%20add%20me%20to%20the%20Stroomdoos%20mailing%20list.">info@stroomdoos.com</a>';
-    function done(text){f.querySelector('.signup-row').remove();msg.className='signup-msg';msg.innerHTML=text;if(you)you.classList.add('on')}
+    function done(text){f.querySelector('.signup-row').remove();msg.className='signup-msg';msg.innerHTML=text}
     function fail(){b.disabled=false;msg.className='signup-msg err';msg.innerHTML='Hmm, that didn\'t work. Try again, or just email '+mail+'.'}
     // Blocked or odd response (content blocker, flaky network, bot check): post the form in a hidden frame so the visitor stays here.
     function plainPost(){
