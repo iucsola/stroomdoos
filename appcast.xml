@@ -3,15 +3,15 @@
     <channel>
         <title>Primer</title>
         <item>
-            <title>0.85.0</title>
-            <pubDate>Thu, 19 Nov 2026 21:18:00 -0500</pubDate>
+            <title>0.85.1</title>
+            <pubDate>Sat, 21 Nov 2026 11:34:07 -0500</pubDate>
             <link>https://www.stroomdoos.com/beta.html</link>
-            <sparkle:version>465187</sparkle:version>
-            <sparkle:shortVersionString>0.85.0</sparkle:shortVersionString>
+            <sparkle:version>467502</sparkle:version>
+            <sparkle:shortVersionString>0.85.1</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-            <description><![CDATA[<ul><li>Add a Backing Vocals or Lead Vocals group and Primer splits your vocals between them. Move a file Primer doesn't recognize to another group before you import, and Primer puts files with that name there next time. A sent bug report now ends with a short thank-you.</li></ul>
+            <description><![CDATA[<ul><li>Bug reports now include your file and track names, so we can see what went wrong. Tick Hide my track names to leave them out. Primer also copes better with a second screen, a Logic window partly off the screen, and templates with similar aux names. In Logic 11, Primer now also works in Simplified Mode.</li></ul>
 ]]></description>
-            <enclosure url="https://github.com/iucsola/stroomdoos/releases/download/primer-0.85.0/Primer-0.85.0.zip" length="7265432" type="application/octet-stream" sparkle:edSignature="JvTYPDj+my+BwmmWAUOycFd4M5lWANzU6/fC8yLaZ1v9ZBxgpg+Ithpo5mve37Zn8AkuQVw1TraOL8+SU5bnCQ=="/>
+            <enclosure url="https://github.com/iucsola/stroomdoos/releases/download/primer-0.85.1/Primer-0.85.1.zip" length="7371201" type="application/octet-stream" sparkle:edSignature="owweol39HOb8oW+E8h5ijTmPtgohOCszLGHf2Q8J8yzIkYEcs+wY3GA4toi+hlpVcWtBqwV0CPzF7mADEVLbCQ=="/>
         </item>
     </channel>
 </rss>
