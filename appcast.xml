@@ -3,15 +3,15 @@
     <channel>
         <title>Primer</title>
         <item>
-            <title>0.85.1</title>
-            <pubDate>Sat, 21 Nov 2026 11:34:07 -0500</pubDate>
+            <title>0.86.0</title>
+            <pubDate>Sun, 22 Nov 2026 14:46:50 -0500</pubDate>
             <link>https://www.stroomdoos.com/beta.html</link>
-            <sparkle:version>467502</sparkle:version>
-            <sparkle:shortVersionString>0.85.1</sparkle:shortVersionString>
+            <sparkle:version>469162</sparkle:version>
+            <sparkle:shortVersionString>0.86.0</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-            <description><![CDATA[<ul><li>Bug reports now include your file and track names, so we can see what went wrong. Tick Hide my track names to leave them out. Primer also copes better with a second screen, a Logic window partly off the screen, and templates with similar aux names. In Logic 11, Primer now also works in Simplified Mode.</li></ul>
+            <description><![CDATA[<ul><li>The Template tab is simpler. Edit Template… opens the full editor; Swap Template… there picks another template, and the Space bar shows a Quick Look first. Primer also handles subgroups, like several guitars or synths, takes emoji out of track names, and tries again when a click in Logic misses.</li></ul>
 ]]></description>
-            <enclosure url="https://github.com/iucsola/stroomdoos/releases/download/primer-0.85.1/Primer-0.85.1.zip" length="7371201" type="application/octet-stream" sparkle:edSignature="owweol39HOb8oW+E8h5ijTmPtgohOCszLGHf2Q8J8yzIkYEcs+wY3GA4toi+hlpVcWtBqwV0CPzF7mADEVLbCQ=="/>
+            <enclosure url="https://github.com/iucsola/stroomdoos/releases/download/primer-0.86.0/Primer-0.86.0.zip" length="7865994" type="application/octet-stream" sparkle:edSignature="2Uhqll6CZyUY9T/qAqmKgisehlDgvJL/YqFB43j4dFTMcBMJxnw5t3gMKdGbdjl9KyZRhQkB6/P0Tz37gJamCA=="/>
         </item>
     </channel>
 </rss>
